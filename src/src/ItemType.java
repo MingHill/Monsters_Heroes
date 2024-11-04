@@ -3,16 +3,15 @@ May not need this class
  */
 
 public enum ItemType {
-    SWR("Health Item"),
-    SPL("Mana Item"),
-    POT("Strength Item"),
+    WEP("Weapon Item"),
+    SPL("Spell Item"),
+    POT("Potion Item"),
     ARM("Armor Item");
 
 
     private final String name;
     ItemType(String name) {
         this.name = name;
-
     }
 
     public String getName() {

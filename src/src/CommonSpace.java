@@ -12,6 +12,6 @@ public class CommonSpace implements Space{
     }
 
     public String toString(){
-        return "CommonSpace";
+        return "   ";
     }
 }

@@ -12,6 +12,6 @@ public class InaccessibleSpace implements Space{
     }
 
     public String toString(){
-        return "Inaccessible Space";
+        return " ~ ";
     }
 }
