@@ -18,4 +18,20 @@ public class Dice {
         return tiles;
     }
 
+    public static boolean dogde(float dodgeChance){
+        Random rand = new Random();
+        float randomNum = rand.nextFloat() * 10.0f;
+        if (randomNum < dodgeChance){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // 50% chance of meeting a monster
+    public static boolean meetMonster(){
+        Random rand = new Random();
+        int randomNum = rand.nextInt(10) + 1;
+        return randomNum < 5;
+    }
 }

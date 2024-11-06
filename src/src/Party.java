@@ -1,4 +1,6 @@
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 /*
 Class that represents the state of a party of heroes
@@ -7,11 +9,27 @@ public class Party implements Space{
     private int size;
     private HashMap<String, Hero> heroes = new HashMap<>();
     Coordinate coordinate;
+    boolean is_accessible;
+    SpaceType spaceType;
 
-    public Party (int size, HashMap<String, Hero> heroes) {
+    public Party (int size) throws IOException {
         this.size = size;
-        this.heroes = heroes;
+        this.heroes = initializeHeroes();
         this.coordinate = new Coordinate(0,0);
+        this.is_accessible = false;
+        this.spaceType = SpaceType.PAR;
+    }
+
+    private HashMap<String, Hero> initializeHeroes() throws IOException {
+        HashMap<String, Hero> heroes = new HashMap<>();
+        List<Hero> heroesList = Fetch.fetchHeroes();
+        for (int i = 0;i < this.getSize(); i++){
+            int index = Input.selectHero();
+            Hero hero = heroesList.get(index - 1);
+            heroes.put(hero.getName(), hero);
+            System.out.println("You have selected " + hero.getName());
+        }
+        return heroes;
     }
 
     public int getSize() {
@@ -24,34 +42,6 @@ public class Party implements Space{
 
     public Coordinate getCoordinate() {
         return this.coordinate;
-    }
-
-    public void makeMove(int direction){ // need to fix based on movement options
-        int row = this.coordinate.getRow();
-        int col = this.coordinate.getCol();
-
-        int newRow = 0;
-        int newCol = 0;
-
-        switch (direction){
-            case 0: // left (A)
-                newRow = row;
-                newCol = col - 1;
-                break;
-            case 1: // right(D)
-                newRow = row;
-                newCol = col + 1;
-                break;
-            case 2: // up (W)
-                newRow = row - 1;
-                newCol = col;
-                break;
-            case 3: // down (S)
-                newRow = row + 1;
-                newCol = col;
-                break;
-        }
-        this.coordinate.setCoordinate(newRow, newCol);
     }
 
     public boolean heroExist(String name){
@@ -80,4 +70,11 @@ public class Party implements Space{
         return output;
     }
 
+    public boolean is_accessible(){
+        return this.is_accessible;
+    }
+
+    public SpaceType getSpaceType(){
+        return this.spaceType;
+    }
 }

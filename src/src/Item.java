@@ -5,4 +5,6 @@ public interface Item {
     String getName();
     int getLevel();
     int getPrice();
+    int uses_left();
+    int repairItem();
 }

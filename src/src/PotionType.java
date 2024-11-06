@@ -1,11 +1,11 @@
 public enum PotionType {
-    HP("Health Potion", 50),
-    MP("Mana Potion", 10),
-    STR("Strength Potion", 20),
-    DEX("Dexterity Potion", 10),
-    AGI("Agility Potion", 10),
-    MER("Mermaid Potion", 10),
-    AMB("Ambrosia Potion", 10);
+    HP("Health Potion", 200),
+    MP("Mana Potion", 200),
+    STR("Strength Potion", 200),
+    DEX("Dexterity Potion", 200),
+    AGI("Agility Potion", 200),
+    MER("Mermaid Potion", 100),
+    AMB("Ambrosia Potion", 50);
 
 
     private final String name;
