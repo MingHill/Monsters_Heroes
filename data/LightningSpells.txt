@@ -1,0 +1,5 @@
+Name/cost/required level/damage/mana cost/spell type
+Lightning_Dagger      400        1       500     150     LGT
+Thunder_Blast         750        4       950     400     LGT
+Electric_Arrows       550        5       650     200     LGT
+Spark_Needles         500        2       600     200     LGT

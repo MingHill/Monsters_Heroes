@@ -1,0 +1,7 @@
+Name/cost/required level/attribute increase/potion type/attribute affected
+Healing_Potion  250     1   100		HP     Health
+Strength_Potion 200     1   75		STR    Strength
+Magic_Potion    350     2   100		MP     Mana
+Luck_Elixir     500     4   65  	AGI    Agility
+Mermaid_Tears   850     5   100  	MER    Health/Mana/Strength/Agility
+Ambrosia        1000    8   150		AMB    All Health/Mana/Strength/Dexterity/Defense/Agility
