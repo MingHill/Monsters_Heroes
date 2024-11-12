@@ -75,17 +75,22 @@ Enums:
 - HeroType
   - Enum for each type of hero. Used to alter stats when leveling up. 
 
+Notes: 
+- When playing with multiple heroes, you can select which monster to attack to make it more strategic 
+- To make the game more challenging, Monsters are +- 2 levels of highest level, making it more RNG 
+- Took advantage of Interfaces and generics to make my code more higher quality 
+- Decided to use ENUM because ENUM are a lot easier to use for type checking as well as you can use them in switch cases. 
 
-Unzip the file and cd into the folder src file: 
 
+Unzip the file and cd into the folder src file:
 
 javac -d out src/src/*.java 
 
-java -cp out src.src.Main
+java -cp out Main
 
 Input/Output Example
 Please give us a full execution of what we should see on the screen. Label each text with input and output. For example:
-
+'''
 output: 
 █▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄
 █ █ █ █   █     █    █     ▀▄ ▀▀▀ █    █▀   ▀  █  ▄▀  █     ▀▄     █ █      █  █  █      █   █ █▀   ▀  █  ▄▀ █   █ █▀   ▀   █     ▀▄
@@ -1114,6 +1119,7 @@ Input:
 a
 
 Output:
+
 +---+---+---+---+---+---+
 |   | ~ |   | ~ | ~ |   |
 +---+---+---+---+---+---+
