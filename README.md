@@ -1,5 +1,5 @@
-CS611 - Assignment 3
-Adding Quoridor
+CS611 - Assignment 4
+Monsters and Heroes
 Name: Soong Ming Hill
 
 Email: minghill@bu.edu
