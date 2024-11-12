@@ -31,7 +31,7 @@ public class Input {
         int heroNumber;
 
         while (true) {
-            System.out.println("To select the hero, please enter a number between 1 and 18 (inclusive):");
+            System.out.println("To select the hero, please enter a number between 1 and 18:");
             if (scanner.hasNextInt()) {
                 heroNumber = scanner.nextInt();
                 if (heroNumber >= 1 && heroNumber <= 18) {
@@ -41,7 +41,7 @@ public class Input {
                 }
             } else {
                 System.out.println("Invalid input. Please enter an integer.");
-                scanner.next(); // Consume invalid input
+                scanner.next();
             }
         }
 

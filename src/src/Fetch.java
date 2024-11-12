@@ -102,7 +102,7 @@ public class Fetch {
                     String[] fields = line.split("\\s+");
                     Hero newHero = createHero(fields);
                     heroList.add(newHero);
-                    System.out.println(c + ": " + newHero);
+                    System.out.println(c + ": " + newHero + "\n");
                     c++;
                 }
             }

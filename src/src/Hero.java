@@ -123,7 +123,7 @@ public class Hero{
 
     // Damage methods
     public float weaponDamage(Weapon weapon){
-        return (float) ((this.getStrength() + weapon.getDamage()) * 0.05);
+        return (float) ((this.getStrength() + weapon.getDamage() / 2f));
     }
     public float spellDamage(Spell spell){
         return (float)(spell.getDamage() + (this.getDexterity() / 10000) * spell.getDamage());
