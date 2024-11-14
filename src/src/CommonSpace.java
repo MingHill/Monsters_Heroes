@@ -21,8 +21,9 @@ public class CommonSpace implements Space{
         return this.spaceType;
     }
 
-
     public Coordinate getCoordinate() {
         return this.location;
     }
+
+
 }

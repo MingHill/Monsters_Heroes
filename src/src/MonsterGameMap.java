@@ -1,17 +1,15 @@
 import java.io.IOException;
 
-public class MonsterGameMap {
+public class MonsterGameMap extends GameMap {
     private Space[][][] map;
     private int size;
     private Party party;
 
     public MonsterGameMap(int size, Party party) throws IOException {
-        this.size = size;
-        this.party = party;
-        this.map = initializeBoard(party);
+        super(size, party);
     }
 
-    private Space[][][] initializeBoard(Party party) throws IOException {
+    protected Space[][][] initializeBoard(Party party) throws IOException {
         int[][] space_markers = Dice.setRandomTiles(this.getSize());
         Space[][][] new_map = new Space[this.getSize()][this.getSize()][2];
 
@@ -42,10 +40,6 @@ public class MonsterGameMap {
 
     public Space getSpace(int r, int c){
         return this.map[r][c][0];
-    }
-
-    public int getSize(){
-        return this.size;
     }
 
 

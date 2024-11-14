@@ -94,23 +94,23 @@ public class Hero{
         this.health += amount;
         System.out.println(this.getName() + " has increased health to " + this.health);
     }
-    private void increaseDexterity(float amount){
+    public void increaseDexterity(float amount){
         this.dexterity += amount;
         System.out.println(this.getName() + " has increased dexterity to " + this.dexterity);
     }
-    private void increaseAgility(float amount){
+    public void increaseAgility(float amount){
         this.agility += amount;
         System.out.println(this.getName() + " has increased agility to " + this.agility);
     }
-    private void increaseStrength(float amount){
+    public void increaseStrength(float amount){
         this.strength += amount;
         System.out.println(this.getName() + " has increased strength to " + this.strength);
     }
-    private void increaseMana(float amount){
+    public void increaseMana(float amount){
         this.currentMana += amount;
         System.out.println(this.getName() + " has increased mana to " + this.currentMana);
     }
-    private void increaseDefense(float amount){
+    public void increaseDefense(float amount){
         this.defense += amount;
         System.out.println(this.getName() + " has increased defense to " + this.defense);
     }
