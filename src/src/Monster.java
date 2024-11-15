@@ -21,7 +21,7 @@ public class Monster implements Space {
         this.dodge_chance = dodge_chance;
         this.defense = defense;
         this.dead = false;
-        this.spaceType = this.getSpaceType();
+        this.spaceType = SpaceType.MON;
         this.coordinate = null;
         set_reward();
     }
