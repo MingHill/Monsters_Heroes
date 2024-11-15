@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class Hero{
+public class Hero implements Space{
     private String name;
     private float health;
     private int level;
@@ -23,6 +23,10 @@ public class Hero{
     private boolean fainted;
     private Weapon weapon;
 
+    private SpaceType spaceType;
+    private boolean is_accessible;
+    private Coordinate coordinate;
+
 
     public Hero(String name, int level, float mana, float strength, float agility, float dexterity, HeroType heroType, int gold) {
         this.name = name;
@@ -41,6 +45,8 @@ public class Hero{
         this.fainted = false;
         this.weapon = null;
         this.defense = 0.95f; // % of damage blocked
+        this.spaceType = SpaceType.HERO;
+        this.coordinate = null;
     }
 
     public void getRewards(int gold, int exp){
@@ -49,6 +55,10 @@ public class Hero{
         System.out.println(this.getName() + " has gained " + gold + " gold and " + exp + " exp.");
         System.out.println(this.getName() + "'s total are now: \n   Gold: " + gold + "\n   Experience: " + exp);
         this.checkLevelUp();
+    }
+
+    public void setCoordinate(Coordinate coord) {
+        this.coordinate = coord;
     }
 
     // need to fix threshold logic
@@ -88,6 +98,17 @@ public class Hero{
         System.out.println(this.getName() + " has been revived. \n   HP: " + this.getHealth() + "\n   MANA: " + this.getMana());
     }
 
+    public SpaceType getSpaceType(){
+        return this.spaceType;
+    }
+
+    public Coordinate getCoordinate(){
+        return this.coordinate;
+    }
+
+    public boolean is_accessible(){
+        return this.is_accessible;
+    }
 
     // Methods to increase or decrease stats
     public void increaseHealth(float amount){

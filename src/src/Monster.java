@@ -1,4 +1,4 @@
-public class Monster {
+public class Monster implements Space {
     private String name;
     private int health;
     private final int level;
@@ -8,6 +8,11 @@ public class Monster {
     private boolean dead;
     private int goldReward;
     private int experienceReward;
+
+    private SpaceType spaceType;
+    private boolean is_accessible;
+    private Coordinate coordinate;
+
     public Monster(String name, int level, int base_dmg, int dodge_chance, int defense) {
         this.name = name;
         this.health = level * 100;
@@ -18,6 +23,23 @@ public class Monster {
         this.dead = false;
         set_reward();
     }
+
+    public void setCoordinate(Coordinate coord) {
+        this.coordinate = coord;
+    }
+
+    public SpaceType getSpaceType(){
+        return this.spaceType;
+    }
+
+    public Coordinate getCoordinate(){
+        return this.coordinate;
+    }
+
+    public boolean is_accessible(){
+        return this.is_accessible;
+    }
+
     public String toString(){
         String output = "";
         output += "Monster name: " + this.name + "\n   Level: " + this.level + "\n   Health: " + this.health + "\n   Damage: " + this.base_dmg +

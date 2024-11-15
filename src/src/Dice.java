@@ -18,6 +18,26 @@ public class Dice {
         return tiles;
     }
 
+    public static int[][] setRandomLegends(int size){
+        int[][] legendTiles = new int[size][size];
+        Random rand = new Random();
+        for (int r = 0; r < size; r++) {
+            for (int c = 0; c < size; c++) {
+                if (c % 3 == 2){
+                    legendTiles[r][c] = -1;
+                    continue;
+                }
+                if (r == 0 || r == size - 1){
+                    legendTiles[r][c] = -1;
+                    continue;
+                }
+                int randomNum = rand.nextInt(10) + 1;
+                legendTiles[r][c] = randomNum;
+            }
+        }
+        return legendTiles;
+    }
+
     public static boolean dogde(float dodgeChance){
         Random rand = new Random();
         float randomNum = rand.nextFloat() * 10.0f;

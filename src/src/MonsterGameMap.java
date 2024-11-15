@@ -44,8 +44,8 @@ public class MonsterGameMap extends GameMap {
 
 
     public boolean moveDirection(int direction){ // need to fix based on movement options
-        int row = this.party.coordinate.getRow();
-        int col = this.party.coordinate.getCol();
+        int row = this.party.getCoordinate().getRow();
+        int col = this.party.getCoordinate().getCol();
         int newRow = 0;
         int newCol = 0;
         Coordinate newCoord;
@@ -80,7 +80,7 @@ public class MonsterGameMap extends GameMap {
             return false;
         }
         this.map[row][col][1] = null;
-        this.party.coordinate.setCoordinate(newRow, newCol);
+        this.party.getCoordinate().setCoordinate(newRow, newCol);
         this.map[newRow][newCol][1] = party;
         return true;
     }

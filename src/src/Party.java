@@ -8,9 +8,9 @@ Class that represents the state of a party of heroes
 public class Party implements Space{
     private int size;
     private HashMap<String, Hero> heroes = new HashMap<>();
-    Coordinate coordinate;
-    boolean is_accessible;
-    SpaceType spaceType;
+    private Coordinate coordinate;
+    private boolean is_accessible;
+    private SpaceType spaceType;
 
     public Party (int size) throws IOException {
         this.size = size;
