@@ -19,10 +19,12 @@ public class LegendsGameMap extends GameMap {
             for(int c = 0; c < size; c++) {
                 Coordinate coord = new Coordinate(r, c);
                 if (c % 3 == 2){
+                    // dividers
                     new_map[r][c][0] = new InaccessibleSpace(coord);
                     continue;
                 }
                 if (r == 0 || r == size - 1) {
+                    // nexus and hero/monster initialization
                     if (r == 0 && c % 2 == 0){
                         Hero hero = heroList.get(hero_index);
                         hero.setCoordinate(coord);
@@ -30,12 +32,14 @@ public class LegendsGameMap extends GameMap {
                         hero_index++;
                     }
                     if (r == size - 1 && c % 2 == 0){
-                        // need to complete this section
-                        Monster monster
+                        // need to complete this section to fetch a monster
+                        Monster monter = new Monster();
+                        monter.setCoordinate(coord);
                     }
                     new_map[r][c][0] = new Nexus(coord);
                     continue;
                 }
+                // random spot generation
                 if (space_markers[r][c] < 2){
                     new_map[r][c][0] = new Bush(coord);
                 }else if(space_markers[r][c] < 4){

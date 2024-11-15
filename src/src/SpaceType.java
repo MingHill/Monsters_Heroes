@@ -7,7 +7,8 @@ public enum SpaceType {
     KOU("Koulou Space"),
     CAVE("Cave Space"),
     OBS("Obstacle Space"),
-    HERO("Hero Space");
+    HERO("Hero Space"),
+    MON("Monster Space");
 
     private final String name;
     SpaceType(String name) {
