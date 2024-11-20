@@ -2,16 +2,14 @@ import java.io.IOException;
 
 public abstract class GameMap {
     protected int size;
-    protected Party party;
     protected Space[][][] map;
 
-    public GameMap(int size, Party party) throws IOException {
+    public GameMap(int size) throws IOException {
         this.size = size;
-        this.party = party;
-        this.map = initializeBoard(party);
+        this.map = initializeBoard();
     }
 
-    protected abstract Space[][][] initializeBoard(Party party) throws IOException;
+    protected abstract Space[][][] initializeBoard() throws IOException;
 
     public Space getSpace(int r, int c){
         return this.map[r][c][0];

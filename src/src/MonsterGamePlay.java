@@ -18,8 +18,8 @@ public class MonsterGamePlay extends GamePlay{
                 break;
             }
             if(this.gameMap.moveDirection(direction)){
-                int pRow = this.party.coordinate.getRow();
-                int pCol = this.party.coordinate.getCol();
+                int pRow = this.party.getCoordinate().getRow();
+                int pCol = this.party.getCoordinate().getCol();
                 newSpace = this.gameMap.getSpace(pRow, pCol);
                 break;
             }
@@ -89,4 +89,3 @@ public class MonsterGamePlay extends GamePlay{
         return true;
     }
 }
-

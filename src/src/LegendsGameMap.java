@@ -3,17 +3,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LegendsGameMap extends GameMap {
-    private Space[][][] map;
-    private int size;
-    private Party party;
-    public LegendsGameMap(int size, Party party) throws IOException {
-        super(size, party);
+
+    private ArrayList<Hero> heroes;
+    private ArrayList<Monster> monsters;
+
+    public LegendsGameMap(int size) throws IOException {
+        super(size);
+	this.monsters = new ArrayList<Monster>();
     }
 
-    protected Space[][][] initializeBoard(Party party) throws IOException {
+    protected Space[][][] initializeBoard() throws IOException {
         Space[][][] new_map = new Space[size][size][2];
         int[][] space_markers = Dice.setRandomTiles(this.getSize());
-        List<Hero> heroList = new ArrayList<>(this.party.getHeroes().values());
+
         int hero_index = 0;
         for(int r = 0; r < size; r++) {
             for(int c = 0; c < size; c++) {
@@ -26,15 +28,15 @@ public class LegendsGameMap extends GameMap {
                 if (r == 0 || r == size - 1) {
                     // nexus and hero/monster initialization
                     if (r == 0 && c % 2 == 0){
-                        Hero hero = heroList.get(hero_index);
+                        Hero hero = this.heroes.get(hero_index);
                         hero.setCoordinate(coord);
                         new_map[r][c][1] = hero;
                         hero_index++;
                     }
                     if (r == size - 1 && c % 2 == 0){
                         // need to complete this section to fetch a monster
-                        Monster monter = new Monster();
-                        monter.setCoordinate(coord);
+                        // Monster monter = new Monster();
+                        // monter.setCoordinate(coord);
                     }
                     new_map[r][c][0] = new Nexus(coord);
                     continue;
