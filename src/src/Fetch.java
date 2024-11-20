@@ -122,6 +122,10 @@ public class Fetch {
         return new Hero(name, starting_exp, mana, strength, agility, dexterity, type, starting_money);
     }
 
+    public static Monster fetchMonster(int highestLevel) throws IOException {
+	return fetchMonsters(1, highestLevel).get(0);
+    }
+
     public static List<Monster> fetchMonsters(int party_size, int highestLevel) throws IOException {
         List<Monster> monsterList = new ArrayList<>();
         List<String> lines = new ArrayList<>();

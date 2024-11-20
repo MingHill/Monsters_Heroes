@@ -2,11 +2,8 @@ import java.io.IOException;
 
 public class MonsterGameMap extends GameMap {
 
-    private Party party;
-
     public MonsterGameMap(int size, Party party) throws IOException {
-        super(size);
-	this.party = party;
+        super(size, party);
     }
 
     protected Space[][][] initializeBoard() throws IOException {

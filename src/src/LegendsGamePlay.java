@@ -5,16 +5,15 @@ public class LegendsGamePlay {
 
     private LegendsGameMap gameMap;
     private Party party;
-    private ArrayList<Hero> heroes;
-    private ArrayList<Monster> monsters;
+    private Monsters monsters;
 
 
     public LegendsGamePlay(Party party) throws IOException {
 	this.party = party;
-	this.gameMap = new LegendsGameMap(8);
-	this.monsters = new ArrayList<Monster>();
-    }
+	this.monsters = new Monsters();
+	this.gameMap = new LegendsGameMap(8, party, this.monsters);
 
+    }
 
     private boolean inRange(Coordinate c1, Coordinate c2) {
 	return (Math.abs(c1.getCol() - c2.getCol()) <= 1)
@@ -36,10 +35,12 @@ public class LegendsGamePlay {
 
 
     public void monstersTurn() {
-	for (Monster monster : this.monsters) {
+	for (Monster monster : this.monsters.getAll()) {
 	    ArrayList<Hero> heroes = getHeroesInRange(monster.getCoordinate());
+	    System.out.println("Monster turn:");
 
 	    if (heroes.size() > 0) { // attack
+		System.out.println("Attack");
 		Hero hero = heroes.get(0);
 		int damage = monster.getDamage();
 		float damage_taken = hero.receiveDamage(damage);
@@ -50,6 +51,8 @@ public class LegendsGamePlay {
 
 	    } else { // move
 		// TODO: need to generalize movement / gamemap to track monsters as well
+		System.out.println("Move");
+		this.gameMap.moveMonster(monster);
 	    }
 	}
     }
@@ -58,7 +61,7 @@ public class LegendsGamePlay {
     private ArrayList<Monster> getMonstersInRange(Coordinate c) {
 	ArrayList<Monster> monstersInRange = new ArrayList<Monster>();
 
-	for (Monster monster : this.monsters) {
+	for (Monster monster : this.monsters.getAll()) {
 	    if (inRange(c, monster.getCoordinate())) {
 		monstersInRange.add(monster);
 	    }
@@ -74,16 +77,16 @@ public class LegendsGamePlay {
 
 
     public void heroesTurn() {
-	for (Hero hero : this.heroes) {
+	for (Hero hero : this.party.getHeroes().values()) {
 	    this.heroTurn(hero);
 	}
     }
 
 
     public void round() {
+	System.out.println(this.gameMap.toString());
 	this.heroesTurn();
 	this.monstersTurn();
     }
-
 
 }

@@ -2,19 +2,30 @@ import java.io.IOException;
 
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
-        printTitle();
-        printRules();
-        while(true){
-            int numHeroes = Input.getNumHeroes();
-            int mapSize = Input.getBoardSize();
-            Interface newGame = new Interface(mapSize, numHeroes);
-            newGame.startGame();
-            if(!Input.again("Would you like to play again")){
-                break;
-            }
-        }
+	Party party = new Party(3);
+	LegendsGamePlay gameplay = new LegendsGamePlay(party);
+
+	gameplay.round();
+	gameplay.round();
+	gameplay.round();
+
     }
+
+    // public static void main(String[] args) throws IOException {
+    //     printTitle();
+    //     printRules();
+    //     while(true){
+    //         int numHeroes = Input.getNumHeroes();
+    //         int mapSize = Input.getBoardSize();
+    //         Interface newGame = new Interface(mapSize, numHeroes);
+    //         newGame.startGame();
+    //         if(!Input.again("Would you like to play again")){
+    //             break;
+    //         }
+    //     }
+    // }
 
     private static void printTitle() {
         System.out.println("█▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄");

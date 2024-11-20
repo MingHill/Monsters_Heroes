@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class Hero implements Space{
+public class Hero implements Space, Moveable {
     private String name;
     private float health;
     private int level;
@@ -149,10 +149,6 @@ public class Hero implements Space{
     public float spellDamage(Spell spell){
         return (float)(spell.getDamage() + (this.getDexterity() / 10000) * spell.getDamage());
     }
-
-
-
-
 
 
     public String toString(){
