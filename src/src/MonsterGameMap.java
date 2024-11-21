@@ -35,11 +35,6 @@ public class MonsterGameMap extends GameMap {
         return new_map;
     }
 
-    public Space getSpace(int r, int c){
-        return this.map[r][c][0];
-    }
-
-
     public boolean moveDirection(int direction){ // need to fix based on movement options
         int row = this.party.getCoordinate().getRow();
         int col = this.party.getCoordinate().getCol();

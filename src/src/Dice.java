@@ -21,13 +21,16 @@ public class Dice {
     public static int[][] setRandomLegends(int size){
         int[][] legendTiles = new int[size][size];
         Random rand = new Random();
+
         for (int r = 0; r < size; r++) {
             for (int c = 0; c < size; c++) {
                 if (c % 3 == 2){
+                    // Inaccesible spots
                     legendTiles[r][c] = -1;
                     continue;
                 }
                 if (r == 0 || r == size - 1){
+                    // NEXUS spots so no need to have special tiles
                     legendTiles[r][c] = -1;
                     continue;
                 }
