@@ -14,21 +14,16 @@ public class LegendsGameMap extends GameMap {
     }
 
     public void spawnMonsters(int level) throws IOException {
-	for (int i = 0; i <= 7 ; i += 3) {
+	for (int i = 1; i <= 8; i += 3) {
 
 	    Monster monster = Fetch.fetchMonster(level);
 
-	    // spawn a monster in either the first or second space of each column
+	    // spawns a monster in each lane if there isn't already a monster
+	    // in that space
 	    if (this.map[this.size - 1][i][2] == null) {
 
 		monster.setCoordinate(new Coordinate(this.size - 1, i));
 		this.map[this.size - 1][i][2] = monster;
-		this.monsters.add(monster);
-
-	    } else if (this.map[this.size - 1][i + 1][2] == null) {
-
-		monster.setCoordinate(new Coordinate(this.size - 1, i + 1));
-		this.map[this.size - 1][i + 1][2] = monster;
 		this.monsters.add(monster);
 
 	    }
