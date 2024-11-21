@@ -7,20 +7,26 @@ public class LegendsGamePlay {
     private Party party;
     private Monsters monsters;
 
+    private int roundNum;
+
 
     public LegendsGamePlay(Party party) throws IOException {
 	this.party = party;
 	this.monsters = new Monsters();
 	this.gameMap = new LegendsGameMap(8, party, this.monsters);
 
+	this.roundNum = 0;
     }
 
+
+    // checks if c1 and c2 are in range to attack each other
     private boolean inRange(Coordinate c1, Coordinate c2) {
 	return (Math.abs(c1.getCol() - c2.getCol()) <= 1)
 	    && (Math.abs(c1.getRow() - c2.getRow()) <= 1);
     }
 
 
+    // checks which heroes are in range for an attack from coordinate c
     private ArrayList<Hero> getHeroesInRange(Coordinate c) {
 	ArrayList<Hero> heroes = new ArrayList<Hero>();
 
@@ -34,13 +40,14 @@ public class LegendsGamePlay {
     }
 
 
+    // iterates over all of the monsters, attacking if there is a hero in range
+    // or moving if there isn't
     public void monstersTurn() {
 	for (Monster monster : this.monsters.getAll()) {
 	    ArrayList<Hero> heroes = getHeroesInRange(monster.getCoordinate());
 	    System.out.println("Monster turn:");
 
 	    if (heroes.size() > 0) { // attack
-		System.out.println("Attack");
 		Hero hero = heroes.get(0);
 		int damage = monster.getDamage();
 		float damage_taken = hero.receiveDamage(damage);
@@ -50,14 +57,13 @@ public class LegendsGamePlay {
 		}
 
 	    } else { // move
-		// TODO: need to generalize movement / gamemap to track monsters as well
-		System.out.println("Move");
 		this.gameMap.moveMonster(monster);
 	    }
 	}
     }
 
 
+    // checks which monsters on the board are in range of an attack from coordinate c
     private ArrayList<Monster> getMonstersInRange(Coordinate c) {
 	ArrayList<Monster> monstersInRange = new ArrayList<Monster>();
 
@@ -72,6 +78,8 @@ public class LegendsGamePlay {
 
 
     public void heroTurn(Hero hero) {
+	System.out.println("It is now " + hero.getName() + "'s turn");
+	System.out.println("Stats: \n " + hero);
 
     }
 
@@ -84,9 +92,16 @@ public class LegendsGamePlay {
 
 
     public void round() {
+	this.roundNum++;
+
 	System.out.println(this.gameMap.toString());
 	this.heroesTurn();
 	this.monstersTurn();
+
+	if (this.roundNum % 6 == 0) {
+	    System.out.println("A new wave of monsters has spawned!");
+	    this.gameMap.spawnMonsters();
+	}
     }
 
 }

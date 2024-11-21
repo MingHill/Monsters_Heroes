@@ -8,13 +8,12 @@ public class LegendsGameMap extends GameMap {
 
     public LegendsGameMap(int size, Party party, Monsters monsters) throws IOException {
         super(size, party);
+
 	this.monsters = monsters;
-	spawnMonsters(1);
-	spawnMonsters(1);
 	spawnMonsters(1);
     }
 
-    private void spawnMonsters(int level) throws IOException {
+    public void spawnMonsters(int level) throws IOException {
 	for (int i = 0; i <= 7 ; i += 3) {
 
 	    Monster monster = Fetch.fetchMonster(level);
@@ -69,11 +68,7 @@ public class LegendsGameMap extends GameMap {
                         new_map[r][c][1] = hero;
                         hero_index++;
                     }
-                    // if (r == size - 1 && c % 2 == 0){
-                    //     // need to complete this section to fetch a monster
-                    //     // Monster monter = new Monster();
-                    //     // monter.setCoordinate(coord);
-                    // }
+
                     new_map[r][c][0] = new Nexus(coord);
                     continue;
                 }

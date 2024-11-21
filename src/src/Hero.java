@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class Hero implements Space, Moveable {
+public class Hero implements Space {
     private String name;
     private float health;
     private int level;
