@@ -76,6 +76,19 @@ public class LegendsGamePlay {
     }
 
 
+    private boolean moveAction(Hero hero) {
+	System.out.println("Which direction would you like to move?");
+	System.out.println("    1) Left");
+	System.out.println("    2) Right");
+	System.out.println("    3) Up");
+	System.out.println("    4) Down");
+
+	int input = Input.getInt(4);
+
+	return this.gameMap.moveHero(input, hero);
+    }
+
+
     private void removeDeadMonster(Monster monster) {
 	this.monsters.remove(monster);
 	// TODO: remove monster from gameMap space
@@ -190,7 +203,7 @@ public class LegendsGamePlay {
 
 	switch(input) {
 	case 1: // move
-	    tookAction = true;
+	    tookAction = moveAction(hero);
 	    break;
 	case 2: // attack
 	    tookAction = attackAction(hero);
