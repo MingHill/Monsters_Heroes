@@ -20,4 +20,8 @@ public class Monsters {
 	return this.monsters;
     }
 
+    public void remove(Monster monster) {
+	this.monsters.remove(monster);
+    }
+
 }

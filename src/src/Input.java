@@ -85,6 +85,28 @@ public class Input {
         return input;
     }
 
+
+    public static int getInt(int nChoices) {
+	Scanner scanner = new Scanner(System.in);
+	int input;
+	while (true) {
+	    System.out.println("Enter a number between 1 and " + nChoices + ".");
+	    if (scanner.hasNextInt()) {
+		input = scanner.nextInt();
+		if (input >= 1 && input <= nChoices) {
+		    break;
+		} else {
+		    System.out.println("Invalid choice. Please enter a number between 1 and "+ nChoices + ".");
+		}
+	    } else {
+		System.out.println("Invalid input. Please enter an integer.");
+		scanner.next();
+	    }
+	}
+	return input;
+    }
+
+
     // Need to validate checking -
     public static int monsterSelection(String monsterDisplay, int partyLength) {
         System.out.println(monsterDisplay);
