@@ -4,7 +4,7 @@ public class Obstacle extends CommonSpace implements Removable{
     }
 
     public CommonSpace remove(){
-        // need to add logic to this --> return a commonspace
+        // changes Obstacle to Commonspace
         return new CommonSpace(this.getCoordinate());
     }
 

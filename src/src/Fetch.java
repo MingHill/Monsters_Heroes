@@ -123,7 +123,7 @@ public class Fetch {
     }
 
     public static Monster fetchMonster(int highestLevel) throws IOException {
-	return fetchMonsters(1, highestLevel).get(0);
+	    return fetchMonsters(1, highestLevel).getFirst();
     }
 
     public static List<Monster> fetchMonsters(int party_size, int highestLevel) throws IOException {
