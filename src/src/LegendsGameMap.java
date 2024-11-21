@@ -25,7 +25,6 @@ public class LegendsGameMap extends GameMap {
                 this.monsters.add(monster);
 	    }
 	}
-
     }
 
 
