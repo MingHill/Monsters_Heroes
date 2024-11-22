@@ -15,15 +15,13 @@ public class LegendsGameMap extends GameMap {
     public void spawnMonsters(int level) throws IOException {
         for (int i = 0; i < this.getSize() ; i += 3) {
             Monster monster = Fetch.fetchMonster(level); // gets single monster
-
 	    // spawns a monster in each lane if there isn't already a monster
 	    // in that space
-	    if (this.map[this.getSize() - 1][i][2] == null) {
-
-                monster.setCoordinate(new Coordinate(this.getSize() - 1, i));
-                this.map[this.size - 1][i][2] = monster;
-                this.monsters.add(monster);
-	    }
+            if (this.map[this.getSize() - 1][i][2] == null) {
+                    monster.setCoordinate(new Coordinate(this.getSize() - 1, i));
+                    this.map[this.size - 1][i][2] = monster;
+                    this.monsters.add(monster);
+            }
 	}
     }
 
@@ -65,7 +63,7 @@ public class LegendsGameMap extends GameMap {
                 }
                 if (r == 0 || r == size - 1) {
                     // nexus and hero/monster initialization
-                    if (r == 0 && c % 2 == 0){
+                    if (r == 0 && c % 3 == 1){
                         // set hero
                         Hero hero = heroList.get(hero_index);
                         hero.setCoordinate(coord);
@@ -178,10 +176,24 @@ public class LegendsGameMap extends GameMap {
 
     public void recallHero(Hero hero){
         //TODO need to implemenet, call teleport() method
+        // Teleports given hero back to its NEXUS
+        int heroID = hero.getHeroID(); // 1, 2, 3
+        switch (heroID){
+            case 1:
+                teleport(hero, new Coordinate(0, 0));
+                break;
+            case 2:
+                teleport(hero, new Coordinate(0, 3));
+                break;
+            case 3:
+                teleport(hero, new Coordinate(0, 6));
+                break;
+        }
     }
 
     public boolean teleportHero(Hero hero){
         // TODO: need to checking on if coordinate is valid
+        // METHOD To select where a hero should teleport to
         Hero selectHero = Input.getTeleport(hero, this.party); // gets hero you want to teleport to
 
         Coordinate selectedCoord = selectHero.getCoordinate();
@@ -195,7 +207,7 @@ public class LegendsGameMap extends GameMap {
             newCoord = new Coordinate(selectedCoord.getRow(), selectedCoord.getCol() - 1);
         }
         boolean side = validSide(newCoord);
-        boolean back = validSide(selectedCoord);
+        boolean back = validBehind(selectedCoord);
         Coordinate teleportCoord = null;
         if (side && back){
             // both side and back are available to teleport to
@@ -233,6 +245,18 @@ public class LegendsGameMap extends GameMap {
 
     private void teleport(Hero hero, Coordinate teleportCoord){
         //TODO need to implement
+        // given a hero and coordinate, will teleport a hero to that given coordinate
+        Coordinate currentHeroCoord = hero.getCoordinate();
+        int row = currentHeroCoord.getRow();
+        int col = currentHeroCoord.getCol();
+
+        this.map[row][col][1] = null;
+
+        int newRow = teleportCoord.getRow();
+        int newCol = teleportCoord.getCol();
+
+        this.map[newRow][newCol][1] = hero;
+        hero.setCoordinate(teleportCoord);
     }
 
 }
