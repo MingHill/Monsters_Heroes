@@ -290,4 +290,49 @@ public class Input {
         }
         return input == 1;
     }
+
+    public static Hero getTeleport(Hero hero, Party party) {
+        // returns the hero that is selected
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            int index = 1;
+            // display heroes
+            for (Hero temp_hero : party.getHeroes().values()) {
+                System.out.println(index + ". " + temp_hero.getName());
+                index++;
+            }
+            System.out.println("Which hero would you like to teleport to? Please enter the integer: ");
+            int selected = scanner.nextInt();
+            // check if its their own hero
+            if (selected == hero.getHeroID()) {
+                System.out.println("You have selected your own hero. Please select again.");
+                continue;
+            }
+            index = 1;
+            // find selected one
+            for (Hero temp_hero : party.getHeroes().values()) {
+                if (selected == index) {
+                    return temp_hero;
+                }
+                index++;
+            }
+            // Index out of range
+            System.out.println("Invalid selection. Please try again.");
+        }
+    }
+
+    public static Coordinate chooseTele(Coordinate coord, Coordinate sidecoord){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Where would you like to teleport to: \n 1. Next to hero \n 2. Behind hero");
+        int selected = scanner.nextInt();
+        if (selected == 1) {
+            return sidecoord;
+        }else{
+            int row = coord.getRow();
+            int col = coord.getCol();
+            return new Coordinate(row,col - 1);
+        }
+    }
+
 }
