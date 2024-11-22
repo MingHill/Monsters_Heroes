@@ -4,6 +4,8 @@ import java.util.List;
 
 
 public class Hero implements Space {
+    private static int numHeroes = 0;
+
     private String name;
     private float health;
     private int level;
@@ -26,6 +28,7 @@ public class Hero implements Space {
     private SpaceType spaceType;
     private boolean is_accessible;
     private Coordinate coordinate;
+    private int heroID;
 
 
     public Hero(String name, int level, float mana, float strength, float agility, float dexterity, HeroType heroType, int gold) {
@@ -47,6 +50,7 @@ public class Hero implements Space {
         this.defense = 0.95f; // % of damage blocked
         this.spaceType = SpaceType.HERO;
         this.coordinate = null;
+        this.heroID = ++numHeroes;
     }
 
     public void getRewards(int gold, int exp){
@@ -416,5 +420,6 @@ public class Hero implements Space {
     public HashMap<ItemType, List<Item>> getInventroy(){
         return this.inventory;
     }
+    public int getHeroID(){return this.heroID;}
 
 }

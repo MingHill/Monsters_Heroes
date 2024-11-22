@@ -175,4 +175,64 @@ public class LegendsGameMap extends GameMap {
         this.map[newRow][newCol][1] = hero;
         return true;
     }
+
+    public void recallHero(Hero hero){
+        //TODO need to implemenet, call teleport() method
+    }
+
+    public boolean teleportHero(Hero hero){
+        // TODO: need to checking on if coordinate is valid
+        Hero selectHero = Input.getTeleport(hero, this.party); // gets hero you want to teleport to
+
+        Coordinate selectedCoord = selectHero.getCoordinate();
+        int row = selectedCoord.getRow();
+        int col = selectedCoord.getCol();
+        Coordinate newCoord;
+        if (col % 3 == 0){
+            newCoord = new Coordinate(selectedCoord.getRow(), selectedCoord.getCol() + 1);
+
+        }else{
+            newCoord = new Coordinate(selectedCoord.getRow(), selectedCoord.getCol() - 1);
+        }
+        boolean side = validSide(newCoord);
+        boolean back = validSide(selectedCoord);
+        Coordinate teleportCoord = null;
+        if (side && back){
+            // both side and back are available to teleport to
+            teleportCoord = Input.chooseTele(selectedCoord, newCoord);
+        }else if (side){
+            // just side is valid
+            teleportCoord = newCoord;
+        }else if(back){
+            // just back is valid
+            teleportCoord = selectedCoord;
+        }
+        // none is valid
+        if (teleportCoord != null){
+            teleport(hero, teleportCoord);
+            return true;
+        }
+        return false;
+
+    }
+
+    private boolean validSide(Coordinate coord){
+        int row = coord.getRow();
+        int col = coord.getCol();
+        return this.map[row][col][1] == null && this.map[row][col][0].getSpaceType() != SpaceType.OBS;
+    }
+
+    private boolean validBehind(Coordinate coord1){
+        int row = coord1.getRow();
+        int col = coord1.getCol();
+        if (this.map[row - 1][col][1] == null && this.map[row - 1][col][0].getSpaceType() != SpaceType.OBS){
+            return true;
+        }
+        return false;
+    }
+
+    private void teleport(Hero hero, Coordinate teleportCoord){
+        //TODO need to implement
+    }
+
 }
