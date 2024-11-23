@@ -1,8 +1,10 @@
 import java.io.IOException;
 
 public class MonsterGamePlay extends GamePlay{
+
     private Party party;
     private MonsterGameMap gameMap;
+
     public MonsterGamePlay(Party party, MonsterGameMap gameMap) {
         this.party = party;
         this.gameMap = gameMap;
@@ -42,7 +44,7 @@ public class MonsterGamePlay extends GamePlay{
             case MAR:
                 Market market = (Market) newSpace;
                 if(Input.enterMarket()){
-                    for (Hero hero: this.party.getHeroes().values()){
+                    for (Hero hero: this.party.getHeroes().values()) {
                         System.out.println(hero.getName());
                         int option = Input.marketOption();
                         while(option != 3){

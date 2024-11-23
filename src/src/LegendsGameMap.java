@@ -21,6 +21,7 @@ public class LegendsGameMap extends GameMap {
 	    // in that space
             if (this.map[this.getSize() - 1][i][2] == null) {
                     monster.setCoordinate(new Coordinate(this.getSize() - 1, i));
+		    monster.setMonsterID();
                     this.map[this.size - 1][i][2] = monster;
                     this.monsters.add(monster);
             }
@@ -43,6 +44,11 @@ public class LegendsGameMap extends GameMap {
         for (Monster monster: this.monsters.getAll()){
             moveMonster(monster);
         }
+    }
+
+
+    public void removeDeadMonster(Monster monster) {
+	this.map[monster.getCoordinate().getRow()][monster.getCoordinate().getCol()][2] = null;
     }
 
 
@@ -131,7 +137,7 @@ public class LegendsGameMap extends GameMap {
                     }else if(this.includesMonster(r, c)){
                         line += "   ";
                         Monster monster = this.getMonster(r, c);
-                        line += "M";
+                        line += "M" + monster.getMonsterID();
                         line += "   ";
                     }else{
                         line += "       ";
@@ -196,8 +202,8 @@ public class LegendsGameMap extends GameMap {
 
         if(!this.map[newRow][newCol][0].is_accessible()){
             // checks if the selected position is accessible or not
-            System.out.println("You can't enter this space, it is a body of water ~~~~");
-            System.out.println("Please choose another direction");
+	    System.out.println("You can't enter that space!");
+            System.out.println("Please choose another action.");
             return false;
         }
 
@@ -220,7 +226,7 @@ public class LegendsGameMap extends GameMap {
 
         if(this.getSpace(newRow, newCol) instanceof SpaceBonus){
             // removes the current bonus
-            applyBonus(hero, (SpaceBonus)this.getSpace(row, col));
+            applyBonus(hero, (SpaceBonus)this.getSpace(newRow, newCol));
         }
 
         return true;
@@ -329,7 +335,5 @@ public class LegendsGameMap extends GameMap {
     public void removeBonus(Hero hero, SpaceBonus bonus){
         bonus.removeBonus(hero);
     }
-
-
 
 }

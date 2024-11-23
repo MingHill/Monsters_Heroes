@@ -1,4 +1,7 @@
 public class Monster implements Space {
+
+    private static int numMonsters = 0;
+
     private String name;
     private int health;
     private final int level;
@@ -12,6 +15,7 @@ public class Monster implements Space {
     private SpaceType spaceType;
     private boolean is_accessible;
     private Coordinate coordinate;
+    private int monsterID;
 
     public Monster(String name, int level, int base_dmg, int dodge_chance, int defense) {
         this.name = name;
@@ -96,6 +100,15 @@ public class Monster implements Space {
     public int getLevel(){
         return this.level;
     }
+
+    public int getMonsterID() {
+	return this.monsterID;
+    }
+
+    public void setMonsterID() {
+	this.monsterID = ++numMonsters;
+    }
+
     public int getDamage(){return this.base_dmg;}
     public int getDefense(){return this.defense;}
     public int getDodgeChance(){return this.dodge_chance;}

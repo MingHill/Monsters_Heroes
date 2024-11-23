@@ -91,14 +91,14 @@ public class LegendsGamePlay {
 
     private void removeDeadMonster(Monster monster) {
 	this.monsters.remove(monster);
-	// TODO: remove monster from gameMap space
+	this.gameMap.removeDeadMonster(monster);
     }
 
 
     private Monster selectTargetMonster(ArrayList<Monster> targets) {
 	System.out.println("Which monster would you like to attack?");
 	for (int i = 0; i < targets.size(); i++) {
-	    System.out.println((i + 1)+ " " + targets.get(i).getName());
+	    System.out.println((i + 1)+ " " + targets.get(i).getMonsterID() + " " + targets.get(i).getName());
 	}
 
 	int input = Input.getInt(targets.size());
@@ -183,7 +183,59 @@ public class LegendsGamePlay {
 
 
     private void buySellAction(Hero hero) {
+	Space space = this.gameMap.getSpace(hero.getCoordinate().getRow(),
+					    hero.getCoordinate().getCol());
+	if (space.getSpaceType() == SpaceType.MAR) {
+	    Market market = (Market) space;
 
+	    int option = Input.marketOption();
+	    while (option != 3) {
+		System.out.println(hero.getName() + ", you currently have: \n   Gold: " + hero.getGold() + "\n   Level: " + hero.getLevel());
+
+		int item;
+
+		switch (option) {
+		case 1: // sell
+		    while (true) {
+			System.out.println(hero.displayInventory());
+			item = Input.trade();
+			hero.sellItem(item, market);
+			if (!Input.again("Would you like to sell another item?")) {
+			    break;
+			}
+		    }
+		    break;
+
+		case 2: // buy
+		    while (true) {
+			market.viewMenu();
+			item = Input.trade();
+			hero.buyItem(item, market);
+			if (!Input.again("Would you like to buy another item?")) {
+			    break;
+			}
+			System.out.println(hero.getName() + ", you currently have: \n   Gold: " + hero.getGold() + "\n   Level: " + hero.getLevel());
+		    }
+		    break;
+
+		case 3:
+		    break;
+
+		case 4:
+		    System.out.println(hero.displayInventory());
+		    break;
+
+		case 5:
+		    Item repairItem = Input.selectItem(hero);
+		    hero.repair(repairItem);
+		    break;
+		}
+		option = Input.marketOption();
+	    }
+
+	} else {
+	    System.out.println("You must be in a Nexus space to access the shop! Please choose a different action.");
+	}
     }
 
 
@@ -218,12 +270,14 @@ public class LegendsGamePlay {
 	    tookAction = true;
 	    break;
 	case 6: // teleport
-	    tookAction = true;
+	    tookAction = this.gameMap.teleportHero(hero);
 	    break;
 	case 7: // recall
 	    tookAction = true;
+	    this.gameMap.recallHero(hero);
 	    break;
 	case 8: // buy / sell items
+	    buySellAction(hero);
 	    break;
 	}
 
@@ -238,7 +292,7 @@ public class LegendsGamePlay {
 
     private void heroesTurn() {
 	for (Hero hero : this.party.getHeroes().values()) {
-	    System.out.println("It is now " + hero.getName() + "'s turn");
+	    System.out.println("It is now Hero " + hero.getHeroID() + ", " + hero.getName() + "'s, turn");
 	    System.out.println("Stats: \n " + hero);
 	    this.heroTurn(hero);
 	}

@@ -7,9 +7,9 @@ public class Main {
 	Party party = new Party(3);
 	LegendsGamePlay gameplay = new LegendsGamePlay(party);
 
-//	while (!gameplay.round()) {
-//
-//	}
+	while (!gameplay.round()) {
+
+	}
     }
 
     // public static void main(String[] args) throws IOException {
