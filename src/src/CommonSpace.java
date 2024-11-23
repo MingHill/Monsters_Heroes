@@ -1,7 +1,7 @@
 public class CommonSpace implements Space{
     private boolean is_accesible;
     private Coordinate location;
-    private final SpaceType spaceType;
+    private SpaceType spaceType;
 
     public CommonSpace(Coordinate coord){
         this.is_accesible = true;
@@ -23,6 +23,10 @@ public class CommonSpace implements Space{
 
     public Coordinate getCoordinate() {
         return this.location;
+    }
+
+    protected void changeSpaceType(SpaceType newSpaceType){
+        this.spaceType = newSpaceType;
     }
 
 

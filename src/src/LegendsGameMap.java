@@ -167,10 +167,20 @@ public class LegendsGameMap extends GameMap {
             return true;
         }
 
+        if(this.getSpace(row, col) instanceof SpaceBonus){
+            // removes the current bonus
+            removeBonus(hero, (SpaceBonus)this.getSpace(row, col));
+        }
         // moves hero to new position
         this.map[row][col][1] = null;
         hero.getCoordinate().setCoordinate(newRow, newCol);
         this.map[newRow][newCol][1] = hero;
+
+        if(this.getSpace(newRow, newCol) instanceof SpaceBonus){
+            // removes the current bonus
+            applyBonus(hero, (SpaceBonus)this.getSpace(row, col));
+        }
+
         return true;
     }
 
@@ -250,13 +260,32 @@ public class LegendsGameMap extends GameMap {
         int row = currentHeroCoord.getRow();
         int col = currentHeroCoord.getCol();
 
+        if(this.getSpace(row, col) instanceof SpaceBonus){
+            // removes the current bonus
+            removeBonus(hero, (SpaceBonus)this.getSpace(row, col));
+        }
+
         this.map[row][col][1] = null;
 
         int newRow = teleportCoord.getRow();
         int newCol = teleportCoord.getCol();
 
         this.map[newRow][newCol][1] = hero;
+
+        if(this.getSpace(newRow, newCol) instanceof SpaceBonus){
+            // removes the current bonus
+            applyBonus(hero, (SpaceBonus)this.getSpace(row, col));
+        }
+
         hero.setCoordinate(teleportCoord);
+    }
+
+    public void applyBonus(Hero hero, SpaceBonus bonus){
+        bonus.applyBonus(hero);
+    }
+
+    public void removeBonus(Hero hero, SpaceBonus bonus){
+        bonus.removeBonus(hero);
     }
 
 }
