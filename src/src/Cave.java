@@ -19,6 +19,6 @@ public class Cave extends CommonSpace implements SpaceBonus{
 
     public String toString(){
         // add toString
-        return "Cave";
+        return "C";
     }
 }

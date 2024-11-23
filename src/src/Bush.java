@@ -18,6 +18,6 @@ public class Bush extends CommonSpace implements SpaceBonus{
 
     public String toString(){
         // need to add logic
-        return "Bush";
+        return "B";
     }
 }

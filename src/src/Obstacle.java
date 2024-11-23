@@ -10,6 +10,6 @@ public class Obstacle extends CommonSpace implements Removable{
 
     public String toString(){
         // need to add logic to this later
-        return "";
+        return "O";
     }
 }

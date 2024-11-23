@@ -5,6 +5,6 @@ public class Nexus extends Market{
         super(coord);
     }
     public String toString(){
-        return "Nexus";
+        return "N";
     }
 }

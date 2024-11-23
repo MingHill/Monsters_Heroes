@@ -18,7 +18,7 @@ public class Koulou extends CommonSpace implements SpaceBonus{
 
     public String toString(){
         // return logic for toString
-        return "Koulou";
+        return "K";
     }
 
 

@@ -8,8 +8,10 @@ public class LegendsGameMap extends GameMap {
 
     public LegendsGameMap(int size, Party party, Monsters monsters) throws IOException {
         super(size, party);
+
         this.monsters = monsters;
         spawnMonsters(1);
+        System.out.println(this.toString());
     }
 
     public void spawnMonsters(int level) throws IOException {
@@ -90,33 +92,73 @@ public class LegendsGameMap extends GameMap {
         return new_map;
     }
 
-
     public String toString(){
-        // need to fix toString
-        String line = "+---";
-        String fullLine = "";
-        for(int r = 0; r < this.getSize(); r++){
-            fullLine += line;
-        }
-        fullLine += "+";
-
         String output = "";
         for (int r = 0; r < this.getSize(); r++){
-            output += fullLine + "\n";
-            for (int c = 0; c < this.getSize(); c++){
-                output += "|";
-                output += this.map[r][c][0].toString();
-                if (this.map[r][c][1] != null){
-                    output += " H";
-                }
-            if (this.map[r][c][2] != null){
-                output += " M";
-            }
+            output += printRow(r);
+            output += "\n";
         }
-        output += "| \n";
-        }
-        output += fullLine + "\n";
         return output;
+    }
+
+    private String printRow(int r ){
+        String line = "";
+        for (int i = 0; i < 3; i++){
+            if (i != 1){
+                for (int c = 0; c < this.getSize(); c++){
+                    line += this.map[r][c][0].toString() + " - " + this.map[r][c][0].toString() + " - " + this.map[r][c][0].toString();
+                    line += "  ";
+                }
+            }else{
+                for (int c = 0; c < this.getSize(); c++){
+                    // TODO add logic to show monsters/heroes and inaccess spot
+                    line += "|";
+                    if (c % 3 == 2){
+                        line += " XXXXXX | ";
+                        continue;
+                    }
+                    if(this.includesHero(r, c) && this.includesMonster(r, c)){
+                        line += " ";
+                        Hero hero = this.getHero(r, c);
+                        Monster monster = this.getMonster(r, c);
+                        line += "H" + hero.getHeroID() + "M" + monster.getMonsterID();
+                        line += " ";
+                    }else if(this.includesHero(r, c)){
+                        line += "   ";
+                        Hero hero = this.getHero(r, c);
+                        line += "H" + hero.getHeroID() ;
+                        line += "  ";
+                    }else if(this.includesMonster(r, c)){
+                        line += "   ";
+                        Monster monster = this.getMonster(r, c);
+                        line += "M";
+                        line += "   ";
+                    }else{
+                        line += "       ";
+                    }
+                    line += "|";
+                    line += "  ";
+                }
+            }
+            line += "\n";
+        }
+        return line;
+    }
+
+    private Hero getHero(int r, int c){
+        return (Hero)this.map[r][c][1];
+    }
+
+    private Monster getMonster(int r, int c){
+        return (Monster)this.map[r][c][2];
+    }
+
+    public boolean includesHero(int r, int c){
+        return this.map[r][c][1] != null;
+    }
+
+    public boolean includesMonster(int r, int c){
+        return this.map[r][c][2] != null;
     }
 
     public boolean moveHero(int direction, Hero hero){
@@ -287,5 +329,7 @@ public class LegendsGameMap extends GameMap {
     public void removeBonus(Hero hero, SpaceBonus bonus){
         bonus.removeBonus(hero);
     }
+
+
 
 }
