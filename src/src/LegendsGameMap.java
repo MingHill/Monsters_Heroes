@@ -8,11 +8,6 @@ public class LegendsGameMap extends GameMap {
 
     public LegendsGameMap(int size, Party party) throws IOException {
         super(size, party);
-
-        //this.monsters = monsters;
-        //spawnMonsters(1);
-
-        // System.out.println(this.toString());
     }
 
     public void setMonsters(Monsters monsters) throws IOException {
@@ -130,25 +125,19 @@ public class LegendsGameMap extends GameMap {
                         line += " XXXXXX | ";
                         continue;
                     }
-                    if(this.includesHero(r, c) && this.includesMonster(r, c)){
-                        line += " ";
-                        Hero hero = this.getHero(r, c);
-                        Monster monster = this.getMonster(r, c);
-                        line += "H" + hero.getHeroID() + "M" + monster.getMonsterID();
-                        line += " ";
-                    }else if(this.includesHero(r, c)){
-                        line += "   ";
-                        Hero hero = this.getHero(r, c);
-                        line += "H" + hero.getHeroID() ;
-                        line += "  ";
-                    }else if(this.includesMonster(r, c)){
-                        line += "   ";
-                        Monster monster = this.getMonster(r, c);
-                        line += "M" + monster.getMonsterID();
-                        line += "   ";
-                    }else{
-                        line += "       ";
-                    }
+
+		    if (this.includesMonster(r, c)) {
+			line += " M" + this.getMonster(r, c).getMonsterID() + " ";
+		    } else {
+			line += "    ";
+		    }
+
+		    if (this.includesHero(r, c)) {
+			line += "H" + this.getHero(r, c).getHeroID() + " ";
+		    } else {
+			line += "   ";
+		    }
+
                     line += "|";
                     line += "  ";
                 }
@@ -215,8 +204,8 @@ public class LegendsGameMap extends GameMap {
         }
 
         // TODO make sure hero doesn't go past monster
-        if(!pastMonster(row, col)){
-            System.out.println("You can't go past a mosnter");
+        if(direction == 4 && !pastMonster(row, col)){
+            System.out.println("You can't go past a monster!");
             return false;
         }
         if(this.map[newRow][newCol][0].getSpaceType() == SpaceType.OBS){
@@ -245,7 +234,7 @@ public class LegendsGameMap extends GameMap {
     }
 
     private boolean pastMonster(int row, int col){
-        // checks if the current heroes coordinate is valid to past a monster
+        // checks if the current heroes coordinate is valid to pass a monster
         if (col % 3 == 0){
             if (this.map[row][col][2] == null && this.map[row][col + 1][2] == null) {
                 return true;

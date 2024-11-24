@@ -45,6 +45,7 @@ public class LegendsGamePlay implements GamePlay {
     // iterates over all of the monsters, attacking if there is a hero in range
     // or moving if there isn't
     private void monstersTurn() {
+	System.out.println("The monsters advance!");
 		for (Monster monster : this.monsters.getAll()) {
 			ArrayList<Hero> heroes = getHeroesInRange(monster.getCoordinate());
 
@@ -258,8 +259,8 @@ public class LegendsGamePlay implements GamePlay {
 	System.out.println("    7) Recall");
 	System.out.println("    8) Buy / Sell items");
 
-	int input = Input.getInt(8);
 	boolean tookAction = false;
+	int input = Input.getInt(8);
 
 	switch(input) {
 	case 1: // move
@@ -289,7 +290,7 @@ public class LegendsGamePlay implements GamePlay {
 	    break;
 	}
 
-	// recursively called if action was not consumed
+	// allow additional actions if the action did not consume the hero's turn
 	// (by buying / selling an item or by the action failing)
 	if (!tookAction) {
 	    heroTurn(hero);
