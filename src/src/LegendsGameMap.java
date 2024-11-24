@@ -8,6 +8,11 @@ public class LegendsGameMap extends GameMap {
 
     public LegendsGameMap(int size, Party party) throws IOException {
         super(size, party);
+
+	for (Hero hero: this.party.getOrderedHeroes()) {
+	    hero.setCoordinate(new Coordinate(0, 0));
+	    this.recallHero(hero);
+	}
     }
 
     public void setMonsters(Monsters monsters) throws IOException {
@@ -39,6 +44,8 @@ public class LegendsGameMap extends GameMap {
 	int newRow = row;
 	int newCol = col;
 
+	// check if the space ahead is available for the monster to move into
+	// if not, instead try moving to the side in the lane
 	if (this.canMonsterMoveInto(row - 1, col)) {
 	    newRow = row - 1;
 	} else if (col % 3 == 0 && this.canMonsterMoveInto(row, col + 1)) {
@@ -74,11 +81,6 @@ public class LegendsGameMap extends GameMap {
         Space[][][] new_map = new Space[this.getSize()][this.getSize()][3];
         int[][] space_markers = Dice.setRandomLegends(this.getSize());
 
-        int hero_index = 0;
-
-        // get list of heroes
-	List<Hero> heroList = new ArrayList<>(this.party.getHeroes().values());
-
         for(int r = 0; r < size; r++) {
             for(int c = 0; c < size; c++) {
                 Coordinate coord = new Coordinate(r, c);
@@ -89,13 +91,6 @@ public class LegendsGameMap extends GameMap {
                 }
                 if (r == 0 || r == size - 1) {
                     // nexus and hero initialization
-                    if (r == 0 && c % 3 == 1){
-                        // set hero
-                        Hero hero = heroList.get(hero_index);
-                        hero.setCoordinate(coord);
-                        new_map[r][c][1] = hero;
-                        hero_index++;
-                    }
                     new_map[r][c][0] = new Nexus(coord);
                     continue;
                 }
@@ -113,6 +108,7 @@ public class LegendsGameMap extends GameMap {
                 }
             }
         }
+
         return new_map;
     }
 
@@ -275,13 +271,13 @@ public class LegendsGameMap extends GameMap {
         int heroID = hero.getHeroID(); // 1, 2, 3
         switch (heroID){
             case 1:
-                teleport(hero, new Coordinate(0, 0));
+                teleport(hero, new Coordinate(0, 1));
                 break;
             case 2:
-                teleport(hero, new Coordinate(0, 3));
+                teleport(hero, new Coordinate(0, 4));
                 break;
             case 3:
-                teleport(hero, new Coordinate(0, 6));
+                teleport(hero, new Coordinate(0, 7));
                 break;
         }
     }

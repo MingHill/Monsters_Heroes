@@ -33,7 +33,7 @@ public class LegendsGamePlay implements GamePlay {
     // checks which heroes are in range for an attack from coordinate c
     private ArrayList<Hero> getHeroesInRange(Coordinate c) {
 		ArrayList<Hero> heroes = new ArrayList<Hero>();
-		for (Hero hero : this.party.getHeroes().values()) {
+		for (Hero hero : this.party.getOrderedHeroes()) {
 			if (inRange(c, hero.getCoordinate())) {
 			heroes.add(hero);
 			}
@@ -300,7 +300,7 @@ public class LegendsGamePlay implements GamePlay {
 
 
     private void heroesTurn() {
-	for (Hero hero : this.party.getHeroes().values()) {
+	for (Hero hero : this.party.getOrderedHeroes()) {
 	    System.out.println("It is now Hero " + hero.getHeroID() + ", " + hero.getName() + "'s, turn");
 	    System.out.println("Stats: \n " + hero);
 	    this.heroTurn(hero);
@@ -309,7 +309,7 @@ public class LegendsGamePlay implements GamePlay {
 
 
     private boolean checkWin() {
-	for (Hero hero : this.party.getHeroes().values()) {
+	for (Hero hero : this.party.getOrderedHeroes()) {
 	    if (hero.getCoordinate().getRow() == (this.gameMap.getSize() - 1)) {
 		return true;
 	    }
@@ -331,7 +331,7 @@ public class LegendsGamePlay implements GamePlay {
 
 
     private void roundRegenAndRevive() {
-	for (Hero hero : this.party.getHeroes().values()) {
+	for (Hero hero : this.party.getOrderedHeroes()) {
 	    if (hero.isFainted()) {
 		this.gameMap.recallHero(hero);
 		hero.respawn();

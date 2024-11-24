@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /*
 Class that represents the state of a party of heroes
@@ -50,6 +53,12 @@ public class Party implements Space{
 
     public HashMap<String, Hero> getHeroes(){
         return this.heroes;
+    }
+
+    public List<Hero> getOrderedHeroes() {
+	List<Hero> heroesList = new ArrayList<Hero>(this.getHeroes().values());
+	Collections.sort(heroesList, (o1, o2) -> Integer.compare(o1.getHeroID(), o2.getHeroID()));
+	return heroesList;
     }
 
     public Hero selectHero(String name){

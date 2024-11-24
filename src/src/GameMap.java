@@ -7,7 +7,7 @@ public abstract class GameMap {
 
     public GameMap(int size, Party party) throws IOException {
         this.size = size;
-	    this.party = party;
+	this.party = party;
         this.map = initializeBoard();
     }
 
