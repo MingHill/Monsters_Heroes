@@ -18,7 +18,6 @@ public class LegendsGamePlay implements GamePlay {
 		this.gameMap.setMonsters(this.monsters);
 
 		// --- passing in gameMap instead of initiating it here
-		// this.gameMap = new LegendsGameMap(8, party, this.monsters);
 		this.roundNum = 0;
     }
 
@@ -113,7 +112,6 @@ public class LegendsGamePlay implements GamePlay {
 	ArrayList<Monster> monstersInRange = getMonstersInRange(hero.getCoordinate());
 
 	if (monstersInRange.size() > 0) {
-	    // Monster target = monstersInRange.get(0);
 	    Monster target = selectTargetMonster(monstersInRange);
 	    hero.useWeapon(target);
 
@@ -128,11 +126,93 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    private boolean potionAction(Hero hero) {
+	Item potion;
+	boolean reselect = true;
+	boolean failed = false;
+
+	System.out.println("Your available potions are: ");
+	if (!hero.displayAvailableItem(ItemType.POT)){
+	    System.out.println("No potions available! Please choose a different action.");
+	    return false;
+	}
+
+	while (reselect) {
+
+	    failed = false;
+	    potion = Input.selectItem(hero);
+
+	    if (potion.getItemType() != ItemType.POT) {
+		System.out.println("This item is not a potion, please choose again");
+		failed = true;
+	    }
+	    if (potion.uses_left() == 0) {
+		System.out.println("This potion is out of uses, please choose again");
+	    }
+	    if (failed) {
+		reselect = Input.reselectMove();
+	    } else {
+		hero.usePotion((Potion) potion);
+		reselect = false;
+	    }
+	}
+
+	return !failed;
+    }
+
+
+    private boolean equipAction(Hero hero) {
+	Item equipment;
+	boolean reselect = true;
+	boolean failed = false;
+
+	System.out.println("Your available equipments are: ");
+	boolean armAvailable = hero.displayAvailableItem(ItemType.ARM);
+	boolean wepAvailable = hero.displayAvailableItem(ItemType.WEP);
+
+	if (!armAvailable && !wepAvailable) {
+	    System.out.println("No equipment available! Please choose a different action.");
+	    return false;
+	}
+
+	while (reselect) {
+	    failed = false;
+	    System.out.println("Please select a piece of armor or weapon you would like to equip");
+
+	    equipment = Input.selectItem(hero);
+	    boolean isWep = equipment.getItemType() == ItemType.WEP;
+	    boolean isArm = equipment.getItemType() == ItemType.ARM;
+
+	    if (!isWep && !isArm) {
+		System.out.println("That item is not equipment, please choose again.");
+		failed = true;
+	    }
+
+	    if (equipment.uses_left() == 0) {
+		System.out.println("This equipment out of uses, please choose again.");
+	    }
+
+	    if (isWep) {
+		hero.equipItem((Equipable) equipment, hero.getWeapon());
+	    } else {
+		hero.equipItem((Equipable) equipment, hero.getArmor());
+	    }
+
+	    if (failed) {
+		reselect = Input.reselectMove();
+	    } else {
+		reselect = false;
+	    }
+	}
+
+	return !failed;
+    }
+
+
     private boolean spellAction(Hero hero) {
 	ArrayList<Monster> monstersInRange = getMonstersInRange(hero.getCoordinate());
 
 	if (monstersInRange.size() > 0) {
-	    // Monster target = monstersInRange.get(0);
 	    Monster target = selectTargetMonster(monstersInRange);
 
 	    Item spell = null;
@@ -141,9 +221,8 @@ public class LegendsGamePlay implements GamePlay {
 
 	    System.out.println("Your available spells are: ");
 	    if (!hero.displayAvailableItem(ItemType.SPL)) {
-		failed = true;
-		reselect = false;
 		System.out.println("No spells available! Please choose a different action.");
+		return false;
 	    }
 
 	    while (reselect) {
@@ -266,10 +345,10 @@ public class LegendsGamePlay implements GamePlay {
 	    tookAction = spellAction(hero);
 	    break;
 	case 4: // equip an item
-	    tookAction = true;
+	    tookAction = equipAction(hero);
 	    break;
 	case 5: // use a potion
-	    tookAction = true;
+	    tookAction = potionAction(hero);
 	    break;
 	case 6: // teleport
 	    tookAction = this.gameMap.teleportHero(hero);
@@ -304,7 +383,6 @@ public class LegendsGamePlay implements GamePlay {
     public boolean makeMove() throws IOException {
 	this.roundNum++;
 
-	System.out.println(this.gameMap.toString());
 	this.heroesTurn();
 	this.monstersTurn();
 

@@ -12,7 +12,7 @@ public class LegendsGameMap extends GameMap {
         //this.monsters = monsters;
         //spawnMonsters(1);
 
-        System.out.println(this.toString());
+        // System.out.println(this.toString());
     }
 
     public void setMonsters(Monsters monsters) throws IOException {
