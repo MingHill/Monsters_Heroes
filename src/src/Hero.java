@@ -272,6 +272,40 @@ public class Hero implements Space {
         System.out.println("Item was not found");
     }
 
+
+    public Item selectItemOfTypes(List<ItemType> itemTypes) {
+	List<Item> itemList = new ArrayList<Item>();
+
+	for (ItemType itemType : itemTypes) {
+	    if (this.inventory.get(itemType) != null) {
+		itemList.addAll(this.inventory.get(itemType));
+	    }
+	}
+
+        if (itemList.isEmpty()){
+            System.out.println("No available items.");
+            return null;
+        }
+
+	System.out.println("Your available items are: ");
+	for (int i = 0; i < itemList.size(); i++){
+            System.out.println((i + 1) + ": " + itemList.get(i).toString());
+        }
+
+	System.out.println("Choose an item to use.");
+	int choice = Input.getInt(itemList.size()) - 1;
+
+	Item item = itemList.get(choice);
+
+	if (item.uses_left() == 0) {
+	    System.out.println("That item is out of uses!");
+
+	    return null;
+	}
+
+	return item;
+    }
+
     // Use items methods
     public void usePotion(Potion potion){
         potion.reduceUses();
@@ -309,9 +343,15 @@ public class Hero implements Space {
             System.out.println("After taking " + potion.getName() + ", " + this.getName() + " new stats are: \n" + this.toString());
 
     }
+
+
+    public boolean hasEnoughMana(Spell spell) {
+	return this.getMana() >= spell.getManaCost();
+    }
+
     //need to edit to make spell announcements
     public boolean useSpell(Spell spell, Monster monster){
-        if (this.getMana() < spell.getManaCost()){
+        if (!hasEnoughMana(spell)){
             return false;
         }
         float damage = this.spellDamage(spell);
@@ -349,6 +389,8 @@ public class Hero implements Space {
             Announce.killedMonster(this.getName(), monster);
         }
     }
+
+
     public <T extends Equipable> void equipItem(T item, T currentItem){
         if (currentItem != null){
             currentItem.setEquip(false);

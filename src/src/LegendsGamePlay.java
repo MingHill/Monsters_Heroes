@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class LegendsGamePlay implements GamePlay {
 
@@ -127,85 +128,32 @@ public class LegendsGamePlay implements GamePlay {
 
 
     private boolean potionAction(Hero hero) {
-	Item potion;
-	boolean reselect = true;
-	boolean failed = false;
 
-	System.out.println("Your available potions are: ");
-	if (!hero.displayAvailableItem(ItemType.POT)){
-	    System.out.println("No potions available! Please choose a different action.");
+	Potion potion = (Potion) hero.selectItemOfTypes(Arrays.asList(ItemType.POT));
+
+	if (potion == null) {
 	    return false;
 	}
 
-	while (reselect) {
-
-	    failed = false;
-	    potion = Input.selectItem(hero);
-
-	    if (potion.getItemType() != ItemType.POT) {
-		System.out.println("This item is not a potion, please choose again");
-		failed = true;
-	    }
-	    if (potion.uses_left() == 0) {
-		System.out.println("This potion is out of uses, please choose again");
-	    }
-	    if (failed) {
-		reselect = Input.reselectMove();
-	    } else {
-		hero.usePotion((Potion) potion);
-		reselect = false;
-	    }
-	}
-
-	return !failed;
+	hero.usePotion(potion);
+	return true;
     }
 
 
     private boolean equipAction(Hero hero) {
-	Item equipment;
-	boolean reselect = true;
-	boolean failed = false;
+	Item equipment = hero.selectItemOfTypes(Arrays.asList(ItemType.ARM, ItemType.WEP));
 
-	System.out.println("Your available equipments are: ");
-	boolean armAvailable = hero.displayAvailableItem(ItemType.ARM);
-	boolean wepAvailable = hero.displayAvailableItem(ItemType.WEP);
-
-	if (!armAvailable && !wepAvailable) {
-	    System.out.println("No equipment available! Please choose a different action.");
+	if (equipment == null) {
 	    return false;
 	}
 
-	while (reselect) {
-	    failed = false;
-	    System.out.println("Please select a piece of armor or weapon you would like to equip");
-
-	    equipment = Input.selectItem(hero);
-	    boolean isWep = equipment.getItemType() == ItemType.WEP;
-	    boolean isArm = equipment.getItemType() == ItemType.ARM;
-
-	    if (!isWep && !isArm) {
-		System.out.println("That item is not equipment, please choose again.");
-		failed = true;
-	    }
-
-	    if (equipment.uses_left() == 0) {
-		System.out.println("This equipment out of uses, please choose again.");
-	    }
-
-	    if (isWep) {
-		hero.equipItem((Equipable) equipment, hero.getWeapon());
-	    } else {
-		hero.equipItem((Equipable) equipment, hero.getArmor());
-	    }
-
-	    if (failed) {
-		reselect = Input.reselectMove();
-	    } else {
-		reselect = false;
-	    }
+	if (equipment.getItemType() == ItemType.WEP) {
+	    hero.equipItem((Equipable) equipment, hero.getWeapon());
+	} else {
+	    hero.equipItem((Equipable) equipment, hero.getArmor());
 	}
 
-	return !failed;
+	return true;
     }
 
 
@@ -213,41 +161,20 @@ public class LegendsGamePlay implements GamePlay {
 	ArrayList<Monster> monstersInRange = getMonstersInRange(hero.getCoordinate());
 
 	if (monstersInRange.size() > 0) {
-	    Monster target = selectTargetMonster(monstersInRange);
 
-	    Item spell = null;
-	    boolean reselect = true;
-	    boolean failed = false;
+	    Spell spell = (Spell) hero.selectItemOfTypes(Arrays.asList(ItemType.SPL));
 
-	    System.out.println("Your available spells are: ");
-	    if (!hero.displayAvailableItem(ItemType.SPL)) {
-		System.out.println("No spells available! Please choose a different action.");
+	    if (spell == null) {
 		return false;
 	    }
 
-	    while (reselect) {
-		failed = false;
-
-		spell = Input.selectItem(hero);
-		if (spell.getItemType() != ItemType.SPL) {
-		    System.out.println("This item is not a spell, please choose again.");
-		    failed = true;
-		} else if(spell.uses_left() == 0) {
-		    System.out.println("This spell is out of uses, please choose again.");
-		    failed = true;
-                }else if(!hero.useSpell((Spell) spell, target)){
-		    System.out.println("You do not have enough mana for this spell.");
-		    failed = true;
-                }
-
-		if (failed) {
-		    reselect = Input.reselectMove();
-		} else{
-		    reselect = false;
-		}
+	    if (!hero.hasEnoughMana(spell)) {
+		System.out.println("You do not have enough mana for that spell!");
 	    }
 
-	    if (failed) {
+	    Monster target = selectTargetMonster(monstersInRange);
+
+	    if (!hero.useSpell(spell, target)) {
 		return false;
 	    }
 
@@ -391,7 +318,7 @@ public class LegendsGamePlay implements GamePlay {
 	    this.gameMap.spawnMonsters(1);
 	}
 
-	return false;
+	return true;
     }
 
 }

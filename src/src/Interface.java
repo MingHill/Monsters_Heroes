@@ -42,11 +42,4 @@ public class Interface {
             return new LegendsGameMap(8, this.party);
         }
     }
-
-
-
-
-
-
-
 }
