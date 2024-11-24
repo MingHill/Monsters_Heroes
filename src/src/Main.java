@@ -32,30 +32,15 @@ public class Main {
                 break;
 
         }
-        Party party = new Party(3);
-        LegendsGamePlay gameplay = new LegendsGamePlay(party);
-
-        while (!gameplay.round()) {
-
-
-
-        }
+//        Party party = new Party(3);
+//        LegendsGamePlay gameplay = new LegendsGamePlay(party);
+//
+//        while (!gameplay.round()) {
+//
+//
+//
+//        }
     }
-
-    // public static void main(String[] args) throws IOException {
-    //     printTitle();
-    //     printRules();
-    //     while(true){
-    //         int numHeroes = Input.getNumHeroes();
-    //         int mapSize = Input.getBoardSize();
-    //         Interface newGame = new Interface(mapSize, numHeroes);
-    //         newGame.startGame();
-    //         if(!Input.again("Would you like to play again")){
-    //             break;
-    //         }
-    //     }
-    // }
-
     private static void printTitleMonster() {
         System.out.println("█▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄");
         System.out.println("█ █ █ █   █     █    █     ▀▄ ▀▀▀ █    █▀   ▀  █  ▄▀  █     ▀▄     █ █      █  █  █      █   █ █▀   ▀  █  ▄▀ █   █ █▀   ▀   █     ▀▄ ");

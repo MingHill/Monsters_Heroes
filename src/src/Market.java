@@ -39,7 +39,7 @@ public class Market implements Space{
     }
 
     public String toString() {
-        return " M ";
+        return "M";
     }
 
     public Coordinate getCoordinate() {

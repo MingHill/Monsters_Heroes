@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.io.IOException;
 
-public class LegendsGamePlay {
+public class LegendsGamePlay extends GamePlay{
 
     private LegendsGameMap gameMap;
     private Party party;

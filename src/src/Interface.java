@@ -15,6 +15,16 @@ public class Interface {
     }
 
     public void startGame() throws IOException {
+        GamePlay currentGame = null;
+        switch(this.gameID){
+            case 1:
+                // start a monsters gameplay
+                currentGame = new MonsterGamePlay(this.party, (MonsterGameMap) this.gameMap);
+                break;
+            case 2:
+                currentGame = new LegendsGamePlay(this.party, (LegendsGameMap) this.gameMap);
+                break;
+        }
         MonsterGamePlay gameplay = new MonsterGamePlay(this.party, (MonsterGameMap) this.gameMap);
         while(true){
             System.out.println(gameMap);

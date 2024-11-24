@@ -93,7 +93,11 @@ public class MonsterGameMap extends GameMap {
                 if (this.map[r][c][1] != null){
                     output += this.map[r][c][1].toString();
                 }else{
-                    output += this.map[r][c][0].toString();
+                    if(this.map[r][c][0].getSpaceType() == SpaceType.COM){
+                        output += "   ";
+                    }else{
+                        output += " " + this.map[r][c][0].toString() + " ";
+                    }
                 }
             }
             output += "| \n";
