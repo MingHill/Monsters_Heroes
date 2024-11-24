@@ -32,15 +32,8 @@ public class Main {
                 break;
 
         }
-//        Party party = new Party(3);
-//        LegendsGamePlay gameplay = new LegendsGamePlay(party);
-//
-//        while (!gameplay.round()) {
-//
-//
-//
-//        }
     }
+
     private static void printTitleMonster() {
         System.out.println("█▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄");
         System.out.println("█ █ █ █   █     █    █     ▀▄ ▀▀▀ █    █▀   ▀  █  ▄▀  █     ▀▄     █ █      █  █  █      █   █ █▀   ▀  █  ▄▀ █   █ █▀   ▀   █     ▀▄ ");

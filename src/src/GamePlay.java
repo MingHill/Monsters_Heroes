@@ -1,5 +1,5 @@
 import java.io.IOException;
 
-abstract class GamePlay {
-    public abstract boolean makeMove() throws IOException;
+public interface GamePlay {
+    boolean makeMove() throws IOException;
 }

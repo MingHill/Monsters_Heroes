@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class MonsterGamePlay extends GamePlay{
+public class MonsterGamePlay implements GamePlay {
 
     private Party party;
     private MonsterGameMap gameMap;

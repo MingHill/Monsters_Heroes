@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.io.IOException;
 
-public class LegendsGamePlay extends GamePlay{
+public class LegendsGamePlay implements GamePlay {
 
     private LegendsGameMap gameMap;
     private Party party;
@@ -301,7 +301,7 @@ public class LegendsGamePlay extends GamePlay{
     }
 
 
-    public boolean round() throws IOException {
+    public boolean makeMove() throws IOException {
 	this.roundNum++;
 
 	System.out.println(this.gameMap.toString());
