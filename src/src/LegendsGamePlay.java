@@ -129,7 +129,7 @@ public class LegendsGamePlay implements GamePlay {
 
     private boolean potionAction(Hero hero) {
 
-	Potion potion = (Potion) hero.selectItemOfTypes(Arrays.asList(ItemType.POT));
+	Potion potion = (Potion) Input.selectItemOfTypes(hero, Arrays.asList(ItemType.POT));
 
 	if (potion == null) {
 	    return false;
@@ -141,7 +141,7 @@ public class LegendsGamePlay implements GamePlay {
 
 
     private boolean equipAction(Hero hero) {
-	Item equipment = hero.selectItemOfTypes(Arrays.asList(ItemType.ARM, ItemType.WEP));
+	Item equipment = Input.selectItemOfTypes(hero, Arrays.asList(ItemType.ARM, ItemType.WEP));
 
 	if (equipment == null) {
 	    return false;
@@ -162,7 +162,7 @@ public class LegendsGamePlay implements GamePlay {
 
 	if (monstersInRange.size() > 0) {
 
-	    Spell spell = (Spell) hero.selectItemOfTypes(Arrays.asList(ItemType.SPL));
+	    Spell spell = (Spell) Input.selectItemOfTypes(hero, Arrays.asList(ItemType.SPL));
 
 	    if (spell == null) {
 		return false;

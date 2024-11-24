@@ -273,39 +273,6 @@ public class Hero implements Space {
     }
 
 
-    public Item selectItemOfTypes(List<ItemType> itemTypes) {
-	List<Item> itemList = new ArrayList<Item>();
-
-	for (ItemType itemType : itemTypes) {
-	    if (this.inventory.get(itemType) != null) {
-		itemList.addAll(this.inventory.get(itemType));
-	    }
-	}
-
-        if (itemList.isEmpty()){
-            System.out.println("No available items.");
-            return null;
-        }
-
-	System.out.println("Your available items are: ");
-	for (int i = 0; i < itemList.size(); i++){
-            System.out.println((i + 1) + ": " + itemList.get(i).toString());
-        }
-
-	System.out.println("Choose an item to use.");
-	int choice = Input.getInt(itemList.size()) - 1;
-
-	Item item = itemList.get(choice);
-
-	if (item.uses_left() == 0) {
-	    System.out.println("That item is out of uses!");
-
-	    return null;
-	}
-
-	return item;
-    }
-
     // Use items methods
     public void usePotion(Potion potion){
         potion.reduceUses();

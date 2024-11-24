@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Input {
 
@@ -24,6 +25,47 @@ public class Input {
             System.out.println("Item does not exist, please try again");
         }
     }
+
+
+    // prompts the user to select an item of the given itemTypes from the hero's inventory
+    // only items with remaining uses are available to select
+    public static Item selectItemOfTypes(Hero hero, List<ItemType> itemTypes) {
+	List<Item> itemList = new ArrayList<Item>();
+
+	// add all items of a type in itemTypes
+	for (ItemType itemType : itemTypes) {
+	    if (hero.getInventroy().get(itemType) != null) {
+		itemList.addAll(hero.getInventroy().get(itemType));
+	    }
+	}
+
+	// remove items with no remaining uses
+	List<Item> toRemove = new ArrayList<Item>();
+	for (Item item : itemList) {
+	    if (item.uses_left() == 0) {
+		toRemove.add(item);
+	    }
+	}
+	itemList.removeAll(toRemove);
+
+	// if there are no items with remaining uses in inventory, return null
+        if (itemList.isEmpty()){
+            System.out.println("No available items.");
+            return null;
+        }
+
+	// prompt the user to select an item
+	System.out.println("Your available items are: ");
+	for (int i = 0; i < itemList.size(); i++){
+            System.out.println((i + 1) + ": " + itemList.get(i).toString());
+        }
+
+	System.out.println("Choose an item to use.");
+	int choice = Input.getInt(itemList.size()) - 1;
+
+	return itemList.get(choice);
+    }
+
 
     // need to validate checking -
     public static int selectHero() {
