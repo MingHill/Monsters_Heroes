@@ -25,10 +25,9 @@ public class Interface {
                 currentGame = new LegendsGamePlay(this.party, (LegendsGameMap) this.gameMap);
                 break;
         }
-        MonsterGamePlay gameplay = new MonsterGamePlay(this.party, (MonsterGameMap) this.gameMap);
         while(true){
             System.out.println(gameMap);
-            if(!gameplay.makeMove()){
+            if(!currentGame.makeMove()){
                 System.out.println("GAME OVER");
                 return;
             }
