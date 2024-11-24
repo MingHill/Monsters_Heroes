@@ -6,12 +6,19 @@ public class LegendsGameMap extends GameMap {
 
     private Monsters monsters;
 
-    public LegendsGameMap(int size, Party party, Monsters monsters) throws IOException {
+    public LegendsGameMap(int size, Party party) throws IOException {
         super(size, party);
 
+        //this.monsters = monsters;
+        //spawnMonsters(1);
+
+        System.out.println(this.toString());
+    }
+
+    public void setMonsters(Monsters monsters) throws IOException {
+        // instead of having this in the constructor, just calling in on the initialization of GamePlay
         this.monsters = monsters;
         spawnMonsters(1);
-        System.out.println(this.toString());
     }
 
     public void spawnMonsters(int level) throws IOException {
@@ -207,6 +214,11 @@ public class LegendsGameMap extends GameMap {
             return false;
         }
 
+        // TODO make sure hero doesn't go past monster
+        if(!pastMonster(row, col)){
+            System.out.println("You can't go past a mosnter");
+            return false;
+        }
         if(this.map[newRow][newCol][0].getSpaceType() == SpaceType.OBS){
             // if selected spot is of type obstacle, obstacle will be removed and set as commonSpace
             Obstacle ob = (Obstacle)this.getSpace(newRow, newCol);
@@ -230,6 +242,20 @@ public class LegendsGameMap extends GameMap {
         }
 
         return true;
+    }
+
+    private boolean pastMonster(int row, int col){
+        // checks if the current heroes coordinate is valid to past a monster
+        if (col % 3 == 0){
+            if (this.map[row][col][2] == null && this.map[row][col + 1][2] == null) {
+                return true;
+            }
+        }else if (col % 3 == 1) {
+                if(this.map[row][col][2] == null && this.map[row][col - 1][2] == null){
+                    return true;
+                }
+        }
+        return false;
     }
 
     public void recallHero(Hero hero){
@@ -328,11 +354,11 @@ public class LegendsGameMap extends GameMap {
         hero.setCoordinate(teleportCoord);
     }
 
-    public void applyBonus(Hero hero, SpaceBonus bonus){
+    private void applyBonus(Hero hero, SpaceBonus bonus){
         bonus.applyBonus(hero);
     }
 
-    public void removeBonus(Hero hero, SpaceBonus bonus){
+    private void removeBonus(Hero hero, SpaceBonus bonus){
         bonus.removeBonus(hero);
     }
 

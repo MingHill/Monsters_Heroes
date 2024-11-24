@@ -4,12 +4,42 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-	Party party = new Party(3);
-	LegendsGamePlay gameplay = new LegendsGamePlay(party);
+        System.out.println("Welcome to Ming and Tanner's Island");
+        int gameID = Input.chooseGame();
 
-	while (!gameplay.round()) {
+        Interface newGame;
 
-	}
+        switch (gameID) {
+            case 1:
+                printTitleMonster();
+                printRulesMonster();
+                int numHeroes = Input.getNumHeroes();
+                int mapSize = Input.getBoardSize();
+                newGame = new Interface(mapSize, numHeroes, 1);
+                newGame.startGame();
+                if(!Input.again("Would you like to play again")){
+                    break;
+                }
+                break;
+            case 2:
+                printTitleLegends();
+                printRulesLegends();
+                newGame = new Interface(8, 3, 2);
+                newGame.startGame();
+                if(!Input.again("Would you like to play again")){
+                    break;
+                }
+                break;
+
+        }
+        Party party = new Party(3);
+        LegendsGamePlay gameplay = new LegendsGamePlay(party);
+
+        while (!gameplay.round()) {
+
+
+
+        }
     }
 
     // public static void main(String[] args) throws IOException {
@@ -26,7 +56,7 @@ public class Main {
     //     }
     // }
 
-    private static void printTitle() {
+    private static void printTitleMonster() {
         System.out.println("█▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄");
         System.out.println("█ █ █ █   █     █    █     ▀▄ ▀▀▀ █    █▀   ▀  █  ▄▀  █     ▀▄     █ █      █  █  █      █   █ █▀   ▀  █  ▄▀ █   █ █▀   ▀   █     ▀▄ ");
         System.out.println("█ ▄ █ █   █ ██   █ ▄  ▀▀▀▀▄       █    ██▄▄    █▀▀▌ ▄  ▀▀▀▀▄       █▄▄█ ██   █ █   █     ██▀▀█ ██▄▄    █▀▀▌  █   █ ██▄▄   ▄  ▀▀▀▀▄   ");
@@ -37,7 +67,7 @@ public class Main {
 
     }
 
-    private static void printRules(){
+    private static void printRulesMonster(){
         System.out.println("The rules of the game are fairly simple.");
         System.out.println("The monsters and heroes live in a fictional world. They do not get along and therefore fight each other.\n" +
                 "Every time the heroes win, they gain experience and money. Heroes use the money to buy a variety of\n" +
@@ -51,5 +81,13 @@ public class Main {
                 "• Cast a spell from the hero’s inventory\n" +
                 "• Use a potion from the hero’s inventory\n" +
                 "• Equip a weapon or piece of armor");
+    }
+
+    private static void printTitleLegends(){
+        System.out.println("Need to implemenet");
+    }
+
+    private static void printRulesLegends(){
+        System.out.println("Need to implemenet");
     }
 }

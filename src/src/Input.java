@@ -335,4 +335,16 @@ public class Input {
         }
     }
 
+    public static int chooseGame(){
+        System.out.println("Which game would you like to play: \n   1. Monsters and Heroes \n   2. Legends of Valor \n");
+        Scanner input = new Scanner(System.in);
+        String game = input.nextLine();
+        while(!(game.equals("1") || game.equals("2"))){
+            System.out.println("Please enter a valid input: ");
+            input = new Scanner(System.in);
+            game = input.nextLine();
+        }
+        return Integer.parseInt(game);
+    }
+
 }
