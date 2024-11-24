@@ -308,11 +308,56 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    private boolean checkWin() {
+	for (Hero hero : this.party.getHeroes().values()) {
+	    if (hero.getCoordinate().getRow() == (this.gameMap.getSize() - 1)) {
+		return true;
+	    }
+	}
+
+	return false;
+    }
+
+
+    private boolean checkLose() {
+	for (Monster monster : this.monsters.getAll()) {
+	    if (monster.getCoordinate().getRow() == 0) {
+		return true;
+	    }
+	}
+
+	return false;
+    }
+
+
+    private void roundRegenAndRevive() {
+	for (Hero hero : this.party.getHeroes().values()) {
+	    if (hero.isFainted()) {
+		this.gameMap.recallHero(hero);
+		hero.respawn();
+	    } else {
+		hero.roundRegen();
+	    }
+	}
+    }
+
+
     public boolean makeMove() throws IOException {
 	this.roundNum++;
 
 	this.heroesTurn();
+	if (this.checkWin()) {
+	    System.out.println("You reached the monsters' nexus! Congratulations, you win!");
+	    return false;
+	}
+
 	this.monstersTurn();
+	if (this.checkLose()) {
+	    System.out.println("A monster has reached you nexus! You lose!");
+	    return false;
+	}
+
+	this.roundRegenAndRevive();
 
 	if (this.roundNum % 6 == 0) {
 	    System.out.println("A new wave of monsters has spawned!");

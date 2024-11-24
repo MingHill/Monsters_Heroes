@@ -1,7 +1,7 @@
 public class CommonSpace implements Space{
     private boolean is_accesible;
     private Coordinate location;
-    private SpaceType spaceType;
+    protected SpaceType spaceType;
 
     public CommonSpace(Coordinate coord){
         this.is_accesible = true;

@@ -36,9 +36,25 @@ public class LegendsGameMap extends GameMap {
         int row = monster.getCoordinate().getRow();
         int col = monster.getCoordinate().getCol();
 
-        monster.getCoordinate().setCoordinate(row - 1, col);
+	int newRow = row;
+	int newCol = col;
+
+	if (this.canMonsterMoveInto(row - 1, col)) {
+	    newRow = row - 1;
+	} else if (col % 3 == 0 && this.canMonsterMoveInto(row, col + 1)) {
+	    newCol = col + 1;
+	} else if (col % 3 == 1 && this.canMonsterMoveInto(row, col - 1)) {
+	    newCol = col - 1;
+	}
+
+        monster.getCoordinate().setCoordinate(newRow, newCol);
         this.map[row][col][2] = null;
-        this.map[row - 1][col][2] = monster;
+        this.map[newRow][newCol][2] = monster;
+    }
+
+    private boolean canMonsterMoveInto(int row, int col) {
+	return !this.includesMonster(row, col)
+	    && !(this.map[row][col][0].getSpaceType() == SpaceType.OBS);
     }
 
     public void moveAllMonsters() {
@@ -61,7 +77,7 @@ public class LegendsGameMap extends GameMap {
         int hero_index = 0;
 
         // get list of heroes
-	    List<Hero> heroList = new ArrayList<>(this.party.getHeroes().values());
+	List<Hero> heroList = new ArrayList<>(this.party.getHeroes().values());
 
         for(int r = 0; r < size; r++) {
             for(int c = 0; c < size; c++) {
@@ -72,7 +88,7 @@ public class LegendsGameMap extends GameMap {
                     continue;
                 }
                 if (r == 0 || r == size - 1) {
-                    // nexus and hero/monster initialization
+                    // nexus and hero initialization
                     if (r == 0 && c % 3 == 1){
                         // set hero
                         Hero hero = heroList.get(hero_index);
@@ -202,6 +218,12 @@ public class LegendsGameMap extends GameMap {
             System.out.println("Please choose another action.");
             return false;
         }
+
+	if (this.includesHero(newRow, newCol)) {
+	    System.out.println("There's already a hero in that space!");
+	    System.out.println("Please choose another action.");
+	    return false;
+	}
 
         // TODO make sure hero doesn't go past monster
         if(direction == 4 && !pastMonster(row, col)){

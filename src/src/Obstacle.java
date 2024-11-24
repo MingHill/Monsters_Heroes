@@ -1,6 +1,7 @@
 public class Obstacle extends CommonSpace implements Removable{
     public Obstacle(Coordinate coordinate) {
         super(coordinate);
+	this.spaceType = SpaceType.OBS;
     }
 
     public CommonSpace remove(){

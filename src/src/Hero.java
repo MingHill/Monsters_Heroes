@@ -391,6 +391,14 @@ public class Hero implements Space {
         return total_damage;
     }
 
+    public void respawn() {
+	increaseHealth(this.getLevel() * 100);
+	this.fainted = false;
+	this.currentMana = this.getTotalMana();
+
+        System.out.println(this.getName() + " has been respawned. \n   HP: " + this.getHealth() + "\n   MANA: " + this.getMana());
+    }
+
 
     // Getter methods
     public boolean isFainted(){
