@@ -14,21 +14,26 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Ming and Tanner's Island");
-        int gameID = Input.chooseGame();
+        while(true){
+            int gameID = Input.chooseGame();
 
-        GameFactory gameFactory;
+            GameFactory gameFactory;
 
-        switch (gameID) {
-            case 1:
-                gameFactory = new MonsterGameFactory();
+            switch (gameID) {
+                case 1:
+                    gameFactory = new MonsterGameFactory();
+                    break;
+
+                default:
+                    gameFactory = new LegendsGameFactory();
+                    break;
+            }
+            Interface game = Interface.getInstance(gameFactory);
+            game.runGame();
+            if(!Input.again("Would you like to choose a new game?")){
                 break;
-
-            default:
-		gameFactory = new LegendsGameFactory();
-		break;
+            }
+            game.resetInterface();
         }
-
-	Interface game = Interface.getInstance(gameFactory);
-	game.runGame();
     }
 }

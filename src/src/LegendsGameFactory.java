@@ -30,10 +30,26 @@ public class LegendsGameFactory extends GameFactory {
     }
 
     public void printTitle() {
-	System.out.println("Need to implement");
+       System.out.println("\n" +
+               "    __                              __              ____   _    __      __              \n" +
+               "   / /   ___  ____ ____  ____  ____/ /____   ____  / __/  | |  / /___ _/ /___  _____    \n" +
+               "  / /   / _ \\/ __ `/ _ \\/ __ \\/ __  / ___/  / __ \\/ /_    | | / / __ `/ / __ \\/ ___/    \n" +
+               " / /___/  __/ /_/ /  __/ / / / /_/ (__  )  / /_/ / __/    | |/ / /_/ / / /_/ / /        \n" +
+               "/_____/\\___/\\__, /\\___/_/ /_/\\__,_/____/   \\____/_/       |___/\\__,_/_/\\____/_/         \n" +
+               "           /____/                                                                       \n");
+
     }
 
     public void printRules() {
-	System.out.println("Need to implement");
+
+        System.out.println("Legends of Valor is a MOBA (multiplayer online battle arena)-like game. The player will control\n" +
+                "a team of 3 heroes who will attempt to fight their way through to the monsters’ Nexus. The\n" +
+                "heroes win if any of them reach the monsters’ Nexus. The heroes lose if any monster reaches\n" +
+                "the heroes’ Nexus.");
+        System.out.println("You will be able to interact with the map during each turn. \nThe spaces are marked as (N) Nexus, (C) common space" +
+                "(O) Obstacle, (K) Koulou, (C) Cave, (B) Bush, and (~) Inaccesibile space. \nNexus, Cave, Bush and Koulou boost you heroes ability by a certain percent when in that given spot." +
+                "You also have the ability to teleport to a different hero, or recall back to your NEXUS. In the chance you meet a monster, you have the ability to attack using spells or normal attack. " +
+                "If you want to purchase any items, that can you done at your NEXUS using the gold that you have\n Have fun and good luck!!");
+
     }
 }

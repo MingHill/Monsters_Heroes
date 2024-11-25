@@ -258,7 +258,7 @@ public class LegendsGamePlay implements GamePlay {
 
 
     // prompts the user to select which action they would like to take
-    private void heroTurn(Hero hero) {
+    private boolean heroTurn(Hero hero) {
 	System.out.println("What action would you like to take?");
 	System.out.println("    1) Move");
 	System.out.println("    2) Attack");
@@ -268,9 +268,10 @@ public class LegendsGamePlay implements GamePlay {
 	System.out.println("    6) Teleport");
 	System.out.println("    7) Recall");
 	System.out.println("    8) Buy / Sell items");
+	System.out.println("    9) Exit");
 
 	boolean tookAction = false;
-	int input = Input.getInt(8);
+	int input = Input.getInt(9);
 
 	switch(input) {
 	case 1: // move
@@ -298,6 +299,9 @@ public class LegendsGamePlay implements GamePlay {
 	case 8: // buy / sell items
 	    buySellAction(hero);
 	    break;
+	case 9:
+		System.out.println("Thanks for playing");
+		return false;
 	}
 
 	// allow additional actions if the action did not consume the hero's turn
@@ -306,17 +310,21 @@ public class LegendsGamePlay implements GamePlay {
 	    heroTurn(hero);
 	}
 	System.out.println(this.gameMap);
-
+	return true;
     }
 
 
     // iterates over the heroes, prompting the user to select an action for each
-    private void heroesTurn() {
-	for (Hero hero : this.party.getOrderedHeroes()) {
-	    System.out.println("It is now Hero " + hero.getHeroID() + ", " + hero.getName() + "'s, turn");
-	    System.out.println("Stats: \n " + hero);
-	    this.heroTurn(hero);
-	}
+    private boolean heroesTurn() {
+		for (Hero hero : this.party.getOrderedHeroes()) {
+			System.out.println("It is now Hero " + hero.getHeroID() + ", " + hero.getName() + "'s, turn");
+			System.out.println("Stats: \n " + hero);
+			if(!this.heroTurn(hero)){
+				return false;
+			}
+
+		}
+		return true;
     }
 
 
@@ -362,7 +370,9 @@ public class LegendsGamePlay implements GamePlay {
     public boolean makeMove() throws IOException {
 	this.roundNum++;
 
-	this.heroesTurn();
+	if(!this.heroesTurn()){
+		return false;
+	};
 	if (this.checkWin()) {
 	    System.out.println("You reached the monsters' nexus! Congratulations, you win!");
 	    return false;

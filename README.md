@@ -25,9 +25,9 @@ This section should be all of the source code files that have a .java extension.
   - Battle class where heroes and monsters compete in battle, used by the Monsters and Heroes game. Main method is a switch based method where all heroes can choose which
   attack to use on which hero and monsters attack randomly.
 - Bush
-  -
+  - Bush object that implements the SpaceBonus interface and extends from the commonspace. When a hero lands on it, will increase the heroes dexterity
 - Cave
-  -
+  - Cave object that implements the SpaceBonus interface and extends from the commonspace. When a hero lands on it, will increase the heroes agility 
 - CommonSpace
   - Inherits the space class. Where a party can move to. Upon moving to a space tile, there is a 50% chance of meeting monsters
 - Coordinate
@@ -49,7 +49,7 @@ This section should be all of the source code files that have a .java extension.
 - Interface
   - Simple class to initiate party and gamemap and start the game.
 - Koulou
-  -
+  - Implements the spacebonus interface and extends commonspace. When a hero lands on it, will increase the strength of a hero 
 - LegendsGameFactory
   - This is a concrete Game Factory that handles creating a Party, LegendsGameMap, and LegendsGamePlay to be used in the Legends of Valor game.
 - LegendsGameMap
@@ -69,9 +69,9 @@ This section should be all of the source code files that have a .java extension.
 - MonsterGamePlay
   - Renamed from Assignment 4, this is the GamePlay for the Monsters and Heroes game.
 - Nexus
-  -
+  - Nexus represents the home base of the heroes and monster. Heroes can recall back to their respective nexus and the nexus acts as a marketplace for the heros. 
 - Obstacle
-  -
+  - A object that extends the Commonplace class and implements the removeable interface. Players must remove it first before being able to access the spot.
 - Party
   - Class that represent a collection of heroes. If all members of the party faint, the game is over. Party can move about the gamemap and fight monster when they encounter them
 - Potion

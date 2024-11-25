@@ -23,23 +23,23 @@ public class Interface {
     private static Interface instance;
 
     private Interface(GameFactory gameFactory) throws IOException {
-	gameFactory.printTitle();
-	gameFactory.printRules();
-	Party party = gameFactory.createParty();
-	this.gameMap = gameFactory.createGameMap(party);
-	this.gamePlay = gameFactory.createGamePlay(party, this.gameMap);
+        gameFactory.printTitle();
+        gameFactory.printRules();
+        Party party = gameFactory.createParty();
+        this.gameMap = gameFactory.createGameMap(party);
+        this.gamePlay = gameFactory.createGamePlay(party, this.gameMap);
     }
 
     public static Interface getInstance() {
-	return instance;
+	    return instance;
     }
 
     public static Interface getInstance(GameFactory gameFactory) throws IOException {
-	if (instance == null) {
-	    instance = new Interface(gameFactory);
-	}
+        if (instance == null) {
+            instance = new Interface(gameFactory);
+        }
 
-	return instance;
+        return instance;
     }
 
     public static void destroyInstance() {
@@ -56,5 +56,9 @@ public class Interface {
         }
 
 	destroyInstance();
+    }
+
+    public void resetInterface(){
+        this.instance = null;
     }
 }
