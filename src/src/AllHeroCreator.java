@@ -4,6 +4,8 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * Concrete HeroCreator, returns all heroes present in the hero files.
+  *
   * Credits: All code is our own.
   */
 

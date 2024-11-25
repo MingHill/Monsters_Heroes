@@ -4,6 +4,10 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * This class works in tandem with the LegendsGameMap class to implement Legends of Valor.
+  * The main gameplay loop is created here in makeMove(), which corresponds to a single round
+  * of play.
+  *
   * Credits: All code is our own.
   */
 
@@ -25,15 +29,12 @@ public class LegendsGamePlay implements GamePlay {
 		this.party = party;
 		this.monsters = new Monsters();
 		this.gameMap = gameMap;
-		// --- calling the setMonsters for the gamemap
 		this.gameMap.setMonsters(this.monsters);
-
-		// --- passing in gameMap instead of initiating it here
 		this.roundNum = 0;
     }
 
 
-    // checks if c1 and c2 are in range to attack each other
+    // checks if coordinates c1 and c2 are in range to attack each other
     private boolean inRange(Coordinate c1, Coordinate c2) {
 		return (Math.abs(c1.getCol() - c2.getCol()) <= 1)
 			&& (Math.abs(c1.getRow() - c2.getRow()) <= 1);
@@ -93,13 +94,13 @@ public class LegendsGamePlay implements GamePlay {
 	return this.gameMap.moveHero(Input.makeMove(), hero);
     }
 
-
+    // removes a dead monster from the game and clears its space on the map
     private void removeDeadMonster(Monster monster) {
 	this.monsters.remove(monster);
 	this.gameMap.removeDeadMonster(monster);
     }
 
-
+    // select a monster to attack from the list of monsters in range
     private Monster selectTargetMonster(ArrayList<Monster> targets) {
 	System.out.println("Which monster would you like to attack?");
 	for (int i = 0; i < targets.size(); i++) {
@@ -112,6 +113,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // hero performs the attack action
     private boolean attackAction(Hero hero) {
 	ArrayList<Monster> monstersInRange = getMonstersInRange(hero.getCoordinate());
 
@@ -130,6 +132,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // hero takes the drink a potion action
     private boolean potionAction(Hero hero) {
 
 	Potion potion = (Potion) Input.selectItemOfTypes(hero, Arrays.asList(ItemType.POT));
@@ -143,6 +146,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // hero takes the equip item action
     private boolean equipAction(Hero hero) {
 	Item equipment = Input.selectItemOfTypes(hero, Arrays.asList(ItemType.ARM, ItemType.WEP));
 
@@ -160,6 +164,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // hero takes the cast a spell action
     private boolean spellAction(Hero hero) {
 	ArrayList<Monster> monstersInRange = getMonstersInRange(hero.getCoordinate());
 
@@ -177,6 +182,7 @@ public class LegendsGamePlay implements GamePlay {
 
 	    Monster target = selectTargetMonster(monstersInRange);
 
+	    // this checks that hero has enough mana / levels for the spell; if not, the action isn't consumed
 	    if (!hero.useSpell(spell, target)) {
 		return false;
 	    }
@@ -193,6 +199,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // only available on Nexus spaces, hero can buy/sell/repair items without consuming an action
     private void buySellAction(Hero hero) {
 	Space space = this.gameMap.getSpace(hero.getCoordinate().getRow(),
 					    hero.getCoordinate().getCol());
@@ -250,6 +257,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // prompts the user to select which action they would like to take
     private void heroTurn(Hero hero) {
 	System.out.println("What action would you like to take?");
 	System.out.println("    1) Move");
@@ -302,6 +310,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // iterates over the heroes, prompting the user to select an action for each
     private void heroesTurn() {
 	for (Hero hero : this.party.getOrderedHeroes()) {
 	    System.out.println("It is now Hero " + hero.getHeroID() + ", " + hero.getName() + "'s, turn");
@@ -311,6 +320,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // checks if the heroes have won the game by reaching the monsters' nexus
     private boolean checkWin() {
 	for (Hero hero : this.party.getOrderedHeroes()) {
 	    if (hero.getCoordinate().getRow() == (this.gameMap.getSize() - 1)) {
@@ -322,6 +332,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // checks if the heroes have lost the game by having a monster reach their nexus
     private boolean checkLose() {
 	for (Monster monster : this.monsters.getAll()) {
 	    if (monster.getCoordinate().getRow() == 0) {
@@ -333,6 +344,8 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // performs end of round regeneration: dead heroes are revived, living heroes
+    // have health and mana restored.
     private void roundRegenAndRevive() {
 	for (Hero hero : this.party.getOrderedHeroes()) {
 	    if (hero.isFainted()) {
@@ -345,6 +358,7 @@ public class LegendsGamePlay implements GamePlay {
     }
 
 
+    // represents a single round of the game.
     public boolean makeMove() throws IOException {
 	this.roundNum++;
 

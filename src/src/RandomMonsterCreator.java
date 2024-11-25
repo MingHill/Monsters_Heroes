@@ -4,6 +4,8 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * Concrete MonsterCreator that creates a random list of monsters under a specified level.
+  *
   * Credits: All code is our own.
   */
 

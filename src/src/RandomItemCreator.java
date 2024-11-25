@@ -4,6 +4,8 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * Concreate creator for Items, creates a random selection of items of a given type.
+  *
   * Credits: All code is our own.
   */
 

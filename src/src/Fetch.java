@@ -4,6 +4,11 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * This is a very simple facade for the factories we've created for each of the object types
+  * that is initialized from files. Each of the factories is instantiated as a particular type
+  * of factory: anywhere Fetch is used to create objects, that factory will be called. If different
+  * factories are needed, the factories can be instantiated and called directly.
+  *
   * Credits: All code is our own.
   */
 

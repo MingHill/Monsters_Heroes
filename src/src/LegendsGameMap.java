@@ -335,6 +335,8 @@ public class LegendsGameMap extends GameMap {
             teleport(hero, teleportCoord);
             return true;
         }
+
+	System.out.println("Cannot teleport to that hero! Please choose a different action");
         return false;
 
     }

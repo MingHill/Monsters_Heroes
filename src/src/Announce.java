@@ -4,6 +4,8 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * Helper class that outputs commonly-used game logs to the console.
+  *
   * Credits: All code is our own.
   */
 
