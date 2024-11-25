@@ -18,7 +18,7 @@ public class LegendsGameMap extends GameMap {
     public void setMonsters(Monsters monsters) throws IOException {
         // instead of having this in the constructor, just calling in on the initialization of GamePlay
         this.monsters = monsters;
-        spawnMonsters(1);
+        spawnMonsters(party.highestLevel());
     }
 
     public void spawnMonsters(int level) throws IOException {

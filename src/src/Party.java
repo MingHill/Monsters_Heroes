@@ -86,4 +86,12 @@ public class Party implements Space{
     public SpaceType getSpaceType(){
         return this.spaceType;
     }
+
+    public int highestLevel(){
+        int highestLevel = 0;
+        for(HashMap.Entry<String, Hero> hero : this.getHeroes().entrySet() ){
+            highestLevel = Math.max(highestLevel, hero.getValue().getLevel());
+        }
+        return highestLevel;
+    }
 }

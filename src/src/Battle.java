@@ -23,7 +23,7 @@ public class Battle {
         Code to random choose size number of monster and initialize them and insert them into the
         hashmap to be returned
          */
-        List<Monster> monsterList = Fetch.fetchMonsters(this.party.getSize(), this.highestLevel());
+        List<Monster> monsterList = Fetch.fetchMonsters(this.party.getSize(), this.party.highestLevel());
         HashMap<String, Monster> monsters = new HashMap<>();
         for (Monster monster : monsterList) {
             monsters.put(monster.getName(), monster);
@@ -298,14 +298,6 @@ public class Battle {
 
     private boolean checkWin(){
         return this.monstersRemaining == 0;
-    }
-
-    private int highestLevel(){
-        int highestLevel = 0;
-        for(HashMap.Entry<String, Hero> hero : this.party.getHeroes().entrySet() ){
-            highestLevel = Math.max(highestLevel, hero.getValue().getLevel());
-        }
-        return highestLevel;
     }
 
     private boolean checkLoss(){

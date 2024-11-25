@@ -361,7 +361,7 @@ public class LegendsGamePlay implements GamePlay {
 
 	if (this.roundNum % 6 == 0) {
 	    System.out.println("A new wave of monsters has spawned!");
-	    this.gameMap.spawnMonsters(1);
+	    this.gameMap.spawnMonsters(party.highestLevel());
 	}
 
 	return true;
