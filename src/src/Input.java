@@ -77,8 +77,15 @@ public class Input {
     }
 
 
-    // need to validate checking -
     public static int selectHero() {
+	ArrayList<Integer> empty = new ArrayList<Integer>();
+
+	return selectHero(empty);
+    }
+
+
+    // need to validate checking -
+    public static int selectHero(List<Integer> alreadySelected) {
         Scanner scanner = new Scanner(System.in);
         int heroNumber;
 
@@ -86,7 +93,9 @@ public class Input {
             System.out.println("To select the hero, please enter a number between 1 and 18:");
             if (scanner.hasNextInt()) {
                 heroNumber = scanner.nextInt();
-                if (heroNumber >= 1 && heroNumber <= 18) {
+		if (alreadySelected.contains(heroNumber)) {
+		    System.out.println("You've already selected that hero! Please choose a different number.");
+		} else if (heroNumber >= 1 && heroNumber <= 18) {
                     break;
                 } else {
                     System.out.println("Invalid input. Please enter a number between 1 and 18.");

@@ -36,8 +36,10 @@ public class Party implements Space{
     private HashMap<String, Hero> initializeHeroes() throws IOException {
         HashMap<String, Hero> heroes = new HashMap<>();
         List<Hero> heroesList = Fetch.fetchHeroes();
+	ArrayList<Integer> selectedIndices = new ArrayList<Integer>();
         for (int i = 0;i < this.getSize(); i++){
-            int index = Input.selectHero();
+            int index = Input.selectHero(selectedIndices);
+	    selectedIndices.add(index);
             Hero hero = heroesList.get(index - 1);
 	    hero.setHeroID();
             heroes.put(hero.getName(), hero);
