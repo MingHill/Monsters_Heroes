@@ -60,7 +60,7 @@ public class Hero implements Space {
         this.defense = 0.95f; // % of damage blocked
         this.spaceType = SpaceType.HERO;
         this.coordinate = null;
-        this.heroID = ++numHeroes;
+        // this.heroID = ++numHeroes;
     }
 
     public void getRewards(int gold, int exp){
@@ -448,5 +448,9 @@ public class Hero implements Space {
         return this.inventory;
     }
     public int getHeroID(){return this.heroID;}
+
+    public void setHeroID() {
+	this.heroID = ++numHeroes;
+    }
 
 }

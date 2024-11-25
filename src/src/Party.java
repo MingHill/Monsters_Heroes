@@ -39,6 +39,7 @@ public class Party implements Space{
         for (int i = 0;i < this.getSize(); i++){
             int index = Input.selectHero();
             Hero hero = heroesList.get(index - 1);
+	    hero.setHeroID();
             heroes.put(hero.getName(), hero);
             System.out.println("You have selected " + hero.getName());
         }
