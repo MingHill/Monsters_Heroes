@@ -24,11 +24,11 @@ public class Main {
                 break;
 
             default:
-		        gameFactory = new LegendsGameFactory();
-		        break;
+		gameFactory = new LegendsGameFactory();
+		break;
         }
 
-	Interface game = new Interface(gameFactory);
+	Interface game = Interface.getInstance(gameFactory);
 	game.runGame();
     }
 }

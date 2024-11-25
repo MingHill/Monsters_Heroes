@@ -14,13 +14,26 @@ public class Interface {
 
     private GameMap gameMap;
     private GamePlay gamePlay;
+    private static Interface instance;
 
-    public Interface(GameFactory gameFactory) throws IOException {
+    private Interface(GameFactory gameFactory) throws IOException {
 	gameFactory.printTitle();
 	gameFactory.printRules();
 	Party party = gameFactory.createParty();
 	this.gameMap = gameFactory.createGameMap(party);
 	this.gamePlay = gameFactory.createGamePlay(party, this.gameMap);
+    }
+
+    public static Interface getInstance() {
+	return instance;
+    }
+
+    public static Interface getInstance(GameFactory gameFactory) throws IOException {
+	if (instance == null) {
+	    instance = new Interface(gameFactory);
+	}
+
+	return instance;
     }
 
     public void runGame() throws IOException {
