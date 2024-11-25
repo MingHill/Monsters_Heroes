@@ -41,18 +41,18 @@ public class LegendsGameMap extends GameMap {
         int row = monster.getCoordinate().getRow();
         int col = monster.getCoordinate().getCol();
 
-	int newRow = row;
-	int newCol = col;
+        int newRow = row;
+        int newCol = col;
 
-	// check if the space ahead is available for the monster to move into
-	// if not, instead try moving to the side in the lane
-	if (this.canMonsterMoveInto(row - 1, col)) {
-	    newRow = row - 1;
-	} else if (col % 3 == 0 && this.canMonsterMoveInto(row, col + 1)) {
-	    newCol = col + 1;
-	} else if (col % 3 == 1 && this.canMonsterMoveInto(row, col - 1)) {
-	    newCol = col - 1;
-	}
+        // check if the space ahead is available for the monster to move into
+        // if not, instead try moving to the side in the lane
+        if (this.canMonsterMoveInto(row - 1, col)) {
+            newRow = row - 1;
+        } else if (col % 3 == 0 && this.canMonsterMoveInto(row, col + 1)) {
+            newCol = col + 1;
+        } else if (col % 3 == 1 && this.canMonsterMoveInto(row, col - 1)) {
+            newCol = col - 1;
+        }
 
         monster.getCoordinate().setCoordinate(newRow, newCol);
         this.map[row][col][2] = null;
@@ -60,8 +60,8 @@ public class LegendsGameMap extends GameMap {
     }
 
     private boolean canMonsterMoveInto(int row, int col) {
-	return !this.includesMonster(row, col)
-	    && !(this.map[row][col][0].getSpaceType() == SpaceType.OBS);
+        return !this.includesMonster(row, col)
+            && !(this.map[row][col][0].getSpaceType() == SpaceType.OBS);
     }
 
     public void moveAllMonsters() {
@@ -73,11 +73,13 @@ public class LegendsGameMap extends GameMap {
 
 
     public void removeDeadMonster(Monster monster) {
-	this.map[monster.getCoordinate().getRow()][monster.getCoordinate().getCol()][2] = null;
+	    this.map[monster.getCoordinate().getRow()][monster.getCoordinate().getCol()][2] = null;
     }
 
 
     protected Space[][][] initializeBoard() throws IOException {
+        // Initializes the gamemap with heros and random spaces
+
         Space[][][] new_map = new Space[this.getSize()][this.getSize()][3];
         int[][] space_markers = Dice.setRandomLegends(this.getSize());
 
@@ -113,6 +115,7 @@ public class LegendsGameMap extends GameMap {
     }
 
     public String toString(){
+        // String representation the gamemap
         String output = "";
         for (int r = 0; r < this.getSize(); r++){
             output += printRow(r);
@@ -122,6 +125,7 @@ public class LegendsGameMap extends GameMap {
     }
 
     private String printRow(int r ){
+        // prints a singular row of the gamemap
         String line = "";
         for (int i = 0; i < 3; i++){
             if (i != 1){
@@ -160,18 +164,22 @@ public class LegendsGameMap extends GameMap {
     }
 
     private Hero getHero(int r, int c){
+        // Returns the hero or null of a specific spot on the gamemap
         return (Hero)this.map[r][c][1];
     }
 
     private Monster getMonster(int r, int c){
+        // Returns a specific monster or null of a specific spot on the gamemap
         return (Monster)this.map[r][c][2];
     }
 
     public boolean includesHero(int r, int c){
+        // checks if a spot includes a hero or not
         return this.map[r][c][1] != null;
     }
 
     public boolean includesMonster(int r, int c){
+        // checks if a spot includes a monster or not
         return this.map[r][c][2] != null;
     }
 
@@ -215,13 +223,14 @@ public class LegendsGameMap extends GameMap {
             return false;
         }
 
-	if (this.includesHero(newRow, newCol)) {
-	    System.out.println("There's already a hero in that space!");
-	    System.out.println("Please choose another action.");
-	    return false;
-	}
+        if (this.includesHero(newRow, newCol)) {
+            // checks if theres a hero in the given space
+            System.out.println("There's already a hero in that space!");
+            System.out.println("Please choose another action.");
+            return false;
+        }
 
-        // TODO make sure hero doesn't go past monster
+        // make sure hero doesn't go past monster
         if(direction == 4 && !pastMonster(row, col)){
             System.out.println("You can't go past a monster!");
             return false;
@@ -238,13 +247,14 @@ public class LegendsGameMap extends GameMap {
             // removes the current bonus
             removeBonus(hero, (SpaceBonus)this.getSpace(row, col));
         }
+
         // moves hero to new position
         this.map[row][col][1] = null;
         hero.getCoordinate().setCoordinate(newRow, newCol);
         this.map[newRow][newCol][1] = hero;
 
         if(this.getSpace(newRow, newCol) instanceof SpaceBonus){
-            // removes the current bonus
+            // applies the new bonus
             applyBonus(hero, (SpaceBonus)this.getSpace(newRow, newCol));
         }
 
@@ -266,7 +276,6 @@ public class LegendsGameMap extends GameMap {
     }
 
     public void recallHero(Hero hero){
-        //TODO need to implemenet, call teleport() method
         // Teleports given hero back to its NEXUS
         int heroID = hero.getHeroID(); // 1, 2, 3
         switch (heroID){
@@ -283,7 +292,6 @@ public class LegendsGameMap extends GameMap {
     }
 
     public boolean teleportHero(Hero hero){
-        // TODO: need to checking on if coordinate is valid
         // METHOD To select where a hero should teleport to
         Hero selectHero = Input.getTeleport(hero, this.party); // gets hero you want to teleport to
 
@@ -320,12 +328,14 @@ public class LegendsGameMap extends GameMap {
     }
 
     private boolean validSide(Coordinate coord){
+        // checks if the side of the hero is a valid spot to teleport to
         int row = coord.getRow();
         int col = coord.getCol();
         return this.map[row][col][1] == null && this.map[row][col][0].getSpaceType() != SpaceType.OBS;
     }
 
     private boolean validBehind(Coordinate coord1){
+        // checks if the behind a hero is a valid spot to teleport to
         int row = coord1.getRow();
         int col = coord1.getCol();
         if (this.map[row - 1][col][1] == null && this.map[row - 1][col][0].getSpaceType() != SpaceType.OBS){
@@ -335,7 +345,6 @@ public class LegendsGameMap extends GameMap {
     }
 
     private void teleport(Hero hero, Coordinate teleportCoord){
-        //TODO need to implement
         // given a hero and coordinate, will teleport a hero to that given coordinate
         Coordinate currentHeroCoord = hero.getCoordinate();
         int row = currentHeroCoord.getRow();
@@ -354,7 +363,7 @@ public class LegendsGameMap extends GameMap {
         this.map[newRow][newCol][1] = hero;
 
         if(this.getSpace(newRow, newCol) instanceof SpaceBonus){
-            // removes the current bonus
+            // applies the new bonus
             applyBonus(hero, (SpaceBonus)this.getSpace(row, col));
         }
 
@@ -362,10 +371,12 @@ public class LegendsGameMap extends GameMap {
     }
 
     private void applyBonus(Hero hero, SpaceBonus bonus){
+        // applies a bonus to a hero on the space type
         bonus.applyBonus(hero);
     }
 
     private void removeBonus(Hero hero, SpaceBonus bonus){
+        // removes a bonus from a hero when leaving the space
         bonus.removeBonus(hero);
     }
 
