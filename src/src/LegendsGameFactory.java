@@ -4,6 +4,9 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * Concrete GameFactory for the Legends of Valor game. Creates a party of 3 heroes,
+  * a Legends Game Map, and initializes the GamePlay object that runs the game.
+  *
   * Credits: All code is our own.
   */
 

@@ -4,6 +4,12 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * The Interface class represents the game currently being played. It is
+  * created using a Singleton design pattern to restrict usage to a single
+  * game being played at any point in time. A GameFactory is utilized to make
+  * sure that the generated Party, GameMap, and GamePlay objects are compatible
+  * with one another.
+  *
   * Credits: All code is our own.
   */
 

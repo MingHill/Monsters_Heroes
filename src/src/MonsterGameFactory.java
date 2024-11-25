@@ -4,6 +4,10 @@
   * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
   * 11/25/2024
   *
+  * Concrete instance of the GameFactory that handles creating a Monsters and Heroes
+  * game. Prompts the user to define the number of heroes to play with, the board size
+  * for the world, and creates a GamePlay object that handles game flow.
+  *
   * Credits: All code is our own.
   */
 
