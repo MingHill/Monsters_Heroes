@@ -22,7 +22,7 @@ This section should be all of the source code files that have a .java extension.
 - Armor
   - Implements Item and Equipable. Reduces damage taken from a monster if equiped. Has a maximum use of 3 uses before needing to be repaired
 - Battle
-  - Battle class where heroes and monsters compete in battle. Main method is a switch based method where all heroes can choose which
+  - Battle class where heroes and monsters compete in battle, used by the Monsters and Heroes game. Main method is a switch based method where all heroes can choose which
   attack to use on which hero and monsters attack randomly.
 - Bush
   -
