@@ -333,58 +333,85 @@ public class Input {
         return input == 1;
     }
 
+    // validation done
     public static Hero getTeleport(Hero hero, Party party) {
-        // returns the hero that is selected
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             int index = 1;
-            // display heroes
-            for (Hero temp_hero : party.getHeroes().values()) {
-                System.out.println(index + ". " + temp_hero.getName());
+            // Display available heroes
+            System.out.println("Available heroes to teleport to:");
+            for (Hero tempHero : party.getHeroes().values()) {
+                System.out.println(index + ". " + tempHero.getName());
                 index++;
             }
-            System.out.println("Which hero would you like to teleport to? Please enter the integer: ");
-            int selected = scanner.nextInt();
-            // check if its their own hero
-            if (selected == hero.getHeroID()) {
-                System.out.println("You have selected your own hero. Please select again.");
+            System.out.println("Which hero would you like to teleport to? Enter the number:");
+
+            // Validate user input
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scanner.next(); // Consume invalid input
                 continue;
             }
+            int selected = scanner.nextInt();
+            // Check if the selected index is within range
+            if (selected < 1 || selected > party.getHeroes().size()) {
+                System.out.println("Invalid selection. Please try again.");
+                continue;
+            }
+            // Retrieve the selected hero
             index = 1;
-            // find selected one
-            for (Hero temp_hero : party.getHeroes().values()) {
-                if (selected == index) {
-                    return temp_hero;
+            for (Hero tempHero : party.getHeroes().values()) {
+                if (index == selected) {
+                    // Check if the selected hero is the current hero
+                    if (tempHero.getHeroID() == hero.getHeroID()) {
+                        System.out.println("You have selected your own hero. Please select another hero.");
+                        break;
+                    }
+                    return tempHero; // Return the selected hero
                 }
                 index++;
             }
-            // Index out of range
-            System.out.println("Invalid selection. Please try again.");
         }
     }
 
-    public static Coordinate chooseTele(Coordinate coord, Coordinate sidecoord){
+    // validation done
+    public static Coordinate chooseTele(Coordinate coord, Coordinate sidecoord) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Where would you like to teleport to: \n 1. Next to hero \n 2. Behind hero");
-        int selected = scanner.nextInt();
+        int selected = 0;
+
+        while (true) {
+            System.out.println("Where would you like to teleport to: \n 1. Next to hero \n 2. Behind hero");
+            if (scanner.hasNextInt()) {
+                selected = scanner.nextInt();
+                if (selected == 1 || selected == 2) {
+                    break;
+                }
+            } else {
+                scanner.next();
+            }
+            System.out.println("Please enter a valid option (1 or 2).");
+        }
         if (selected == 1) {
             return sidecoord;
-        }else{
+        } else {
             int row = coord.getRow();
             int col = coord.getCol();
-            return new Coordinate(row,col - 1);
+            return new Coordinate(row, col - 1);
         }
     }
 
-    public static int chooseGame(){
-        System.out.println("Which game would you like to play: \n   1. Monsters and Heroes \n   2. Legends of Valor \n");
+    // validation done
+    public static int chooseGame() {
         Scanner input = new Scanner(System.in);
-        String game = input.nextLine();
-        while(!(game.equals("1") || game.equals("2"))){
-            System.out.println("Please enter a valid input: ");
-            input = new Scanner(System.in);
+        String game;
+        System.out.println("Which game would you like to play: \n   1. Monsters and Heroes \n   2. Legends of Valor \n");
+        while (true) {
             game = input.nextLine();
+            if (game.equals("1") || game.equals("2")) {
+                break;
+            }
+            System.out.println("Please enter a valid input (1 or 2):");
         }
         return Integer.parseInt(game);
     }
