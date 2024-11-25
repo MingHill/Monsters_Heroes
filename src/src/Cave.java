@@ -1,3 +1,13 @@
+
+ /*
+  * Cave.java
+  * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
+  * 11/25/2024
+  *
+  * Credits: All code is our own.
+  */
+
+
 public class Cave extends CommonSpace implements SpaceBonus{
     public Cave(Coordinate Coord){
         super(Coord);

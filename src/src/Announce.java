@@ -1,3 +1,13 @@
+
+ /*
+  * Announce.java
+  * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
+  * 11/25/2024
+  *
+  * Credits: All code is our own.
+  */
+
+
 public class Announce {
     public static void heroAttackDamage(String name, float damage, Monster monster){
         System.out.println(name + " attacked " + monster.getName() + " for " + damage + " damage");

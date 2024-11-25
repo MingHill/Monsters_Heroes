@@ -1,3 +1,13 @@
+
+ /*
+  * Coordinate.java
+  * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
+  * 11/25/2024
+  *
+  * Credits: All code is our own.
+  */
+
+
 import java.util.Objects;
 // src.Coordinate class which represents location on the board
 public class Coordinate {

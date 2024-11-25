@@ -1,3 +1,13 @@
+
+ /*
+  * HeroType.java
+  * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
+  * 11/25/2024
+  *
+  * Credits: All code is our own.
+  */
+
+
 public enum HeroType {
     WAR("Warrior", new float[]{1.05f, 1.05f, 1.0f}),
     PAL("Paladin", new float[]{1.05f, 1.0f, 1.05f}),

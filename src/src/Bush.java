@@ -1,3 +1,13 @@
+
+ /*
+  * Bush.java
+  * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
+  * 11/25/2024
+  *
+  * Credits: All code is our own.
+  */
+
+
 public class Bush extends CommonSpace implements SpaceBonus{
     public Bush(Coordinate coord){
         super(coord);

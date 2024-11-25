@@ -1,3 +1,13 @@
+
+ /*
+  * PotionType.java
+  * by Ming Hill (minghill@bu.edu) and Tanner Bangerter (tanner@bu.edu)
+  * 11/25/2024
+  *
+  * Credits: All code is our own.
+  */
+
+
 public enum PotionType {
     HP("Health Potion", 200),
     MP("Mana Potion", 200),
