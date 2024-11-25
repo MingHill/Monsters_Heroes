@@ -175,11 +175,13 @@ public class LegendsGameMap extends GameMap {
 
     public boolean includesHero(int r, int c){
         // checks if a spot includes a hero or not
+        // return true if there is a hero present
         return this.map[r][c][1] != null;
     }
 
     public boolean includesMonster(int r, int c){
         // checks if a spot includes a monster or not
+        // return true if there is a monster present
         return this.map[r][c][2] != null;
     }
 
@@ -218,7 +220,7 @@ public class LegendsGameMap extends GameMap {
 
         if(!this.map[newRow][newCol][0].is_accessible()){
             // checks if the selected position is accessible or not
-	    System.out.println("You can't enter that space!");
+	        System.out.println("You can't enter that space!");
             System.out.println("Please choose another action.");
             return false;
         }
@@ -300,10 +302,10 @@ public class LegendsGameMap extends GameMap {
         int col = selectedCoord.getCol();
         Coordinate newCoord;
         if (col % 3 == 0){
-            newCoord = new Coordinate(selectedCoord.getRow(), selectedCoord.getCol() + 1);
+            newCoord = new Coordinate(row, col + 1);
 
         }else{
-            newCoord = new Coordinate(selectedCoord.getRow(), selectedCoord.getCol() - 1);
+            newCoord = new Coordinate(row, col - 1);
         }
         boolean side = validSide(newCoord);
         boolean back = validBehind(selectedCoord);
@@ -316,7 +318,7 @@ public class LegendsGameMap extends GameMap {
             teleportCoord = newCoord;
         }else if(back){
             // just back is valid
-            teleportCoord = selectedCoord;
+            teleportCoord = new Coordinate (row - 1, col);
         }
         // none is valid
         if (teleportCoord != null){
@@ -338,7 +340,7 @@ public class LegendsGameMap extends GameMap {
         // checks if the behind a hero is a valid spot to teleport to
         int row = coord1.getRow();
         int col = coord1.getCol();
-        if (this.map[row - 1][col][1] == null && this.map[row - 1][col][0].getSpaceType() != SpaceType.OBS){
+        if (row > 0 && this.map[row - 1][col][1] == null && this.map[row - 1][col][0].getSpaceType() != SpaceType.OBS){
             return true;
         }
         return false;
@@ -364,7 +366,7 @@ public class LegendsGameMap extends GameMap {
 
         if(this.getSpace(newRow, newCol) instanceof SpaceBonus){
             // applies the new bonus
-            applyBonus(hero, (SpaceBonus)this.getSpace(row, col));
+            applyBonus(hero, (SpaceBonus)this.getSpace(newRow, newCol));
         }
 
         hero.setCoordinate(teleportCoord);

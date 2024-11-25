@@ -260,7 +260,7 @@ public class Input {
         }
     }
 
-    // -
+    // - Validnation DOne
     public static boolean enterMarket() {
         Scanner scanner = new Scanner(System.in);
         int input;
@@ -284,13 +284,20 @@ public class Input {
     }
 
     // -
-    public static int trade(){
+    public static int trade() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("To select the item, please enter the number displayed next to the item or input any other integer to exit out");
-        return scanner.nextInt();
+        while (true) {
+            if (scanner.hasNextInt()) {
+                return scanner.nextInt(); // Return the integer if input is valid
+            } else {
+                System.out.println("Invalid input. Please enter an integer:");
+                scanner.next(); // Consume the invalid input
+            }
+        }
     }
 
-    // -
+    // - Validation done
     public static int marketOption() {
         Scanner scanner = new Scanner(System.in);
         int input;
@@ -342,7 +349,7 @@ public class Input {
             // Display available heroes
             System.out.println("Available heroes to teleport to:");
             for (Hero tempHero : party.getHeroes().values()) {
-                System.out.println(index + ". " + tempHero.getName());
+                System.out.println(index + ". H" + tempHero.getHeroID());
                 index++;
             }
             System.out.println("Which hero would you like to teleport to? Enter the number:");
@@ -397,7 +404,7 @@ public class Input {
         } else {
             int row = coord.getRow();
             int col = coord.getCol();
-            return new Coordinate(row, col - 1);
+            return new Coordinate(row - 1, col);
         }
     }
 

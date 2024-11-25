@@ -295,6 +295,7 @@ public class LegendsGamePlay implements GamePlay {
 	if (!tookAction) {
 	    heroTurn(hero);
 	}
+	System.out.println(this.gameMap);
 
     }
 

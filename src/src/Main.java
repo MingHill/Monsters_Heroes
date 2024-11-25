@@ -10,12 +10,12 @@ public class Main {
 
         switch (gameID) {
             case 1:
-		gameFactory = new MonsterGameFactory();
-		break;
+                gameFactory = new MonsterGameFactory();
+                break;
 
             default:
-		gameFactory = new LegendsGameFactory();
-		break;
+		        gameFactory = new LegendsGameFactory();
+		        break;
         }
 
 	Interface game = new Interface(gameFactory);
