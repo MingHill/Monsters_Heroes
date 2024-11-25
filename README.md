@@ -8,7 +8,8 @@ Email: minghill@bu.edu, tanner@bu.edu
 
 Student ID: U50983276, U96993176
 
-**Files**
+Files
+-
 This section should be all of the source code files that have a .java extension. You should also include a brief description of what the class does.
 
 Classes:
@@ -84,7 +85,8 @@ Classes:
 
 
 
-Interfaces:
+Interfaces
+-
 - Equipable
   - Classes that implement these are Weapon and Armor. Has a setEquip function to equip and certain piece of armor or weapon
 - GamePlay
@@ -104,7 +106,8 @@ Interfaces:
 - SpaceBonus
   - This interface is implemented by Legends of Valor space objects that modify a hero's stats when they enter/leave the space. Methods are applyBonus and removeBonus.
 
-Enums:
+Enums
+-
 - SpellType
   - Enums for each type of SpellType()
 - SpaceType
