@@ -1,5 +1,7 @@
 CS611 - Assignment 5
+
 Legends of Valor
+
 Names: Soong Ming Hill, Tanner Bangerter
 
 Email: minghill@bu.edu, tanner@bu.edu
