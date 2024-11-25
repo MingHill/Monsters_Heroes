@@ -1,103 +1,151 @@
-CS611 - Assignment 4
-Monsters and Heroes
-Name: Soong Ming Hill
+CS611 - Assignment 5
+Legends of Valor
+Names: Soong Ming Hill, Tanner Bangerter
 
-Email: minghill@bu.edu
+Email: minghill@bu.edu, tanner@bu.edu
 
-Student ID: U50983276
+Student ID: U50983276, U96993176
 
-Files
+**Files**
 This section should be all of the source code files that have a .java extension. You should also include a brief description of what the class does.
 
 Classes:
+- AllHeroCreator
+  - This is a concrete HeroCreator that creates all heroes present in the text data files.
 - Announce
-  - A class to make announcements such as when a hero is killed or when monster is killed 
-- Armor 
+  - A class to make announcements such as when a hero is killed or when monster is killed
+- Armor
   - Implements Item and Equipable. Reduces damage taken from a monster if equiped. Has a maximum use of 3 uses before needing to be repaired
-- Battle 
-  - Battle class where heroes and monsters compete in battle. Main method is a switch based method where all heroes can choose which 
-  attack to use on which hero and monsters attack randomly. 
-- CommonSpace 
+- Battle
+  - Battle class where heroes and monsters compete in battle. Main method is a switch based method where all heroes can choose which
+  attack to use on which hero and monsters attack randomly.
+- Bush
+  -
+- Cave
+  -
+- CommonSpace
   - Inherits the space class. Where a party can move to. Upon moving to a space tile, there is a 50% chance of meeting monsters
 - Coordinate
-  - Coordinate class that keeps track of where each space is. Used for all space types 
-- Dice 
-  - Used to randomly generate map spaces, meeting monters and doge chance. 
-- Fetch 
-  - Fetchs all data for monters, heroes and items 
-- GameMap 
-  - Map that game is played on. Each tile is represented by a space type (market, commonspace, inaccessible space, party). Party used the class to move around the board. Can be initialized to 6 - 12 gameboard size 
-- GamePlay 
-  - Is called from the Interface class to play components of the game, in this case, just to make a move on the board. Able to extend with other games by creating an abstract class. 
-- Hero 
+  - Coordinate class that keeps track of where each space is. Used for all space types
+- Dice
+  - Used to randomly generate map spaces, meeting monters and dodge chance.
+- Fetch
+  - Fetches all data for monters, heroes and items
+- GameFactory
+  - This is an abstract factory that is used to generate party, gamemap, and gameplay classes that are compatible with one another and are used to play a given game. Concrete versions of this class are the LegendsGameFactory and the MonsterGameFactory
+- GameMap
+  - Map that game is played on. Each tile is represented by a space type (market, commonspace, inaccessible space, party). Party used the class to move around the board. Can be initialized to 6 - 12 gameboard size
+- Hero
   - Main class for each hero. Is initialized from fetching data and players are able to choose which hero to play with. Important methods include buying/selling from the market, using items and atltering statistics
-- InaccessibleSpace 
-  - Implements the Space interface. A space where a party of heroes can not access 
-- Input 
-  - Input class to gather all input information from user. Anytime a user types into a terminal, this class is called. All methods are static. 
+- InaccessibleSpace
+  - Implements the Space interface. A space where a party of heroes can not access
+- Input
+  - Input class to gather all input information from user. Anytime a user types into a terminal, this class is called. All methods are static.
 - Interface
-  - Simple class to initiate party and gamemap and start the game. 
-- Main 
-  - Main class. Not much in here, just getting # of players and boardsize. 
-- Monster 
-  - Monster class is similar to hero class but a lot more simple. Not as complex. Includes a attack method, receiveDamage method and includes all stats of a monster. Monster level and within +- 2 of highest level. 
+  - Simple class to initiate party and gamemap and start the game.
+- Koulou
+  -
+- LegendsGameFactory
+  - This is a concrete Game Factory that handles creating a Party, LegendsGameMap, and LegendsGamePlay to be used in the Legends of Valor game.
+- LegendsGameMap
+  - This extends GameMap with a lot of functionality needed to play Legends of Valor. It largely handles functionality associated with world state: spawning and moving monsters, handling hero movement (including recalls and teleports), and creating and managing board spaces.
+- LegendsGamePlay
+  - Implements GamePlay to control the turn flow of Legends of Valor. The makeMove() function handles a single round of play, and it contains a variety of functions for the different hero actions, including shopping at the nexus spaces, attacking monsters, using items, etc. Also includes functionality for checking victory and loss conditions.
+- Main
+  - Prompts the user to select which game they would like to play, and gets an Interface for running that game.
 - Market
-  - Class that represents a market. Each one is randomly initialized with their own items, however have the same number of items for each itemType. Heros can interact with the market to purchase, sell or repair items. 
-- Party 
+  - Class that represents a market. Each one is randomly initialized with their own items, however have the same number of items for each itemType. Heros can interact with the market to purchase, sell or repair items.
+- Monster
+  - Monster class is similar to hero class but a lot more simple. Not as complex. Includes a attack method, receiveDamage method and includes all stats of a monster. Monster level and within +- 2 of highest level.
+- MonsterGameFactory
+  - This is a concrete Game Factory that handles creating a Party, MonsterGameMap, and MonsterGamePlay to be used in the Monsters and Heroes game.
+- MonsterGameMap
+  - Renamed from Assignment 4, this is the GameMap for the Monsters and Heroes game.
+- MonsterGamePlay
+  - Renamed from Assignment 4, this is the GamePlay for the Monsters and Heroes game.
+- Nexus
+  -
+- Obstacle
+  -
+- Party
   - Class that represent a collection of heroes. If all members of the party faint, the game is over. Party can move about the gamemap and fight monster when they encounter them
-- Potion 
-  - Class that implements the Item interface. Can be used once and depending on the potion, increases certain statistics of given hero. 
-- Spell 
-  - Class that implements the Item interface. Can be used twice before needing repair. Different spells alter different statistic of receiving monster. 
-- Weapon 
-  - Class that implments the Item interface. Can be used 4 times before needing repair. Equiping a sword adds additional damage on attacks. 
-  
+- Potion
+  - Class that implements the Item interface. Can be used once and depending on the potion, increases certain statistics of given hero.
+- RandomItemCreator
+  - Concrete implementation of ItemCreator, creates a random assortment of items of a given type.
+- RandomMonsterCreator
+  - Concrete implementation of MonsterCreator, creates a list of monsters below a certain level.
+- Spell
+  - Class that implements the Item interface. Can be used twice before needing repair. Different spells alter different statistic of receiving monster.
+- Weapon
+  - Class that implments the Item interface. Can be used 4 times before needing repair. Equiping a sword adds additional damage on attacks.
 
 
 
-Interface: 
-- Equipable 
+Interfaces:
+- Equipable
   - Classes that implement these are Weapon and Armor. Has a setEquip function to equip and certain piece of armor or weapon
-- Item 
-  - All 4 item types (Weapon, armor, spell, potion) implement this. Given methods are getItemType, hashcode, getLevel, getPrice, uses_left, repair_item 
-- Space 
-  - Interface that is implemented by CommonSpace, Market, InaccessibleSpace and Party. Represent a single tile on the game board. Methods are getSpaceType, is_accessible, and getCoordinate 
+- GamePlay
+  - Interface that requires a makeMove() method to represent a round of gameplay. Implemented by the MonsterGamePlay and LegendsGamePlay classes.
+- HeroCreator
+  - This is a factory for creating lists of available heroes. It is implemented by the AllHeroCreator class, alternative implementations could prompt a user to create their own hero's attributes, or return only level 1 heroes.
+- Item
+  - All 4 item types (Weapon, armor, spell, potion) implement this. Given methods are getItemType, hashcode, getLevel, getPrice, uses_left, repair_item
+- ItemCreator
+  - This is a factory for creating items of a given type. Implemented by the RandomItemCreator class. Alternative implementations could return defined lists of items or utilize different item files for creation.
+- MonsterCreator
+  - This is a factory for creating a list of monsters. Implemented by the RandomMonsterCreator class. Alternative implementations could return only monsters of a given level (not also below) or only monsters of a certain type.
+- Removable
+  - Interface implemented by the Obstacle space: used to represent an object that can in some way be cleared.
+- Space
+  - Interface that is implemented by CommonSpace, Market, InaccessibleSpace and Party. Represent a single tile on the game board. Methods are getSpaceType, is_accessible, and getCoordinate
+- SpaceBonus
+  - This interface is implemented by Legends of Valor space objects that modify a hero's stats when they enter/leave the space. Methods are applyBonus and removeBonus.
 
-Enums: 
+Enums:
 - SpellType
   - Enums for each type of SpellType()
 - SpaceType
   - Enum for each type of SpaceType
-- PotionType 
+- PotionType
   - Enum for each type of PotionType
-- ItemType 
+- ItemType
   - Enum for each type of Item
 - HeroType
-  - Enum for each type of hero. Used to alter stats when leveling up. 
+  - Enum for each type of hero. Used to alter stats when leveling up.
 
-Notes: 
-- When playing with multiple heroes, you can select which monster to attack to make it more strategic 
-- To make the game more challenging, Monsters are +- 2 levels of highest level, making it more RNG 
-- Took advantage of Interfaces and generics to make my code more higher quality 
-- Decided to use ENUM because ENUM are a lot easier to use for type checking as well as you can use them in switch cases. 
+
+**Notes**
+Design Patterns:
+- Abstract Factory
+  - GameFactory (LegendsGameFactory and MonsterGameFactory): we used an abstract factory to simplify initialization of each game. Since each game utilizes a lot of the same pieces (Party, GameMap, and GamePlay classes), but had different considerations for how those should be constructed and what concrete class they should be, we created a factory for each that would provide a single interface for creating all the pieces needed for each game. This meant that we could have variable party sizes in Monsters and Heroes, while having one hero for each lane in Legends of Valor and create the proper GameMap and GamePlay types in tandem with one another.
+- Factory
+  - HeroCreator, ItemCreator, MonsterCreator (AllHeroCreator, RandomItemCreator, RandomMonsterCreator): One adaption we made from our existing code for Monsters and Heroes was to utilize factories for creating objects from the provided files. While we just implemented a single Creator for each of the types (Heroes, Monsters, and Items), this design pattern would allow our code to scale easier to different sorts of games: for example, creating a new concrete MonsterCreator that only initializes dragons, or a HeroCreator that prompts the user to set their own statistics.
+- Singleton
+  - Interface: We adapted the Interface class to implement a Singleton design pattern to restrict the number of games that can be concurrently played to one. Nowhere in our code are we trying to initialize multiple games that could be run at the same time, but it future-proofs things by creating a layer of protection against initializing and playing multiple games, which would not function well with how we've implemented a text-based user input by writing to the console.
+
+
+Design Decisions:
+One of our focuses as we adapted the code from Assignment 4 was on designing a solution that could be as modular and extensible as possible. The design patterns we implemented in this assignment are all steps in that direction, particularly the Factories and AbstractFactories being used to handle initialization of many of the key pieces of the game. By requiring a GameFactory to create a new instance of the game, it's easy to guarantee that future games with similar (but incompatible) classes are created accurately and coherently; by defining Factories to handle hero, item, and monster creation, we created an explicit accounting of how we're currently handling those processes. New factories can easily be created if future games require different creation logic, without disrupting the performance of either Monsters and Heroes or Legends of Valor. While it's likely that there are still pieces of extensibility that we've overlooked, we still think extensibility is one of the strenghts of our code.
+
 
 
 Unzip the file and cd into the folder src file:
 
-javac -d out src/src/*.java 
+javac -d out src/src/*.java
 
 java -cp out Main
 
 Input/Output Example
 Please give us a full execution of what we should see on the screen. Label each text with input and output. For example:
 '''
-output: 
+output:
 █▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄
 █ █ █ █   █     █    █     ▀▄ ▀▀▀ █    █▀   ▀  █  ▄▀  █     ▀▄     █ █      █  █  █      █   █ █▀   ▀  █  ▄▀ █   █ █▀   ▀   █     ▀▄
-█ ▄ █ █   █ ██   █ ▄  ▀▀▀▀▄       █    ██▄▄    █▀▀▌ ▄  ▀▀▀▀▄       █▄▄█ ██   █ █   █     ██▀▀█ ██▄▄    █▀▀▌  █   █ ██▄▄   ▄  ▀▀▀▀▄   
-█   █ ▀████ █ █  █  ▀▄▄▄▄▀       █     █▄   ▄▀ █  █  ▀▄▄▄▄▀        █  █ █ █  █ █  █      █   █ █▄   ▄▀ █  █  ▀████ █▄   ▄▀ ▀▄▄▄▄▀    
-█        █  █ █              ▀      ▀███▀     █                    █ █  █ █ ███▀         █  ▀███▀     █         ▀███▀             
-▀         █   ██                              ▀                    █  █   ██             ▀            ▀                            
+█ ▄ █ █   █ ██   █ ▄  ▀▀▀▀▄       █    ██▄▄    █▀▀▌ ▄  ▀▀▀▀▄       █▄▄█ ██   █ █   █     ██▀▀█ ██▄▄    █▀▀▌  █   █ ██▄▄   ▄  ▀▀▀▀▄
+█   █ ▀████ █ █  █  ▀▄▄▄▄▀       █     █▄   ▄▀ █  █  ▀▄▄▄▄▀        █  █ █ █  █ █  █      █   █ █▄   ▄▀ █  █  ▀████ █▄   ▄▀ ▀▄▄▄▄▀
+█        █  █ █              ▀      ▀███▀     █                    █ █  █ █ ███▀         █  ▀███▀     █         ▀███▀
+▀         █   ██                              ▀                    █  █   ██             ▀            ▀
 ▀
 The rules of the game are fairly simple.
 The monsters and heroes live in a fictional world. They do not get along and therefore fight each other.
@@ -114,7 +162,7 @@ During each move you have the option to:
 • Equip a weapon or piece of armor
 How many heroes would you like to use (1 - 3):
 
-Input: 
+Input:
 1
 
 Output:
@@ -527,42 +575,42 @@ Item Type: Armor Item
    Uses Left: 3
    Item Type: Spell Item
 -----------------------------------------------------------------
-9. Spell   
+9. Spell
    Name: Spark_Needles
    Spell Type: Lighting Spell
    Price: 500
    Level: 2
    Damage: 600.0
 
-10. Spell   
+10. Spell
     Name: Thunder_Blast
     Spell Type: Lighting Spell
     Price: 750
     Level: 4
     Damage: 950.0
 
-11. Spell   
+11. Spell
     Name: Flame_Tornado
     Spell Type: Fire Spell
     Price: 700
     Level: 4
     Damage: 850.0
 
-12. Spell   
+12. Spell
     Name: Breath_of_Fire
     Spell Type: Fire Spell
     Price: 350
     Level: 1
     Damage: 450.0
 
-13. Spell   
+13. Spell
     Name: Ice_Blade
     Spell Type: Ice Spell
     Price: 250
     Level: 1
     Damage: 450.0
 
-14. Spell   
+14. Spell
     Name: Frost_Blizzard
     Spell Type: Ice Spell
     Price: 750
@@ -658,35 +706,35 @@ Item Type: Armor Item
    Uses Left: 3
    Item Type: Spell Item
 -----------------------------------------------------------------
-9. Spell   
+9. Spell
    Name: Spark_Needles
    Spell Type: Lighting Spell
    Price: 500
    Level: 2
    Damage: 600.0
 
-10. Spell   
+10. Spell
     Name: Thunder_Blast
     Spell Type: Lighting Spell
     Price: 750
     Level: 4
     Damage: 950.0
 
-11. Spell   
+11. Spell
     Name: Flame_Tornado
     Spell Type: Fire Spell
     Price: 700
     Level: 4
     Damage: 850.0
 
-12. Spell   
+12. Spell
     Name: Breath_of_Fire
     Spell Type: Fire Spell
     Price: 350
     Level: 1
     Damage: 450.0
 
-13. Spell   
+13. Spell
     Name: Frost_Blizzard
     Spell Type: Ice Spell
     Price: 750
@@ -781,35 +829,35 @@ Item Type: Armor Item
    Uses Left: 3
    Item Type: Spell Item
 -----------------------------------------------------------------
-9. Spell   
+9. Spell
    Name: Spark_Needles
    Spell Type: Lighting Spell
    Price: 500
    Level: 2
    Damage: 600.0
 
-10. Spell   
+10. Spell
     Name: Thunder_Blast
     Spell Type: Lighting Spell
     Price: 750
     Level: 4
     Damage: 950.0
 
-11. Spell   
+11. Spell
     Name: Flame_Tornado
     Spell Type: Fire Spell
     Price: 700
     Level: 4
     Damage: 850.0
 
-12. Spell   
+12. Spell
     Name: Breath_of_Fire
     Spell Type: Fire Spell
     Price: 350
     Level: 1
     Damage: 450.0
 
-13. Spell   
+13. Spell
     Name: Frost_Blizzard
     Spell Type: Ice Spell
     Price: 750
@@ -898,35 +946,35 @@ Item Type: Armor Item
    Uses Left: 3
    Item Type: Spell Item
 -----------------------------------------------------------------
-8. Spell   
+8. Spell
    Name: Spark_Needles
    Spell Type: Lighting Spell
    Price: 500
    Level: 2
    Damage: 600.0
 
-9. Spell   
+9. Spell
    Name: Thunder_Blast
    Spell Type: Lighting Spell
    Price: 750
    Level: 4
    Damage: 950.0
 
-10. Spell   
+10. Spell
     Name: Flame_Tornado
     Spell Type: Fire Spell
     Price: 700
     Level: 4
     Damage: 850.0
 
-11. Spell   
+11. Spell
     Name: Breath_of_Fire
     Spell Type: Fire Spell
     Price: 350
     Level: 1
     Damage: 450.0
 
-12. Spell   
+12. Spell
     Name: Frost_Blizzard
     Spell Type: Ice Spell
     Price: 750
@@ -957,7 +1005,7 @@ Output:
 5. Repair Item
    Please enter a number between 1 and 5.
 
-Input:   
+Input:
 3
 ```
    +---+---+---+---+---+---+
@@ -1035,7 +1083,7 @@ Item Type: Potion Item
 
 Item Type: Spell Item
 -----------------------------------------------------------------
-3. Spell   
+3. Spell
    Name: Ice_Blade
    Spell Type: Ice Spell
    Price: 250
@@ -1205,7 +1253,7 @@ Item Type: Potion Item
 
 Item Type: Spell Item
 -----------------------------------------------------------------
-3. Spell   
+3. Spell
    Name: Ice_Blade
    Spell Type: Ice Spell
    Price: 250
@@ -1260,7 +1308,7 @@ Item Type: Potion Item
 
 Item Type: Spell Item
 -----------------------------------------------------------------
-3. Spell   
+3. Spell
    Name: Ice_Blade
    Spell Type: Ice Spell
    Price: 250
