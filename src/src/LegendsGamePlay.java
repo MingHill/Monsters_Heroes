@@ -90,15 +90,7 @@ public class LegendsGamePlay implements GamePlay {
 
 
     private boolean moveAction(Hero hero) {
-	System.out.println("Which direction would you like to move?");
-	System.out.println("    1) Left");
-	System.out.println("    2) Right");
-	System.out.println("    3) Up");
-	System.out.println("    4) Down");
-
-	int input = Input.getInt(4);
-
-	return this.gameMap.moveHero(input, hero);
+	return this.gameMap.moveHero(Input.makeMove(), hero);
     }
 
 

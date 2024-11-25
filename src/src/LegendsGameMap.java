@@ -204,19 +204,19 @@ public class LegendsGameMap extends GameMap {
         Coordinate newCoord;
 
         switch (direction){
-            case 1: // left (A)
+            case 0: // left (A)
                 newRow = row;
                 newCol = col - 1;
                 break;
-            case 2: // right(D)
+            case 1: // right(D)
                 newRow = row;
                 newCol = col + 1;
                 break;
-            case 3: // up (W)
+            case 2: // up (W)
                 newRow = row - 1;
                 newCol = col;
                 break;
-            case 4: // down (S)
+            case 3: // down (S)
                 newRow = row + 1;
                 newCol = col;
                 break;
