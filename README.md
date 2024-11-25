@@ -1,4 +1,5 @@
 CS611 - Assignment 5
+-
 
 Legends of Valor
 
@@ -12,7 +13,8 @@ Files
 -
 This section should be all of the source code files that have a .java extension. You should also include a brief description of what the class does.
 
-Classes:
+**Classes:**
+
 - AllHeroCreator
   - This is a concrete HeroCreator that creates all heroes present in the text data files.
 - Announce
@@ -85,8 +87,8 @@ Classes:
 
 
 
-Interfaces
--
+**Interfaces:**
+
 - Equipable
   - Classes that implement these are Weapon and Armor. Has a setEquip function to equip and certain piece of armor or weapon
 - GamePlay
@@ -106,8 +108,8 @@ Interfaces
 - SpaceBonus
   - This interface is implemented by Legends of Valor space objects that modify a hero's stats when they enter/leave the space. Methods are applyBonus and removeBonus.
 
-Enums
--
+**Enums**
+
 - SpellType
   - Enums for each type of SpellType()
 - SpaceType
@@ -120,8 +122,9 @@ Enums
   - Enum for each type of hero. Used to alter stats when leveling up.
 
 
-**Notes**
-Design Patterns:
+Notes
+-
+**Design Patterns:**
 - Abstract Factory
   - GameFactory (LegendsGameFactory and MonsterGameFactory): we used an abstract factory to simplify initialization of each game. Since each game utilizes a lot of the same pieces (Party, GameMap, and GamePlay classes), but had different considerations for how those should be constructed and what concrete class they should be, we created a factory for each that would provide a single interface for creating all the pieces needed for each game. This meant that we could have variable party sizes in Monsters and Heroes, while having one hero for each lane in Legends of Valor and create the proper GameMap and GamePlay types in tandem with one another.
 - Factory
@@ -130,7 +133,7 @@ Design Patterns:
   - Interface: We adapted the Interface class to implement a Singleton design pattern to restrict the number of games that can be concurrently played to one. Nowhere in our code are we trying to initialize multiple games that could be run at the same time, but it future-proofs things by creating a layer of protection against initializing and playing multiple games, which would not function well with how we've implemented a text-based user input by writing to the console.
 
 
-Design Decisions:
+**Design Decisions:**
 One of our focuses as we adapted the code from Assignment 4 was on designing a solution that could be as modular and extensible as possible. The design patterns we implemented in this assignment are all steps in that direction, particularly the Factories and AbstractFactories being used to handle initialization of many of the key pieces of the game. By requiring a GameFactory to create a new instance of the game, it's easy to guarantee that future games with similar (but incompatible) classes are created accurately and coherently; by defining Factories to handle hero, item, and monster creation, we created an explicit accounting of how we're currently handling those processes. New factories can easily be created if future games require different creation logic, without disrupting the performance of either Monsters and Heroes or Legends of Valor. While it's likely that there are still pieces of extensibility that we've overlooked, we still think extensibility is one of the strenghts of our code.
 
 
@@ -141,7 +144,7 @@ javac -d out src/src/*.java
 
 java -cp out Main
 
-Input/Output Example
+**Input/Output Example**
 Please give us a full execution of what we should see on the screen. Label each text with input and output. For example:
 '''
 output:
