@@ -42,10 +42,6 @@ public class Interface {
         return instance;
     }
 
-    public static void destroyInstance() {
-	this.instance = null;
-    }
-
     public void runGame() throws IOException {
         while(true){
             System.out.println(gameMap);
@@ -54,8 +50,6 @@ public class Interface {
                 return;
             }
         }
-
-	destroyInstance();
     }
 
     public void resetInterface(){
