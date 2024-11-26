@@ -27,7 +27,7 @@ This section should be all of the source code files that have a .java extension.
 - Bush
   - Bush object that implements the SpaceBonus interface and extends from the commonspace. When a hero lands on it, will increase the heroes dexterity
 - Cave
-  - Cave object that implements the SpaceBonus interface and extends from the commonspace. When a hero lands on it, will increase the heroes agility 
+  - Cave object that implements the SpaceBonus interface and extends from the commonspace. When a hero lands on it, will increase the heroes agility
 - CommonSpace
   - Inherits the space class. Where a party can move to. Upon moving to a space tile, there is a 50% chance of meeting monsters
 - Coordinate
@@ -49,7 +49,7 @@ This section should be all of the source code files that have a .java extension.
 - Interface
   - Simple class to initiate party and gamemap and start the game.
 - Koulou
-  - Implements the spacebonus interface and extends commonspace. When a hero lands on it, will increase the strength of a hero 
+  - Implements the spacebonus interface and extends commonspace. When a hero lands on it, will increase the strength of a hero
 - LegendsGameFactory
   - This is a concrete Game Factory that handles creating a Party, LegendsGameMap, and LegendsGamePlay to be used in the Legends of Valor game.
 - LegendsGameMap
@@ -69,7 +69,7 @@ This section should be all of the source code files that have a .java extension.
 - MonsterGamePlay
   - Renamed from Assignment 4, this is the GamePlay for the Monsters and Heroes game.
 - Nexus
-  - Nexus represents the home base of the heroes and monster. Heroes can recall back to their respective nexus and the nexus acts as a marketplace for the heros. 
+  - Nexus represents the home base of the heroes and monster. Heroes can recall back to their respective nexus and the nexus acts as a marketplace for the heros.
 - Obstacle
   - A object that extends the Commonplace class and implements the removeable interface. Players must remove it first before being able to access the spot.
 - Party
@@ -134,6 +134,8 @@ Notes
 
 
 **Design Decisions:**
+We chose Ming's implementation to use as a base, since it was more feature-complete and had some additional features that made extension easier, including the enumerations for space types and item types. While a hybrid approach would have been beneficial in some ways, the added work of grafting on advantageous code from Tanner's solution was not worth the added effort, though as we created our solution for Legends of Valor we focused on improving extensibility throughout the code base.
+
 One of our focuses as we adapted the code from Assignment 4 was on designing a solution that could be as modular and extensible as possible. The design patterns we implemented in this assignment are all steps in that direction, particularly the Factories and AbstractFactories being used to handle initialization of many of the key pieces of the game. By requiring a GameFactory to create a new instance of the game, it's easy to guarantee that future games with similar (but incompatible) classes are created accurately and coherently; by defining Factories to handle hero, item, and monster creation, we created an explicit accounting of how we're currently handling those processes. New factories can easily be created if future games require different creation logic, without disrupting the performance of either Monsters and Heroes or Legends of Valor. While it's likely that there are still pieces of extensibility that we've overlooked, we still think extensibility is one of the strenghts of our code.
 
 
@@ -157,13 +159,13 @@ Which game would you like to play:
 1
 
 
-Output: 
+Output:
 █▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄
 █ █ █ █   █     █    █     ▀▄ ▀▀▀ █    █▀   ▀  █  ▄▀  █     ▀▄     █ █      █  █  █      █   █ █▀   ▀  █  ▄▀ █   █ █▀   ▀   █     ▀▄
-█ ▄ █ █   █ ██   █ ▄  ▀▀▀▀▄       █    ██▄▄    █▀▀▌ ▄  ▀▀▀▀▄       █▄▄█ ██   █ █   █     ██▀▀█ ██▄▄    █▀▀▌  █   █ ██▄▄   ▄  ▀▀▀▀▄   
-█   █ ▀████ █ █  █  ▀▄▄▄▄▀       █     █▄   ▄▀ █  █  ▀▄▄▄▄▀        █  █ █ █  █ █  █      █   █ █▄   ▄▀ █  █  ▀████ █▄   ▄▀ ▀▄▄▄▄▀    
-█        █  █ █              ▀      ▀███▀     █                    █ █  █ █ ███▀         █  ▀███▀     █         ▀███▀             
-▀         █   ██                              ▀                    █  █   ██             ▀            ▀                            
+█ ▄ █ █   █ ██   █ ▄  ▀▀▀▀▄       █    ██▄▄    █▀▀▌ ▄  ▀▀▀▀▄       █▄▄█ ██   █ █   █     ██▀▀█ ██▄▄    █▀▀▌  █   █ ██▄▄   ▄  ▀▀▀▀▄
+█   █ ▀████ █ █  █  ▀▄▄▄▄▀       █     █▄   ▄▀ █  █  ▀▄▄▄▄▀        █  █ █ █  █ █  █      █   █ █▄   ▄▀ █  █  ▀████ █▄   ▄▀ ▀▄▄▄▄▀
+█        █  █ █              ▀      ▀███▀     █                    █ █  █ █ ███▀         █  ▀███▀     █         ▀███▀
+▀         █   ██                              ▀                    █  █   ██             ▀            ▀
 ▀
 The rules of the game are fairly simple.
 The monsters and heroes live in a fictional world. They do not get along and therefore fight each other.
@@ -180,10 +182,10 @@ During each move you have the option to:
 • Equip a weapon or piece of armor
 How many heroes would you like to use (1 - 3):
 
-Input: 
+Input:
 1
 
-Output: 
+Output:
 1: Name: Parzival
 Hero Type: PAL
 Level: 7
@@ -348,7 +350,7 @@ Dexterity: 500.0
 
 To select the hero, please enter a number between 1 and 18:
 
-Input: 
+Input:
 1
 
 Output:
@@ -358,7 +360,7 @@ How big would you like the game map to be (6 - 12):
 Input:
 6
 
-Output: 
+Output:
 
 
 +---+---+---+---+---+---+
@@ -420,7 +422,7 @@ Input 1 to view the menu or 2 to leave the market:
 Input:
 2
 
-Output: 
+Output:
 +---+---+---+---+---+---+
 |   | M | M |   |   | M |
 +---+---+---+---+---+---+
@@ -663,11 +665,11 @@ Output:
 Input:
 2
 
-    __                              __              ____   _    __      __              
-/ /   ___  ____ ____  ____  ____/ /____   ____  / __/  | |  / /___ _/ /___  _____    
-/ /   / _ \/ __ `/ _ \/ __ \/ __  / ___/  / __ \/ /_    | | / / __ `/ / __ \/ ___/    
-/ /___/  __/ /_/ /  __/ / / / /_/ (__  )  / /_/ / __/    | |/ / /_/ / / /_/ / /        
-/_____/\___/\__, /\___/_/ /_/\__,_/____/   \____/_/       |___/\__,_/_/\____/_/         
+    __                              __              ____   _    __      __
+/ /   ___  ____ ____  ____  ____/ /____   ____  / __/  | |  / /___ _/ /___  _____
+/ /   / _ \/ __ `/ _ \/ __ \/ __  / ___/  / __ \/ /_    | | / / __ `/ / __ \/ ___/
+/ /___/  __/ /_/ /  __/ / / / /_/ (__  )  / /_/ / __/    | |/ / /_/ / / /_/ / /
+/_____/\___/\__, /\___/_/ /_/\__,_/____/   \____/_/       |___/\__,_/_/\____/_/
 /____/
 
 Legends of Valor is a MOBA (multiplayer online battle arena)-like game. The player will control
@@ -842,7 +844,7 @@ Dexterity: 500.0
 
 To select the hero, please enter a number between 1 and 18:
 
-Input: 
+Input:
 1
 
 Output:
@@ -861,36 +863,36 @@ Input:
 
 Output:
 You have selected Skoraeus_Stonebones
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -916,10 +918,10 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 1
 
-Output: 
+Output:
 Make a move:
 W (up)
 S (down)
@@ -931,36 +933,36 @@ Input:
 s
 
 Output:
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -986,7 +988,7 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 1
 
 Output:
@@ -1001,36 +1003,36 @@ Input:
 s
 
 Output:
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1067,41 +1069,41 @@ A (left)
 D (right)
 Q (quit)
 
-Input: 
+Input:
 s
 
-Output: 
+Output:
 Skoraeus_Stonebones has increased agility to 660.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1115,36 +1117,36 @@ MANA: 330.0
 Skoraeus_Stonebones has regenerated.
 HP: 440.0
 MANA: 275.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1173,7 +1175,7 @@ Enter a number between 1 and 9.
 Input:
 1
 
-Output: 
+Output:
 Make a move:
 W (up)
 S (down)
@@ -1181,40 +1183,40 @@ A (left)
 D (right)
 Q (quit)
 
-Input: 
+Input:
 s
 
 Output:
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1240,7 +1242,7 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 1
 
 Output:
@@ -1251,40 +1253,40 @@ A (left)
 D (right)
 Q (quit)
 
-Input: 
+Input:
 s
 
-Output; 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+Output;
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1310,17 +1312,17 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 6
 
-Output: 
+Output:
 Available heroes to teleport to:
 1. H2
 2. H3
 3. H1
    Which hero would you like to teleport to? Enter the number:
 
-Input: 
+Input:
    1
 
 Output:
@@ -1334,36 +1336,36 @@ Input:
 Output:
    Skoraeus_Stonebones has increased agility to 600.0
    Skoraeus_Stonebones has increased dexterity to 385.0
-   N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-   |       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+   N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+   |       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
    N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |    H1 |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |    H1 |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1377,36 +1379,36 @@ MANA: 363.0
 Skoraeus_Stonebones has regenerated.
 HP: 484.0
 MANA: 302.5
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |    H1 |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |    H1 |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1432,7 +1434,7 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 1
 
 Output:
@@ -1446,38 +1448,38 @@ Q (quit)
 Input:
 s
 
-Output: 
+Output:
 Parzival has increased strength to 825.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1503,10 +1505,10 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 1
 
-Output: 
+Output:
 Make a move:
 W (up)
 S (down)
@@ -1514,41 +1516,41 @@ A (left)
 D (right)
 Q (quit)
 
-Input: 
+Input:
 s
 
-Output: 
+Output:
 Sehanine_Moonbow has increased dexterity to 770.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1574,10 +1576,10 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 1
 
-Output: 
+Output:
 Make a move:
 W (up)
 S (down)
@@ -1588,38 +1590,38 @@ Q (quit)
 Input:
 s
 
-Output: 
+Output:
 Skoraeus_Stonebones has removed a obstacle
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1633,36 +1635,36 @@ MANA: 399.30002
 Skoraeus_Stonebones has regenerated.
 HP: 532.4
 MANA: 332.75
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1688,7 +1690,7 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 2
 
 Output:
@@ -1696,42 +1698,42 @@ Which monster would you like to attack?
 1: M1 Chronepsish
 Enter a number between 1 and 1.
 
-Input: 
+Input:
 1
 
-Output: 
+Output:
 Parzival attacked Chronepsish for 825.0 damage
 Parzival has killed Chronepsish
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1771,36 +1773,36 @@ Input:
 Output:
 Sehanine_Moonbow attacked Cyrrollalee for 750.0 damage
 Sehanine_Moonbow has killed Cyrrollalee
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1831,36 +1833,36 @@ Input:
 
 Output:
 Skoraeus_Stonebones has increased dexterity to 350.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1874,36 +1876,36 @@ MANA: 439.23004
 Skoraeus_Stonebones has regenerated.
 HP: 585.64
 MANA: 366.025
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -1929,7 +1931,7 @@ What action would you like to take?
 9) Exit
 Enter a number between 1 and 9.
 
-Input: 
+Input:
 1
 
 Output:
@@ -1940,41 +1942,41 @@ A (left)
 D (right)
 Q (quit)
 
-Input: 
+Input:
 s
 
 Output:
 Parzival has increased strength to 750.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2017,36 +2019,36 @@ s
 Output:
 Sehanine_Moonbow has increased dexterity to 700.0
 Sehanine_Moonbow has increased agility to 770.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  | M3    |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2075,7 +2077,7 @@ Enter a number between 1 and 9.
 Input:
 1
 
-Output: 
+Output:
 Make a move:
 W (up)
 S (down)
@@ -2086,38 +2088,38 @@ Q (quit)
 Input:
 s
 
-Output: 
+Output:
 Skoraeus_Stonebones has increased agility to 660.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  | M3    |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2131,36 +2133,36 @@ MANA: 483.15305
 Skoraeus_Stonebones has regenerated.
 HP: 644.20404
 MANA: 402.6275
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2201,36 +2203,36 @@ Input:
 s
 
 Output:
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2272,36 +2274,36 @@ s
 
 Output:
 Sehanine_Moonbow has increased agility to 700.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2344,36 +2346,36 @@ s
 Output:
 Skoraeus_Stonebones has increased agility to 600.0
 Skoraeus_Stonebones has increased strength to 715.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2389,36 +2391,36 @@ Skoraeus_Stonebones has regenerated.
 HP: 49.66946
 MANA: 442.89026
 A new wave of monsters has spawned!
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2460,36 +2462,36 @@ s
 
 Output:
 Parzival has removed a obstacle
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2530,36 +2532,36 @@ Input:
 s
 
 Output:
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2601,36 +2603,36 @@ s
 
 Output:
 Skoraeus_Stonebones has increased strength to 650.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3 H3 |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3 H3 |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2649,36 +2651,36 @@ Skoraeus_Stonebones has increased health to -149.38055
 Skoraeus_Stonebones has been respawned.
 HP: -149.38055
 MANA: 250.0
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M4    |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M4    |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | | M6    |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2717,36 +2719,36 @@ Input:
 
 Output:
 Parzival attacked Kiaransalee for 750.0 damage
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M4    |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M4    |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | | M6    |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2787,36 +2789,36 @@ Input:
 s
 
 Output:
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M4    |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M4    |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | | M6    |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | | M5    |  |    H2 |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | | M5    |  |    H2 |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
@@ -2860,36 +2862,36 @@ Output:
 Skoraeus_Stonebones has increased agility to 660.0
 
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
-K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |
 K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
 
-O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |
 O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
-|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
 
-B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
-|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |
 B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
 
-C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
-| M4    |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+| M4    |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | | M6    |  |       |
 C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
 
-N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
-|       |  |       |  | XXXXXX | | M5    |  |    H2 |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+|       |  |       |  | XXXXXX | | M5    |  |    H2 |  | XXXXXX | |       |  |       |
 N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
 
 
