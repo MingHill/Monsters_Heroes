@@ -42,6 +42,7 @@ public class Interface {
         return instance;
     }
 
+
     public void runGame() throws IOException {
         while(true){
             System.out.println(gameMap);
