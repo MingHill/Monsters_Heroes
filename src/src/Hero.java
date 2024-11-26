@@ -70,6 +70,10 @@ public class Hero implements Space {
         this.checkLevelUp();
     }
 
+    public static void resetNumHeros(){
+        numHeroes = 0;
+    }
+
     public void setCoordinate(Coordinate coord) {
         this.coordinate = coord;
     }

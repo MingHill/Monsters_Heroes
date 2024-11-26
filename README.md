@@ -147,13 +147,23 @@ java -cp out Main
 **Input/Output Example**
 Please give us a full execution of what we should see on the screen. Label each text with input and output. For example:
 '''
-output:
+/opt/homebrew/Cellar/openjdk/22.0.2/libexec/openjdk.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=58910:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/minghill/Desktop/BU/CS611/Assignments /Monsters_Heroes/out/production/src Main
+Welcome to Ming and Tanner's Island
+```
+Which game would you like to play:
+1. Monsters and Heroes
+2. Legends of Valor
+
+1
+
+
+Output: 
 █▀▄▀█ ████▄    ▄      ▄▄▄▄▄      ▄▄▄▄▀ ▄███▄   █▄▄▄▄   ▄▄▄▄▄       ██      ▄   ██▄        ▄  █ ▄███▄   █▄▄▄▄ ████▄ ▄███▄     ▄▄▄▄▄
 █ █ █ █   █     █    █     ▀▄ ▀▀▀ █    █▀   ▀  █  ▄▀  █     ▀▄     █ █      █  █  █      █   █ █▀   ▀  █  ▄▀ █   █ █▀   ▀   █     ▀▄
-█ ▄ █ █   █ ██   █ ▄  ▀▀▀▀▄       █    ██▄▄    █▀▀▌ ▄  ▀▀▀▀▄       █▄▄█ ██   █ █   █     ██▀▀█ ██▄▄    █▀▀▌  █   █ ██▄▄   ▄  ▀▀▀▀▄
-█   █ ▀████ █ █  █  ▀▄▄▄▄▀       █     █▄   ▄▀ █  █  ▀▄▄▄▄▀        █  █ █ █  █ █  █      █   █ █▄   ▄▀ █  █  ▀████ █▄   ▄▀ ▀▄▄▄▄▀
-█        █  █ █              ▀      ▀███▀     █                    █ █  █ █ ███▀         █  ▀███▀     █         ▀███▀
-▀         █   ██                              ▀                    █  █   ██             ▀            ▀
+█ ▄ █ █   █ ██   █ ▄  ▀▀▀▀▄       █    ██▄▄    █▀▀▌ ▄  ▀▀▀▀▄       █▄▄█ ██   █ █   █     ██▀▀█ ██▄▄    █▀▀▌  █   █ ██▄▄   ▄  ▀▀▀▀▄   
+█   █ ▀████ █ █  █  ▀▄▄▄▄▀       █     █▄   ▄▀ █  █  ▀▄▄▄▄▀        █  █ █ █  █ █  █      █   █ █▄   ▄▀ █  █  ▀████ █▄   ▄▀ ▀▄▄▄▄▀    
+█        █  █ █              ▀      ▀███▀     █                    █ █  █ █ ███▀         █  ▀███▀     █         ▀███▀             
+▀         █   ██                              ▀                    █  █   ██             ▀            ▀                            
 ▀
 The rules of the game are fairly simple.
 The monsters and heroes live in a fictional world. They do not get along and therefore fight each other.
@@ -170,16 +180,10 @@ During each move you have the option to:
 • Equip a weapon or piece of armor
 How many heroes would you like to use (1 - 3):
 
-Input:
+Input: 
 1
 
-Output:
-How big would you like the game map to be (6 - 12):
-
-Input:
-6
-
-Output:
+Output: 
 1: Name: Parzival
 Hero Type: PAL
 Level: 7
@@ -342,28 +346,35 @@ Strength: 700.0
 Agility: 400.0
 Dexterity: 500.0
 
-To select the hero, please enter a number between 1 and 18 (inclusive):
+To select the hero, please enter a number between 1 and 18:
 
-Input:
+Input: 
 1
 
 Output:
 You have selected Parzival
-```
+How big would you like the game map to be (6 - 12):
+
+Input:
+6
+
+Output: 
+
+
 +---+---+---+---+---+---+
-| P | ~ |   | ~ | ~ |   |
+| P | M | M |   |   | M |
++---+---+---+---+---+---+
+|   | ~ | M |   |   | M |
++---+---+---+---+---+---+
+| M |   |   |   |   | M |
 +---+---+---+---+---+---+
 |   |   |   |   |   |   |
 +---+---+---+---+---+---+
-|   | M |   |   |   |   |
+|   |   |   | ~ |   |   |
 +---+---+---+---+---+---+
-|   |   |   | M |   | M |
+|   | M |   | M |   |   |
 +---+---+---+---+---+---+
-|   |   |   |   |   |   |
-+---+---+---+---+---+---+
-| ~ | ~ | M |   | M |   |
-+---+---+---+---+---+---+
-```
+
 
 Make a move:
 W (up)
@@ -376,82 +387,21 @@ Input:
 s
 
 Output:
-You have encountered some monsters and must battle them!
-1. Monster name: Ereshkigall
-   Level: 6
-   Health: 600
-   Damage: 950
-   Dodgechange:   35
-   Defense:   450
 
-
-It is now Parzival's turn
-Stats:
-Name: Parzival
-Hero Type: PAL
-Level: 7
-Health: 700.0
-Mana: 300.0
-Strength: 750.0
-Agility: 650.0
-Dexterity: 700.0
-Would you like to view the current hero's inventory:
-1. Yes  ||  Any other value: No
-
-Input:
-1
-
-Output:
-   Parzival's Inventory:
-
-Which move would you like to make:
-1. Attack a monster
-2. Cast a spell
-3. Use a potion
-4. Equip armor or weapon
-Please input your choice (1 - 4):
-
-Input:
-1
-
-Output:
-Parzivaldoes not currently have a weapon equipped, hopefully you're strong enough to slay these monsters with your bare hands
-1. Monster name: Ereshkigall
-   Level: 6
-   Health: 600
-   Damage: 950
-   Dodgechange:   35
-   Defense:   450
-
-
-Which monster would you like to attack? Please select a monster that is still alive (1 - 1):
-
-Input:
-1
-
-Output:
-Parzival attacked Ereshkigall for 750.0 damage
-Parzival has killed Ereshkigall
-Congratulations! Your party has slain all the monsters!!
-Parzival has gained 600 gold and 3 exp.
-Parzival's total are now:
-Gold: 600
-Experience: 3
-```
 +---+---+---+---+---+---+
-|   | ~ |   | ~ | ~ |   |
+|   | M | M |   |   | M |
 +---+---+---+---+---+---+
-| P |   |   |   |   |   |
+| P | ~ | M |   |   | M |
 +---+---+---+---+---+---+
-|   | M |   |   |   |   |
-+---+---+---+---+---+---+
-|   |   |   | M |   | M |
+| M |   |   |   |   | M |
 +---+---+---+---+---+---+
 |   |   |   |   |   |   |
 +---+---+---+---+---+---+
-| ~ | ~ | M |   | M |   |
+|   |   |   | ~ |   |   |
 +---+---+---+---+---+---+
-```
+|   | M |   | M |   |   |
++---+---+---+---+---+---+
+
 
 Make a move:
 W (up)
@@ -464,21 +414,27 @@ Input:
 s
 
 Output:
-```
+You have entered a market, would you like to purchase any items?
+Input 1 to view the menu or 2 to leave the market:
+
+Input:
+2
+
+Output: 
 +---+---+---+---+---+---+
-|   | ~ |   | ~ | ~ |   |
+|   | M | M |   |   | M |
++---+---+---+---+---+---+
+|   | ~ | M |   |   | M |
++---+---+---+---+---+---+
+| P |   |   |   |   | M |
 +---+---+---+---+---+---+
 |   |   |   |   |   |   |
 +---+---+---+---+---+---+
-| P | M |   |   |   |   |
+|   |   |   | ~ |   |   |
 +---+---+---+---+---+---+
-|   |   |   | M |   | M |
+|   | M |   | M |   |   |
 +---+---+---+---+---+---+
-|   |   |   |   |   |   |
-+---+---+---+---+---+---+
-| ~ | ~ | M |   | M |   |
-+---+---+---+---+---+---+
-```
+
 Make a move:
 W (up)
 S (down)
@@ -490,546 +446,19 @@ Input:
 d
 
 Output:
-You have entered a market, would you like to purchase any items?
-Input 1 to view the menu or 2 to leave the market:
-
-Input:
-1
-
-Output:
-Parzival
-Would you like to:
-1. Sell
-2. Buy
-3. Leave
-4. View Inventory
-5. Repair Item
-Please enter a number between 1 and 5.
-
-Input:
-2
-
-Output:
-   Parzival, you currently have:
-   Gold: 3100
-   Level: 7
-   Item Type: Weapon Item
------------------------------------------------------------------
-1. Weapon:
-   Name: Sword
-   Price: 500
-   Level: 1
-   Damage: 800
-   Number of Hands Required: 1
-   Equiped: false
-   Uses Left: 4
-
-2. Weapon:
-   Name: TSwords
-   Price: 1400
-   Level: 8
-   Damage: 1600
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-3. Weapon:
-   Name: Scythe
-   Price: 1000
-   Level: 6
-   Damage: 1100
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-Item Type: Potion Item
------------------------------------------------------------------
-4. Potion
-   Name: Ambrosia
-   Potion Type: Ambrosia Potion
-   Price: 1000
-   Level: 8
-   Effect Amount: 150.0
-
-5. Potion
-   Name: Healing_Potion
-   Potion Type: Health Potion
-   Price: 250
-   Level: 1
-   Effect Amount: 100.0
-
-6. Potion
-   Name: Luck_Elixir
-   Potion Type: Agility Potion
-   Price: 500
-   Level: 4
-   Effect Amount: 65.0
-
-Item Type: Armor Item
------------------------------------------------------------------
-7. Armor
-   Name: Wizard_Shield
-   Price: 1200
-   Level: 10
-   Damage Reduction: 1500.0
-   Equiped: false
-   Uses Left: 3
-8. Armor
-   Name: Full_Body_Armor
-   Price: 1000
-   Level: 8
-   Damage Reduction: 1100.0
-   Equiped: false
-   Uses Left: 3
-   Item Type: Spell Item
------------------------------------------------------------------
-9. Spell
-   Name: Spark_Needles
-   Spell Type: Lighting Spell
-   Price: 500
-   Level: 2
-   Damage: 600.0
-
-10. Spell
-    Name: Thunder_Blast
-    Spell Type: Lighting Spell
-    Price: 750
-    Level: 4
-    Damage: 950.0
-
-11. Spell
-    Name: Flame_Tornado
-    Spell Type: Fire Spell
-    Price: 700
-    Level: 4
-    Damage: 850.0
-
-12. Spell
-    Name: Breath_of_Fire
-    Spell Type: Fire Spell
-    Price: 350
-    Level: 1
-    Damage: 450.0
-
-13. Spell
-    Name: Ice_Blade
-    Spell Type: Ice Spell
-    Price: 250
-    Level: 1
-    Damage: 450.0
-
-14. Spell
-    Name: Frost_Blizzard
-    Spell Type: Ice Spell
-    Price: 750
-    Level: 5
-    Damage: 850.0
-
-To select the item, please enter the number displayed next to the item or input any other integer to exit out
-
-Input:
-13
-
-Output:
-Parzival has been purchased Ice_Blade for 250
-Parzival now has 2850 gold
-Would you like to buy another item?
-1. Yes
-2. No
-
-Input:
-1
-
-Output:
-   Parzival, you currently have:
-   Gold: 2850
-   Level: 7
-   Item Type: Weapon Item
------------------------------------------------------------------
-1. Weapon:
-   Name: Sword
-   Price: 500
-   Level: 1
-   Damage: 800
-   Number of Hands Required: 1
-   Equiped: false
-   Uses Left: 4
-
-2. Weapon:
-   Name: TSwords
-   Price: 1400
-   Level: 8
-   Damage: 1600
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-3. Weapon:
-   Name: Scythe
-   Price: 1000
-   Level: 6
-   Damage: 1100
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-Item Type: Potion Item
------------------------------------------------------------------
-4. Potion
-   Name: Ambrosia
-   Potion Type: Ambrosia Potion
-   Price: 1000
-   Level: 8
-   Effect Amount: 150.0
-
-5. Potion
-   Name: Healing_Potion
-   Potion Type: Health Potion
-   Price: 250
-   Level: 1
-   Effect Amount: 100.0
-
-6. Potion
-   Name: Luck_Elixir
-   Potion Type: Agility Potion
-   Price: 500
-   Level: 4
-   Effect Amount: 65.0
-
-Item Type: Armor Item
------------------------------------------------------------------
-7. Armor
-   Name: Wizard_Shield
-   Price: 1200
-   Level: 10
-   Damage Reduction: 1500.0
-   Equiped: false
-   Uses Left: 3
-8. Armor
-   Name: Full_Body_Armor
-   Price: 1000
-   Level: 8
-   Damage Reduction: 1100.0
-   Equiped: false
-   Uses Left: 3
-   Item Type: Spell Item
------------------------------------------------------------------
-9. Spell
-   Name: Spark_Needles
-   Spell Type: Lighting Spell
-   Price: 500
-   Level: 2
-   Damage: 600.0
-
-10. Spell
-    Name: Thunder_Blast
-    Spell Type: Lighting Spell
-    Price: 750
-    Level: 4
-    Damage: 950.0
-
-11. Spell
-    Name: Flame_Tornado
-    Spell Type: Fire Spell
-    Price: 700
-    Level: 4
-    Damage: 850.0
-
-12. Spell
-    Name: Breath_of_Fire
-    Spell Type: Fire Spell
-    Price: 350
-    Level: 1
-    Damage: 450.0
-
-13. Spell
-    Name: Frost_Blizzard
-    Spell Type: Ice Spell
-    Price: 750
-    Level: 5
-    Damage: 850.0
-
-To select the item, please enter the number displayed next to the item or input any other integer to exit out
-
-Input:
-7
-
-Output:
-You're level is not high enough to purchase this item
-Would you like to buy another item?
-1. Yes
-2. No
-
-Input:
-1
-
-Output:
-   Parzival, you currently have:
-   Gold: 2850
-   Level: 7
-   Item Type: Weapon Item
------------------------------------------------------------------
-1. Weapon:
-   Name: Sword
-   Price: 500
-   Level: 1
-   Damage: 800
-   Number of Hands Required: 1
-   Equiped: false
-   Uses Left: 4
-
-2. Weapon:
-   Name: TSwords
-   Price: 1400
-   Level: 8
-   Damage: 1600
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-3. Weapon:
-   Name: Scythe
-   Price: 1000
-   Level: 6
-   Damage: 1100
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-Item Type: Potion Item
------------------------------------------------------------------
-4. Potion
-   Name: Ambrosia
-   Potion Type: Ambrosia Potion
-   Price: 1000
-   Level: 8
-   Effect Amount: 150.0
-
-5. Potion
-   Name: Healing_Potion
-   Potion Type: Health Potion
-   Price: 250
-   Level: 1
-   Effect Amount: 100.0
-
-6. Potion
-   Name: Luck_Elixir
-   Potion Type: Agility Potion
-   Price: 500
-   Level: 4
-   Effect Amount: 65.0
-
-Item Type: Armor Item
------------------------------------------------------------------
-7. Armor
-   Name: Wizard_Shield
-   Price: 1200
-   Level: 10
-   Damage Reduction: 1500.0
-   Equiped: false
-   Uses Left: 3
-8. Armor
-   Name: Full_Body_Armor
-   Price: 1000
-   Level: 8
-   Damage Reduction: 1100.0
-   Equiped: false
-   Uses Left: 3
-   Item Type: Spell Item
------------------------------------------------------------------
-9. Spell
-   Name: Spark_Needles
-   Spell Type: Lighting Spell
-   Price: 500
-   Level: 2
-   Damage: 600.0
-
-10. Spell
-    Name: Thunder_Blast
-    Spell Type: Lighting Spell
-    Price: 750
-    Level: 4
-    Damage: 950.0
-
-11. Spell
-    Name: Flame_Tornado
-    Spell Type: Fire Spell
-    Price: 700
-    Level: 4
-    Damage: 850.0
-
-12. Spell
-    Name: Breath_of_Fire
-    Spell Type: Fire Spell
-    Price: 350
-    Level: 1
-    Damage: 450.0
-
-13. Spell
-    Name: Frost_Blizzard
-    Spell Type: Ice Spell
-    Price: 750
-    Level: 5
-    Damage: 850.0
-
-To select the item, please enter the number displayed next to the item or input any other integer to exit out
-
-Input:
-5
-
-Output:
-Parzival has been purchased Healing_Potion for 250
-Parzival now has 2600 gold
-Would you like to buy another item?
-1. Yes
-2. No
-
-Input:
-   1
-
-Output:
-   Parzival, you currently have:
-   Gold: 2600
-   Level: 7
-   Item Type: Weapon Item
------------------------------------------------------------------
-1. Weapon:
-   Name: Sword
-   Price: 500
-   Level: 1
-   Damage: 800
-   Number of Hands Required: 1
-   Equiped: false
-   Uses Left: 4
-
-2. Weapon:
-   Name: TSwords
-   Price: 1400
-   Level: 8
-   Damage: 1600
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-3. Weapon:
-   Name: Scythe
-   Price: 1000
-   Level: 6
-   Damage: 1100
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-Item Type: Potion Item
------------------------------------------------------------------
-4. Potion
-   Name: Ambrosia
-   Potion Type: Ambrosia Potion
-   Price: 1000
-   Level: 8
-   Effect Amount: 150.0
-
-5. Potion
-   Name: Luck_Elixir
-   Potion Type: Agility Potion
-   Price: 500
-   Level: 4
-   Effect Amount: 65.0
-
-Item Type: Armor Item
------------------------------------------------------------------
-6. Armor
-   Name: Wizard_Shield
-   Price: 1200
-   Level: 10
-   Damage Reduction: 1500.0
-   Equiped: false
-   Uses Left: 3
-7. Armor
-   Name: Full_Body_Armor
-   Price: 1000
-   Level: 8
-   Damage Reduction: 1100.0
-   Equiped: false
-   Uses Left: 3
-   Item Type: Spell Item
------------------------------------------------------------------
-8. Spell
-   Name: Spark_Needles
-   Spell Type: Lighting Spell
-   Price: 500
-   Level: 2
-   Damage: 600.0
-
-9. Spell
-   Name: Thunder_Blast
-   Spell Type: Lighting Spell
-   Price: 750
-   Level: 4
-   Damage: 950.0
-
-10. Spell
-    Name: Flame_Tornado
-    Spell Type: Fire Spell
-    Price: 700
-    Level: 4
-    Damage: 850.0
-
-11. Spell
-    Name: Breath_of_Fire
-    Spell Type: Fire Spell
-    Price: 350
-    Level: 1
-    Damage: 450.0
-
-12. Spell
-    Name: Frost_Blizzard
-    Spell Type: Ice Spell
-    Price: 750
-    Level: 5
-    Damage: 850.0
-
-To select the item, please enter the number displayed next to the item or input any other integer to exit out
-
-Input:
-3
-
-Output:
-Parzival has been purchased Scythe for 1000
-Parzival now has 1600 gold
-Would you like to buy another item?
-1. Yes
-2. No
-
-Input:
-   2
-
-Output:
-   Would you like to:
-1. Sell
-2. Buy
-3. Leave
-4. View Inventory
-5. Repair Item
-   Please enter a number between 1 and 5.
-
-Input:
-3
-```
-   +---+---+---+---+---+---+
-   |   | ~ |   | ~ | ~ |   |
-   +---+---+---+---+---+---+
-   |   |   |   |   |   |   |
-   +---+---+---+---+---+---+
-   |   | P |   |   |   |   |
-   +---+---+---+---+---+---+
-   |   |   |   | M |   | M |
-   +---+---+---+---+---+---+
-   |   |   |   |   |   |   |
-   +---+---+---+---+---+---+
-   | ~ | ~ | M |   | M |   |
-   +---+---+---+---+---+---+
-```
++---+---+---+---+---+---+
+|   | M | M |   |   | M |
++---+---+---+---+---+---+
+|   | ~ | M |   |   | M |
++---+---+---+---+---+---+
+| M | P |   |   |   | M |
++---+---+---+---+---+---+
+|   |   |   |   |   |   |
++---+---+---+---+---+---+
+|   |   |   | ~ |   |   |
++---+---+---+---+---+---+
+|   | M |   | M |   |   |
++---+---+---+---+---+---+
 
 Make a move:
 W (up)
@@ -1039,16 +468,41 @@ D (right)
 Q (quit)
 
 Input:
-s
+d
+
+Output:
++---+---+---+---+---+---+
+|   | M | M |   |   | M |
++---+---+---+---+---+---+
+|   | ~ | M |   |   | M |
++---+---+---+---+---+---+
+| M |   | P |   |   | M |
++---+---+---+---+---+---+
+|   |   |   |   |   |   |
++---+---+---+---+---+---+
+|   |   |   | ~ |   |   |
++---+---+---+---+---+---+
+|   | M |   | M |   |   |
++---+---+---+---+---+---+
+
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+d
 
 Output:
 You have encountered some monsters and must battle them!
-1. Monster name: DocOck
+1. Monster name: Igneel
    Level: 6
    Health: 600
    Damage: 600
-   Dodgechange:   55
-   Defense:   600
+   Dodgechange:   60
+   Defense:   400
 
 
 It is now Parzival's turn
@@ -1065,39 +519,10 @@ Would you like to view the current hero's inventory:
 1. Yes  ||  Any other value: No
 
 Input:
-1
+   1
 
 Output:
    Parzival's Inventory:
-   Item Type: Weapon Item
------------------------------------------------------------------
-1. Weapon:
-   Name: Scythe
-   Price: 1000
-   Level: 6
-   Damage: 1100
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-Item Type: Potion Item
------------------------------------------------------------------
-2. Potion
-   Name: Healing_Potion
-   Potion Type: Health Potion
-   Price: 250
-   Level: 1
-   Effect Amount: 100.0
-
-Item Type: Spell Item
------------------------------------------------------------------
-3. Spell
-   Name: Ice_Blade
-   Spell Type: Ice Spell
-   Price: 250
-   Level: 1
-   Damage: 450.0
-
 
 Which move would you like to make:
 1. Attack a monster
@@ -1111,12 +536,12 @@ Input:
 
 Output:
 Parzivaldoes not currently have a weapon equipped, hopefully you're strong enough to slay these monsters with your bare hands
-1. Monster name: DocOck
+1. Monster name: Igneel
    Level: 6
    Health: 600
    Damage: 600
-   Dodgechange:   55
-   Defense:   600
+   Dodgechange:   60
+   Defense:   400
 
 
 Which monster would you like to attack? Please select a monster that is still alive (1 - 1):
@@ -1125,82 +550,27 @@ Input:
 1
 
 Output:
-Parzival attacked DocOck for 750.0 damage
-Parzival has killed DocOck
+Parzival attacked Igneel for 750.0 damage
+Parzival has killed Igneel
 Congratulations! Your party has slain all the monsters!!
 Parzival has gained 600 gold and 3 exp.
 Parzival's total are now:
 Gold: 600
 Experience: 3
-```
 +---+---+---+---+---+---+
-|   | ~ |   | ~ | ~ |   |
+|   | M | M |   |   | M |
 +---+---+---+---+---+---+
-|   |   |   |   |   |   |
+|   | ~ | M |   |   | M |
 +---+---+---+---+---+---+
-|   | M |   |   |   |   |
-+---+---+---+---+---+---+
-|   | P |   | M |   | M |
+| M |   |   | P |   | M |
 +---+---+---+---+---+---+
 |   |   |   |   |   |   |
 +---+---+---+---+---+---+
-| ~ | ~ | M |   | M |   |
+|   |   |   | ~ |   |   |
 +---+---+---+---+---+---+
-```
+|   | M |   | M |   |   |
++---+---+---+---+---+---+
 
-Make a move:
-W (up)
-S (down)
-A (left)
-D (right)
-Q (quit)
-
-Input:
-s
-
-Output:
-```
-+---+---+---+---+---+---+
-|   | ~ |   | ~ | ~ |   |
-+---+---+---+---+---+---+
-|   |   |   |   |   |   |
-+---+---+---+---+---+---+
-|   | M |   |   |   |   |
-+---+---+---+---+---+---+
-|   |   |   | M |   | M |
-+---+---+---+---+---+---+
-|   | P |   |   |   |   |
-+---+---+---+---+---+---+
-| ~ | ~ | M |   | M |   |
-+---+---+---+---+---+---+
-```
-
-Make a move:
-W (up)
-S (down)
-A (left)
-D (right)
-Q (quit)
-
-Input:
-a
-
-Output:
-```
-+---+---+---+---+---+---+
-|   | ~ |   | ~ | ~ |   |
-+---+---+---+---+---+---+
-|   |   |   |   |   |   |
-+---+---+---+---+---+---+
-|   | M |   |   |   |   |
-+---+---+---+---+---+---+
-|   |   |   | M |   | M |
-+---+---+---+---+---+---+
-| P |   |   |   |   |   |
-+---+---+---+---+---+---+
-| ~ | ~ | M |   | M |   |
-+---+---+---+---+---+---+
-```
 Make a move:
 W (up)
 S (down)
@@ -1235,104 +605,41 @@ Would you like to view the current hero's inventory:
 1. Yes  ||  Any other value: No
 
 Input:
-1
+   2
 
 Output:
-   Parzival's Inventory:
-   Item Type: Weapon Item
------------------------------------------------------------------
-1. Weapon:
-   Name: Scythe
-   Price: 1000
-   Level: 6
-   Damage: 1100
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
-
-Item Type: Potion Item
------------------------------------------------------------------
-2. Potion
-   Name: Healing_Potion
-   Potion Type: Health Potion
-   Price: 250
-   Level: 1
-   Effect Amount: 100.0
-
-Item Type: Spell Item
------------------------------------------------------------------
-3. Spell
-   Name: Ice_Blade
-   Spell Type: Ice Spell
-   Price: 250
-   Level: 1
-   Damage: 450.0
-
-
-Which move would you like to make:
-1. Attack a monster
-2. Cast a spell
-3. Use a potion
-4. Equip armor or weapon
-Please input your choice (1 - 4):
+   Which move would you like to make:
+   1. Attack a monster
+   2. Cast a spell
+   3. Use a potion
+   4. Equip armor or weapon
+   Please input your choice (1 - 4):
 
 Input:
-4
+   1
 
 Output:
-Your available equipments to equip are:
-No available Armor Item's
-Weapon:
-Name: Scythe
-Price: 1000
-Level: 6
-Damage: 1100
-Number of Hands Required: 2
-Equiped: false
-Uses Left: 4
+   Parzivaldoes not currently have a weapon equipped, hopefully you're strong enough to slay these monsters with your bare hands
+1. Monster name: TheWeatherbe
+   Level: 8
+   Health: 800
+   Damage: 800
+   Dodgechange:   80
+   Defense:   900
 
-Please select a piece of armor or weapon you would like to equip
-Please select which item you would like.
-Parzival's Inventory:
-Item Type: Weapon Item
------------------------------------------------------------------
-1. Weapon:
-   Name: Scythe
-   Price: 1000
-   Level: 6
-   Damage: 1100
-   Number of Hands Required: 2
-   Equiped: false
-   Uses Left: 4
 
-Item Type: Potion Item
------------------------------------------------------------------
-2. Potion
-   Name: Healing_Potion
-   Potion Type: Health Potion
-   Price: 250
-   Level: 1
-   Effect Amount: 100.0
-
-Item Type: Spell Item
------------------------------------------------------------------
-3. Spell
-   Name: Ice_Blade
-   Spell Type: Ice Spell
-   Price: 250
-   Level: 1
-   Damage: 450.0
+Which monster would you like to attack? Please select a monster that is still alive (1 - 1):
 
 Input:
 1
 
 Output:
-Parzival has equiped Scythe
+Parzival attacked TheWeatherbe for 750.0 damage
 It is now TheWeatherbe's turn
 Stats:
 Monster name: TheWeatherbe
 Level: 8
-Health: 800
+Health: 50
 Damage: 800
 Dodgechange:   80
 Defense:   900
@@ -1341,11 +648,2258 @@ TheWeatherbe attacked Parzival for 799.05 damage
 Parzival has fainted from TheWeatherbe's attack!
 All your heroes are dead!
 GAME OVER
-Would you like to play again
+Would you like to choose a new game?
 1. Yes
 2. No
 
 Input:
+   1
+
+Output:
+   Which game would you like to play:
+1. Monsters and Heroes
+2. Legends of Valor
+
+Input:
 2
 
+    __                              __              ____   _    __      __              
+/ /   ___  ____ ____  ____  ____/ /____   ____  / __/  | |  / /___ _/ /___  _____    
+/ /   / _ \/ __ `/ _ \/ __ \/ __  / ___/  / __ \/ /_    | | / / __ `/ / __ \/ ___/    
+/ /___/  __/ /_/ /  __/ / / / /_/ (__  )  / /_/ / __/    | |/ / /_/ / / /_/ / /        
+/_____/\___/\__, /\___/_/ /_/\__,_/____/   \____/_/       |___/\__,_/_/\____/_/         
+/____/
+
+Legends of Valor is a MOBA (multiplayer online battle arena)-like game. The player will control
+a team of 3 heroes who will attempt to fight their way through to the monsters’ Nexus. The
+heroes win if any of them reach the monsters’ Nexus. The heroes lose if any monster reaches
+the heroes’ Nexus.
+You will be able to interact with the map during each turn.
+The spaces are marked as (N) Nexus, (C) common space(O) Obstacle, (K) Koulou, (C) Cave, (B) Bush, and (~) Inaccesibile space.
+Nexus, Cave, Bush and Koulou boost you heroes ability by a certain percent when in that given spot.You also have the ability to teleport to a different hero, or recall back to your NEXUS. In the chance you meet a monster, you have the ability to attack using spells or normal attack. If you want to purchase any items, that can you done at your NEXUS using the gold that you have
+Have fun and good luck!!
+1: Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 700.0
+Mana: 300.0
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+
+2: Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 700.0
+Mana: 300.0
+Strength: 750.0
+Agility: 700.0
+Dexterity: 700.0
+
+3: Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 400.0
+Mana: 250.0
+Strength: 650.0
+Agility: 600.0
+Dexterity: 350.0
+
+4: Name: Garl_Glittergold
+Hero Type: PAL
+Level: 5
+Health: 500.0
+Mana: 100.0
+Strength: 600.0
+Agility: 500.0
+Dexterity: 400.0
+
+5: Name: Amaryllis_Astra
+Hero Type: PAL
+Level: 5
+Health: 500.0
+Mana: 500.0
+Strength: 500.0
+Agility: 500.0
+Dexterity: 500.0
+
+6: Name: Caliber_Heist
+Hero Type: PAL
+Level: 8
+Health: 800.0
+Mana: 400.0
+Strength: 400.0
+Agility: 400.0
+Dexterity: 400.0
+
+7: Name: Gaerdal_Ironhand
+Hero Type: WAR
+Level: 7
+Health: 700.0
+Mana: 100.0
+Strength: 700.0
+Agility: 500.0
+Dexterity: 600.0
+
+8: Name: Sehanine_Monnbow
+Hero Type: WAR
+Level: 8
+Health: 800.0
+Mana: 600.0
+Strength: 700.0
+Agility: 800.0
+Dexterity: 500.0
+
+9: Name: Muamman_Duathall
+Hero Type: WAR
+Level: 6
+Health: 600.0
+Mana: 300.0
+Strength: 900.0
+Agility: 500.0
+Dexterity: 750.0
+
+10: Name: Flandal_Steelskin
+Hero Type: WAR
+Level: 7
+Health: 700.0
+Mana: 200.0
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+
+11: Name: Undefeated_Yoj
+Hero Type: WAR
+Level: 7
+Health: 700.0
+Mana: 400.0
+Strength: 800.0
+Agility: 400.0
+Dexterity: 700.0
+
+12: Name: Eunoia_Cyn
+Hero Type: WAR
+Level: 6
+Health: 600.0
+Mana: 400.0
+Strength: 700.0
+Agility: 800.0
+Dexterity: 600.0
+
+13: Name: Rillifane_Rallathil
+Hero Type: SOR
+Level: 9
+Health: 900.0
+Mana: 1300.0
+Strength: 750.0
+Agility: 450.0
+Dexterity: 500.0
+
+14: Name: Segojan_Earthcaller
+Hero Type: SOR
+Level: 5
+Health: 500.0
+Mana: 900.0
+Strength: 800.0
+Agility: 500.0
+Dexterity: 650.0
+
+15: Name: Reign_Havoc
+Hero Type: SOR
+Level: 8
+Health: 800.0
+Mana: 800.0
+Strength: 800.0
+Agility: 800.0
+Dexterity: 800.0
+
+16: Name: Reverie_Ashels
+Hero Type: SOR
+Level: 7
+Health: 700.0
+Mana: 900.0
+Strength: 800.0
+Agility: 700.0
+Dexterity: 400.0
+
+17: Name: Kalabar
+Hero Type: SOR
+Level: 6
+Health: 600.0
+Mana: 800.0
+Strength: 850.0
+Agility: 400.0
+Dexterity: 600.0
+
+18: Name: Skye_Soar
+Hero Type: SOR
+Level: 5
+Health: 500.0
+Mana: 1000.0
+Strength: 700.0
+Agility: 400.0
+Dexterity: 500.0
+
+To select the hero, please enter a number between 1 and 18:
+
+Input: 
+1
+
+Output:
+You have selected Parzival
+To select the hero, please enter a number between 1 and 18:
+
+Input:
+2
+
+Output:
+You have selected Sehanine_Moonbow
+To select the hero, please enter a number between 1 and 18:
+
+Input:
+3
+
+Output:
+You have selected Skoraeus_Stonebones
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 700.0
+Mana: 300.0
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+1
+
+Output: 
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 700.0
+Mana: 300.0
+Strength: 750.0
+Agility: 700.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 400.0
+Mana: 250.0
+Strength: 650.0
+Agility: 600.0
+Dexterity: 350.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input: 
+s
+
+Output: 
+Skoraeus_Stonebones has increased agility to 660.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+The monsters advance!
+Parzival has regenerated.
+HP: 770.0
+MANA: 330.0
+Sehanine_Moonbow has regenerated.
+HP: 770.0
+MANA: 330.0
+Skoraeus_Stonebones has regenerated.
+HP: 440.0
+MANA: 275.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 770.0
+Mana: 330.0
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output: 
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input: 
+s
+
+Output:
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 770.0
+Mana: 330.0
+Strength: 750.0
+Agility: 700.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input: 
+s
+
+Output; 
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 440.0
+Mana: 275.0
+Strength: 650.0
+Agility: 660.0
+Dexterity: 350.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+6
+
+Output: 
+Available heroes to teleport to:
+1. H2
+2. H3
+3. H1
+   Which hero would you like to teleport to? Enter the number:
+
+Input: 
+   1
+
+Output:
+   Where would you like to teleport to:
+1. Next to hero
+2. Behind hero
+
+Input:
+   1
+
+Output:
+   Skoraeus_Stonebones has increased agility to 600.0
+   Skoraeus_Stonebones has increased dexterity to 385.0
+   N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+   |       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+   N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |    H1 |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | | M3    |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+The monsters advance!
+Parzival has regenerated.
+HP: 847.0
+MANA: 363.0
+Sehanine_Moonbow has regenerated.
+HP: 847.0
+MANA: 363.0
+Skoraeus_Stonebones has regenerated.
+HP: 484.0
+MANA: 302.5
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |    H1 |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 847.0
+Mana: 363.0
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output: 
+Parzival has increased strength to 825.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |    H3 |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 847.0
+Mana: 363.0
+Strength: 750.0
+Agility: 700.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+1
+
+Output: 
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input: 
+s
+
+Output: 
+Sehanine_Moonbow has increased dexterity to 770.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  O - O - O  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 484.0
+Mana: 302.5
+Strength: 650.0
+Agility: 600.0
+Dexterity: 385.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+1
+
+Output: 
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output: 
+Skoraeus_Stonebones has removed a obstacle
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+The monsters advance!
+Parzival has regenerated.
+HP: 931.7
+MANA: 399.30002
+Sehanine_Moonbow has regenerated.
+HP: 931.7
+MANA: 399.30002
+Skoraeus_Stonebones has regenerated.
+HP: 532.4
+MANA: 332.75
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+| M1    |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 931.7
+Mana: 399.30002
+Strength: 825.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+2
+
+Output:
+Which monster would you like to attack?
+1: M1 Chronepsish
+Enter a number between 1 and 1.
+
+Input: 
+1
+
+Output: 
+Parzival attacked Chronepsish for 825.0 damage
+Parzival has killed Chronepsish
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | | M2    |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 931.7
+Mana: 399.30002
+Strength: 750.0
+Agility: 700.0
+Dexterity: 770.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+2
+
+Output:
+Which monster would you like to attack?
+1: M2 Cyrrollalee
+Enter a number between 1 and 1.
+
+Input:
+1
+
+Output:
+Sehanine_Moonbow attacked Cyrrollalee for 750.0 damage
+Sehanine_Moonbow has killed Cyrrollalee
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |    H3 |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 532.4
+Mana: 332.75
+Strength: 650.0
+Agility: 600.0
+Dexterity: 385.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+7
+
+Output:
+Skoraeus_Stonebones has increased dexterity to 350.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+The monsters advance!
+Parzival has regenerated.
+HP: 1024.87
+MANA: 439.23004
+Sehanine_Moonbow has regenerated.
+HP: 1024.87
+MANA: 439.23004
+Skoraeus_Stonebones has regenerated.
+HP: 585.64
+MANA: 366.025
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 1024.87
+Mana: 439.23004
+Strength: 825.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input: 
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input: 
+s
+
+Output:
+Parzival has increased strength to 750.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 1024.87
+Mana: 439.23004
+Strength: 750.0
+Agility: 700.0
+Dexterity: 770.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+Sehanine_Moonbow has increased dexterity to 700.0
+Sehanine_Moonbow has increased agility to 770.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 585.64
+Mana: 366.025
+Strength: 650.0
+Agility: 600.0
+Dexterity: 350.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output: 
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output: 
+Skoraeus_Stonebones has increased agility to 660.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  | M3    |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+The monsters advance!
+Parzival has regenerated.
+HP: 1127.357
+MANA: 483.15305
+Sehanine_Moonbow has regenerated.
+HP: 1127.357
+MANA: 483.15305
+Skoraeus_Stonebones has regenerated.
+HP: 644.20404
+MANA: 402.6275
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 1127.357
+Mana: 483.15305
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 1127.357
+Mana: 483.15305
+Strength: 750.0
+Agility: 770.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+Sehanine_Moonbow has increased agility to 700.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 644.20404
+Mana: 402.6275
+Strength: 650.0
+Agility: 660.0
+Dexterity: 350.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+Skoraeus_Stonebones has increased agility to 600.0
+Skoraeus_Stonebones has increased strength to 715.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+The monsters advance!
+DocOck attacked Skoraeus_Stonebones for 599.05 damage
+Parzival has regenerated.
+HP: 1240.0928
+MANA: 531.4684
+Sehanine_Moonbow has regenerated.
+HP: 1240.0928
+MANA: 531.4684
+Skoraeus_Stonebones has regenerated.
+HP: 49.66946
+MANA: 442.89026
+A new wave of monsters has spawned!
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  O - O - O  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 1240.0928
+Mana: 531.4684
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+Parzival has removed a obstacle
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 1240.0928
+Mana: 531.4684
+Strength: 750.0
+Agility: 700.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: 49.66946
+Mana: 442.89026
+Strength: 715.0
+Agility: 600.0
+Dexterity: 350.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+Skoraeus_Stonebones has increased strength to 650.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3 H3 |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+| M4    |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | | M6    |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+The monsters advance!
+DocOck attacked Skoraeus_Stonebones for 599.05 damage
+Skoraeus_Stonebones has fainted from DocOck's attack!
+Sehanine_Moonbowwas able to succesfully dodge the attack
+Kiaransalee attacked Sehanine_Moonbow for 0.0 damage
+Parzival has regenerated.
+HP: 1364.102
+MANA: 584.61523
+Sehanine_Moonbow has regenerated.
+HP: 1364.102
+MANA: 584.61523
+Skoraeus_Stonebones has increased health to -149.38055
+Skoraeus_Stonebones has been respawned.
+HP: -149.38055
+MANA: 250.0
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M4    |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 1, Parzival's, turn
+Stats:
+Name: Parzival
+Hero Type: PAL
+Level: 7
+Health: 1364.102
+Mana: 584.61523
+Strength: 750.0
+Agility: 650.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+2
+
+Output:
+Which monster would you like to attack?
+1: M4 Kiaransalee
+Enter a number between 1 and 1.
+
+Input:
+1
+
+Output:
+Parzival attacked Kiaransalee for 750.0 damage
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M4    |  |       |  | XXXXXX | |       |  |    H2 |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | | M5    |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 2, Sehanine_Moonbow's, turn
+Stats:
+Name: Sehanine_Moonbow
+Hero Type: PAL
+Level: 7
+Health: 1364.102
+Mana: 584.61523
+Strength: 750.0
+Agility: 700.0
+Dexterity: 700.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M4    |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | | M5    |  |    H2 |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+It is now Hero 3, Skoraeus_Stonebones's, turn
+Stats:
+Name: Skoraeus_Stonebones
+Hero Type: PAL
+Level: 4
+Health: -149.38055
+Mana: 250.0
+Strength: 650.0
+Agility: 600.0
+Dexterity: 350.0
+What action would you like to take?
+1) Move
+2) Attack
+3) Cast a spell
+4) Equip an item
+5) Use a potion
+6) Teleport
+7) Recall
+8) Buy / Sell items
+9) Exit
+Enter a number between 1 and 9.
+
+Input:
+1
+
+Output:
+Make a move:
+W (up)
+S (down)
+A (left)
+D (right)
+Q (quit)
+
+Input:
+s
+
+Output:
+Skoraeus_Stonebones has increased agility to 660.0
+
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |    H3 |  
+K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  K - K - K  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  K - K - K  K - K - K
+
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  | M3    |  
+O - O - O  K - K - K  ~ - ~ - ~  C - C - C  B - B - B  ~ - ~ - ~  C - C - C  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  
+|       |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  K - K - K  C - C - C  ~ - ~ - ~  C - C - C  C - C - C
+
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C  
+|       |  |    H1 |  | XXXXXX | |       |  |       |  | XXXXXX | |       |  |       |  
+B - B - B  C - C - C  ~ - ~ - ~  C - C - C  C - C - C  ~ - ~ - ~  O - O - O  C - C - C
+
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  
+| M4    |  |       |  | XXXXXX | |       |  |       |  | XXXXXX | | M6    |  |       |  
+C - C - C  C - C - C  ~ - ~ - ~  B - B - B  C - C - C  ~ - ~ - ~  B - B - B  C - C - C
+
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  
+|       |  |       |  | XXXXXX | | M5    |  |    H2 |  | XXXXXX | |       |  |       |  
+N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N  ~ - ~ - ~  N - N - N  N - N - N
+
+
+You reached the monsters' nexus! Congratulations, you win!
+GAME OVER
+Would you like to choose a new game?
+1. Yes
+2. No
+
+Input:
+   2
+```
 Process finished with exit code 0

@@ -104,7 +104,7 @@ public class LegendsGamePlay implements GamePlay {
     private Monster selectTargetMonster(ArrayList<Monster> targets) {
 	System.out.println("Which monster would you like to attack?");
 	for (int i = 0; i < targets.size(); i++) {
-	    System.out.println((i + 1)+ " " + targets.get(i).getMonsterID() + " " + targets.get(i).getName());
+	    System.out.println((i + 1)+ ": M" + targets.get(i).getMonsterID() + " " + targets.get(i).getName());
 	}
 
 	int input = Input.getInt(targets.size());

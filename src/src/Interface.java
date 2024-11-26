@@ -48,6 +48,7 @@ public class Interface {
             System.out.println(gameMap);
             if(!this.gamePlay.makeMove()){
                 System.out.println("GAME OVER");
+                Hero.resetNumHeros();
                 return;
             }
         }
